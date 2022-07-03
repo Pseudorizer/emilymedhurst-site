@@ -9,7 +9,8 @@ module.exports = {
         light: '#f5f5f5',
         darkHighlight: '#2B2826',
         lightHighlight: '#E3E3E3',
-        highlight: '#EEB5C1'
+        darkStandout: '#EEB5C1',
+        lightStandout: '#70192C',
       }
     }
   },
