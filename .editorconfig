@@ -10,5 +10,5 @@ max_line_length = 120
 tab_width = 2
 trim_trailing_whitespace = true
 
-[{*.ats,*.cts,*.mts,*.ts}]
+[{*.ats,*.cts,*.mts,*.ts,*.svelte,*.js}]
 max_line_length = 200

@@ -12,21 +12,21 @@
   let icon = Sun;
 
   function toggleDarkMode () {
-    const root = document.querySelector('body');
+    const root = document.querySelector('html');
     icon = root.classList.toggle('dark') ? Sun : Moon;
   }
 
   onMount(() => {
-    const root = document.querySelector('body');
+    const root = document.querySelector('html');
     icon = root.classList.contains('dark') ? Sun : Moon;
   });
 </script>
 
-<svelte:window bind:innerWidth/>
+<svelte:window bind:innerWidth />
 
-<nav class='flex flex-col gap-2 md:gap-0 md:flex-row items-center p-4'>
+<nav class='flex flex-col gap-2 md:gap-0 md:flex-row items-center'>
   <div class='flex justify-center md:justify-start gap-2 w-full'>
-    <a href='/' class='text-4xl'>Emily Medhurst</a>
+    <a href='/static' class='text-4xl font-semibold'>Emily Medhurst</a>
     <button on:click={toggleDarkMode}
             class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1 transition-all'>
       <svelte:component this={icon} size={innerWidth < 768 ? '2.25rem' : '2rem'} />
