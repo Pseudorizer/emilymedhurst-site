@@ -14,5 +14,5 @@
     <BodyLink href='https://inventorybase.co.uk/'>InventoryBase.</BodyLink>
   </p>
   <p>Currently employed as a placement student from the University of Portsmouth but hoping to stay onboard afterwards.</p>
-  <Portfolio/>
+  <Portfolio />
 </main>

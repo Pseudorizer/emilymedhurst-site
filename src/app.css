@@ -5,3 +5,17 @@
 * {
   font-family: 'Lato', sans-serif;
 }
+
+@layer components {
+  body {
+    @apply overflow-auto bg-light dark:bg-dark subpixel-antialiased;
+  }
+
+  h1 {
+    @apply text-4xl font-semibold;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+}
