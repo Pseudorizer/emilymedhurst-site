@@ -1,6 +1,7 @@
 <script lang='ts'>
   import BodyLink from '$lib/BodyLink.svelte';
   import Portfolio from '$lib/portfolio/Portfolio.svelte';
+  import Experience from '../lib/experience/Experience.svelte';
 </script>
 
 <svelte:head>
@@ -15,4 +16,5 @@
   </p>
   <p>Currently employed as a placement student from the University of Portsmouth but hoping to stay onboard afterwards.</p>
   <Portfolio />
+  <Experience />
 </main>
