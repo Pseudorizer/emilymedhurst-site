@@ -3,13 +3,13 @@
 
   export let title = '';
 
-  $: titleLower = title.toLowerCase();
+  $: titleFormatted = title.toLowerCase().replace(/\s/g, '-');
 </script>
 
 <section class='flex flex-col gap-2'>
   <div class='flex items-center [&>a]:hover:block gap-2'>
-    <h2 id={titleLower}>{title}</h2>
-    <a href={`#${titleLower}`} class='hidden text-lightStandout dark:text-darkStandout hover:cursor-pointer'>
+    <h2 id={titleFormatted}>{title}</h2>
+    <a href={`#${titleFormatted}`} class='hidden text-lightStandout dark:text-darkStandout hover:cursor-pointer'>
       <Link />
     </a>
   </div>

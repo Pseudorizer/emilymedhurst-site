@@ -1,6 +1,6 @@
 <script lang='ts'>
   import Section from '$lib/Section.svelte';
-  import Block from '$lib/portfolio/Block.svelte';
+  import Block from '$lib/sections/Block.svelte';
 </script>
 
 <Section title='Experience'>

@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import Block from '$lib/portfolio/Block.svelte';
+  import Block from '$lib/sections/Block.svelte';
   import Section from '$lib/Section.svelte';
 </script>
 

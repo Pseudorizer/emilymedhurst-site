@@ -1,7 +1,7 @@
 <script lang='ts'>
   import BodyLink from '$lib/BodyLink.svelte';
-  import Portfolio from '$lib/portfolio/Portfolio.svelte';
-  import Experience from '../lib/experience/Experience.svelte';
+  import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
+  import Experience from '$lib/sections/experience/Experience.svelte';
 </script>
 
 <svelte:head>
