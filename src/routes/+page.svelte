@@ -2,12 +2,11 @@
   import BodyLink from '$lib/BodyLink.svelte';
   import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
   import Experience from '$lib/sections/experience/Experience.svelte';
-
-  export const prerender = true;
 </script>
 
 <svelte:head>
   <title>Emily Medhurst</title>
+  <meta name="description" content="A trans software developer currently based in Portsmouth">
 </svelte:head>
 
 <main class='pt-4 text-xl flex flex-col gap-4'>
