@@ -16,7 +16,7 @@
   <meta name="og:description" content={description}>
   <meta name="og:type" content="website">
   <meta name="og:url" content="https://emilymedhurst.me/">
-  <meta property="og:image" content="me.webp">
+  <meta property="og:image" content="https://emilymedhurst.me/me.webp">
   <meta itemprop="name" content={title}>
   <meta itemprop="description" content={description}>
   <meta name="twitter:card" content="summary_large_image">
@@ -24,7 +24,7 @@
   <meta name="twitter:description" content={description}>
   <meta property="twitter:domain" content="emilymedhurst.me">
   <meta property="twitter:url" content="https://emilymedhurst.me/">
-  <meta name="twitter:image" content="me.webp">
+  <meta name="twitter:image" content="https://emilymedhurst.me/me.webp">
 </svelte:head>
 
 <main class='pt-4 text-xl flex flex-col gap-4'>
