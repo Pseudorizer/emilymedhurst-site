@@ -16,7 +16,6 @@
     <BodyLink href='https://inventorybase.co.uk/'>InventoryBase.</BodyLink>
   </p>
   <p>Currently employed as a placement student from the University of Portsmouth but hoping to stay onboard afterwards.</p>
-  <BodyLink href='/blog' classes='text-2xl' sameSite>A Boring Blog</BodyLink>
   <Portfolio/>
   <Experience/>
 </main>
