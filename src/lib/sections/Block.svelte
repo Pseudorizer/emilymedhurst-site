@@ -9,13 +9,13 @@
 </script>
 
 <div class='bg-lightHighlight dark:bg-darkHighlight rounded-xl flex flex-col p-2'>
-  <h4>
+  <h3>
     {#if link}
       <BodyLink href={link}>{title}</BodyLink>
     {:else}
       <h4>{title}</h4>
     {/if}
-  </h4>
+  </h3>
   {#if subheading}
     <p class='text-xs mb-1'>{subheading}</p>
   {/if}
