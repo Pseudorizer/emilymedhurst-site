@@ -19,7 +19,7 @@
   <meta property="og:image" content="me.webp">
   <meta itemprop="name" content={title}>
   <meta itemprop="description" content={description}>
-  <meta name="twitter:card" content="summary_large">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta property="twitter:domain" content="emilymedhurst.me">
