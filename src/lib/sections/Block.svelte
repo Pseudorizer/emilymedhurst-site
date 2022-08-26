@@ -13,7 +13,7 @@
     {#if link}
       <BodyLink href={link}>{title}</BodyLink>
     {:else}
-      <h4>{title}</h4>
+      {title}
     {/if}
   </h3>
   {#if subheading}
