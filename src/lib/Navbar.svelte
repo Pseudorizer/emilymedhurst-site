@@ -34,15 +34,15 @@
     </button>
   </div>
   <div class='flex justify-between md:justify-center md:ml-auto gap-3'>
-    <a href='https://github.com/MiniCheese26' target='_blank' rel='noopener noreferrer'
+    <a href='https://github.com/MiniCheese26' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="github">
       <Github size={iconSize}/>
     </a>
-    <a href='https://twitter.com/Pseudorizer' target='_blank' rel='noopener noreferrer'
+    <a href='https://twitter.com/Pseudorizer' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="twitter">
       <Twitter size={iconSize}/>
     </a>
-    <a href='https://www.linkedin.com/in/emily-medhurst-b2a236222' target='_blank' rel='noopener noreferrer'
+    <a href='https://www.linkedin.com/in/emily-medhurst-b2a236222' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="linkedin">
       <LinkedIn size={iconSize}/>
     </a>
