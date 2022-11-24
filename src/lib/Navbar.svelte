@@ -4,6 +4,7 @@
   import Github from 'tabler-icons-svelte/icons/BrandGithub.svelte';
   import Twitter from 'tabler-icons-svelte/icons/BrandTwitter.svelte';
   import LinkedIn from 'tabler-icons-svelte/icons/BrandLinkedin.svelte';
+  import Mastodon from "$lib/icons/Mastodon.svelte";
   import {onMount} from 'svelte';
 
   const iconSize = '1.75rem';
@@ -44,6 +45,10 @@
     <a href='https://www.linkedin.com/in/emily-medhurst-b2a236222' target='_blank' rel='noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="linkedin">
       <LinkedIn size={iconSize}/>
+    </a>
+    <a href='https://mastodon.lol/@pseudorizer' target='_blank' rel='me noopener noreferrer'
+       class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="mastodon">
+      <Mastodon size={iconSize}/>
     </a>
   </div>
 </nav>
