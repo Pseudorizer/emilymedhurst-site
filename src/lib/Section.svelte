@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import Link from 'tabler-icons-svelte/icons/Link.svelte';
+  import { IconLink } from '@tabler/icons-svelte';
 
   export let title = '';
 
@@ -10,7 +10,7 @@
   <div class='flex items-center [&>a]:hover:block gap-2'>
     <h2 id={titleFormatted}>{title}</h2>
     <a href={`#${titleFormatted}`} class='hidden text-lightStandout dark:text-darkStandout hover:cursor-pointer'>
-      <Link />
+      <IconLink />
     </a>
   </div>
   <slot />
