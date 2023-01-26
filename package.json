@@ -19,7 +19,7 @@
 	],
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^1.0.5",
-		"@sveltejs/kit": "1.2.9",
+		"@sveltejs/kit": "1.2.10",
 		"@typescript-eslint/eslint-plugin": "^5.49.0",
 		"@typescript-eslint/parser": "^5.49.0",
 		"autoprefixer": "^10.4.13",
@@ -40,6 +40,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tabler/icons-svelte": "^2.0.0"
+		"@tabler/icons-svelte": "^2.1.1"
 	}
 }
