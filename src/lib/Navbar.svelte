@@ -1,6 +1,6 @@
 <script lang='ts'>
   import {onMount} from 'svelte';
-  import { IconMoon, IconSun, IconBrandGithub, IconBrandTwitter, IconBrandLinkedin, IconBrandMastodon } from "@tabler/icons-svelte";
+  import { IconMoon, IconSun, IconBrandGithub, IconBrandTwitter, IconBrandLinkedin, IconBrandMastodon, IconBrandDiscord } from "@tabler/icons-svelte";
 
   const iconSize = '1.75rem';
 
@@ -44,6 +44,10 @@
     <a href='https://tech.lgbt/@pseudorizer' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="mastodon">
       <IconBrandMastodon size={iconSize}/>
+    </a>
+    <a href='https://discordapp.com/users/Pseudorizer#1001' target='_blank' rel='me noopener noreferrer'
+       class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="discord">
+      <IconBrandDiscord size={iconSize}/>
     </a>
   </div>
 </nav>
