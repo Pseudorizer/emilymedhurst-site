@@ -45,7 +45,7 @@
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="mastodon">
       <IconBrandMastodon size={iconSize}/>
     </a>
-    <a href='https://discordapp.com/users/Pseudorizer#1001' target='_blank' rel='me noopener noreferrer'
+    <a href='https://discordapp.com/users/398887208947286017' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="discord">
       <IconBrandDiscord size={iconSize}/>
     </a>
