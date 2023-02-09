@@ -41,7 +41,7 @@
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="linkedin">
       <IconBrandLinkedin size={iconSize}/>
     </a>
-    <a href='https://mastodon.lol/@pseudorizer' target='_blank' rel='me noopener noreferrer'
+    <a href='https://tech.lgbt/@pseudorizer' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="mastodon">
       <IconBrandMastodon size={iconSize}/>
     </a>
