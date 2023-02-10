@@ -6,5 +6,5 @@
 
 <a href={href} target={sameSite ? '' : '_blank'} rel={sameSite ? '' : 'noreferrer noopener'}
    class={'underline decoration-lightStandout dark:decoration-darkStandout text-lightStandout dark:text-darkStandout ' + classes}>
-  <slot/>
+  <slot />
 </a>
