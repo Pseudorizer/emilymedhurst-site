@@ -1,6 +1,15 @@
 <script lang='ts'>
   import {onMount} from 'svelte';
-  import { IconMoon, IconSun, IconBrandGithub, IconBrandTwitter, IconBrandLinkedin, IconBrandMastodon, IconBrandDiscord } from "@tabler/icons-svelte";
+  import {
+    IconMoon,
+    IconSun,
+    IconBrandGithub,
+    IconBrandTwitter,
+    IconBrandLinkedin,
+    IconBrandMastodon,
+    IconBrandDiscord,
+    IconBrandSpotify
+  } from "@tabler/icons-svelte";
 
   const iconSize = '1.75rem';
 
@@ -48,6 +57,10 @@
     <a href='https://discordapp.com/users/398887208947286017' target='_blank' rel='me noopener noreferrer'
        class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="discord">
       <IconBrandDiscord size={iconSize}/>
+    </a>
+    <a href='https://open.spotify.com/user/minicheese26?si=086bf549522e4e7f' target='_blank' rel='me noopener noreferrer'
+       class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label="spotify">
+      <IconBrandSpotify size={iconSize}/>
     </a>
   </div>
 </nav>
