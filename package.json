@@ -19,11 +19,11 @@
 	],
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^2.0.2",
-		"@sveltejs/kit": "1.5.3",
-		"@typescript-eslint/eslint-plugin": "^5.51.0",
-		"@typescript-eslint/parser": "^5.51.0",
+		"@sveltejs/kit": "1.7.0",
+		"@typescript-eslint/eslint-plugin": "^5.52.0",
+		"@typescript-eslint/parser": "^5.52.0",
 		"autoprefixer": "^10.4.13",
-		"eslint": "^8.33.0",
+		"eslint": "^8.34.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"postcss": "^8.4.21",
@@ -40,6 +40,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tabler/icons-svelte": "^2.3.0"
+		"@tabler/icons-svelte": "^2.4.0"
 	}
 }
