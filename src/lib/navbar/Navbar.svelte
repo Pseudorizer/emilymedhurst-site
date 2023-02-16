@@ -13,8 +13,6 @@
   } from '@tabler/icons-svelte';
   import Icon from '$lib/navbar/Icon.svelte';
 
-  const iconSize = '1.75rem';
-
   $: innerWidth = 0;
   let icon = IconSun;
 
@@ -40,12 +38,12 @@
     </button>
   </div>
   <div class='flex md:justify-center md:ml-auto gap-3 flex-wrap'>
-    <Icon icon={IconBrandGithub} iconSize={iconSize} link='https://github.com/MiniCheese26' ariaLabel='github' />
-    <Icon icon={IconBrandTwitter} iconSize={iconSize} link='https://twitter.com/Pseudorizer' ariaLabel='twitter' />
-    <Icon icon={IconBrandLinkedin} iconSize={iconSize} link='https://www.linkedin.com/in/emily-medhurst-b2a236222' ariaLabel='linkedin' />
-    <Icon icon={IconBrandMastodon} iconSize={iconSize} link='https://tech.lgbt/@pseudorizer' ariaLabel='mastodon' />
-    <Icon icon={IconBrandDiscord} iconSize={iconSize} link='https://discordapp.com/users/398887208947286017' ariaLabel='discord' />
-    <Icon icon={IconBrandSpotify} iconSize={iconSize} link='https://open.spotify.com/user/minicheese26' ariaLabel='spotify' />
-    <Icon icon={IconBrandLastfm} iconSize={iconSize} link='https://www.last.fm/user/pseudorizer' ariaLabel='last.fm' />
+    <Icon icon={IconBrandGithub} link='https://github.com/MiniCheese26' ariaLabel='github' />
+    <Icon icon={IconBrandTwitter} link='https://twitter.com/Pseudorizer' ariaLabel='twitter' />
+    <Icon icon={IconBrandLinkedin} link='https://www.linkedin.com/in/emily-medhurst-b2a236222' ariaLabel='linkedin' />
+    <Icon icon={IconBrandMastodon} link='https://tech.lgbt/@pseudorizer' ariaLabel='mastodon' />
+    <Icon icon={IconBrandDiscord} link='https://discordapp.com/users/398887208947286017' ariaLabel='discord' />
+    <Icon icon={IconBrandSpotify} link='https://open.spotify.com/user/minicheese26' ariaLabel='spotify' />
+    <Icon icon={IconBrandLastfm} link='https://www.last.fm/user/pseudorizer' ariaLabel='last.fm' />
   </div>
 </nav>

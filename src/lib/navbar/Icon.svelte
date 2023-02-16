@@ -2,7 +2,7 @@
   import { SvelteComponent } from 'svelte';
 
   export let icon: SvelteComponent;
-  export let iconSize: string;
+  export let iconSize = '1.75rem';
   export let link: string;
   export let ariaLabel: string;
 </script>
