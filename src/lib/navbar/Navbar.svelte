@@ -31,7 +31,7 @@
 
 <nav class='flex flex-col gap-2 md:gap-0 md:flex-row items-center'>
   <div class='flex justify-center md:justify-start gap-2'>
-    <a href='/static'><h1>Emily Medhurst</h1></a>
+    <a href='/'><h1>Emily Medhurst</h1></a>
     <button on:click={toggleDarkMode}
             class='hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1' aria-label='theme'>
       <svelte:component this={icon} size={innerWidth < 768 ? '2.25rem' : '2rem'} />
