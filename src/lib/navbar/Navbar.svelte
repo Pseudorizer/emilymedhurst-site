@@ -13,21 +13,26 @@
   } from '@tabler/icons-svelte';
   import Icon from '$lib/navbar/Icon.svelte';
 
-  $: innerWidth = 0;
+  let innerWidth
   let icon = IconSun;
 
-  function toggleDarkMode() {
+  const toggleDarkMode = () => {
     const root = document.querySelector('html');
     icon = root.classList.toggle('dark') ? IconSun : IconMoon;
-  }
+  };
 
   onMount(() => {
     const root = document.querySelector('html');
     icon = root.classList.contains('dark') ? IconSun : IconMoon;
+    innerWidth = window.innerWidth;
   });
+
+  const onResize = () => {
+    innerWidth = window.innerWidth;
+  }
 </script>
 
-<svelte:window bind:innerWidth />
+<svelte:window on:resize={onResize} />
 
 <nav class='flex flex-col gap-2 md:gap-0 md:flex-row items-center'>
   <div class='flex justify-center md:justify-start gap-2'>
