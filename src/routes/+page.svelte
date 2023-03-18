@@ -1,11 +1,17 @@
-<script lang='ts' context='module'>
+<script lang='ts'>
   import BodyLink from '$lib/BodyLink.svelte';
   import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
   import Experience from '$lib/sections/experience/Experience.svelte';
-  import Dragon from "$lib/sections/dragon/Dragon.svelte";
+  import Dragon from '$lib/sections/dragon/Dragon.svelte';
+  import trackingEnabled from '$lib/stores/trackingStore';
 
   const title = 'Emily Medhurst';
   const description = 'A trans software developer currently based in Portsmouth';
+
+  $: links = {
+    radweb: $trackingEnabled ? 'https://dub.sh/OfrKsKi' : 'https://radweb.com/',
+    inventorybase: $trackingEnabled ? 'https://dub.sh/7PTdv8f' : 'https://inventorybase.co.uk/',
+  };
 </script>
 
 <svelte:head>
@@ -30,12 +36,12 @@
 
 <main class='pt-4 text-xl flex flex-col gap-4'>
   <p>Ello, I'm a 🏳️‍⚧️ trans software developer currently based in Portsmouth working at
-    <BodyLink href='https://radweb.com/'>Radweb,</BodyLink>
+    <BodyLink href={links.radweb}>Radweb,</BodyLink>
     primarily working on the web application
-    <BodyLink href='https://inventorybase.co.uk/'>InventoryBase.</BodyLink>
+    <BodyLink href={links.inventorybase}>InventoryBase.</BodyLink>
   </p>
   <p>Currently employed as a placement student from the University of Portsmouth but hoping to stay onboard afterwards.</p>
-  <Portfolio />
-  <Experience />
-  <Dragon />
+  <Portfolio/>
+  <Experience/>
+  <Dragon/>
 </main>
