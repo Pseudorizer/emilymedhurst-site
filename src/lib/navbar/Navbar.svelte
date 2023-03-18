@@ -28,10 +28,6 @@
     innerWidth = window.innerWidth;
   });
 
-  const onResize = () => {
-    innerWidth = window.innerWidth;
-  };
-
   $: links = {
     github: $trackingEnabled ? 'https://dub.sh/QykMkgZ' : 'https://github.com/MiniCheese26',
     twitter: $trackingEnabled ? 'https://dub.sh/Hm04Jup' : 'https://twitter.com/Pseudorizer',
@@ -43,7 +39,7 @@
   };
 </script>
 
-<svelte:window on:resize={onResize}/>
+<svelte:window bind:innerWidth={innerWidth}/>
 
 <nav class='flex flex-col gap-2 md:gap-0'>
   <div class="flex gap-2 mb-2">
