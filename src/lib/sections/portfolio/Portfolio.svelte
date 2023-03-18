@@ -2,7 +2,7 @@
   import Block from '$lib/sections/Block.svelte';
   import Section from '$lib/Section.svelte';
   import {onMount} from 'svelte';
-  import {IconBrandReact, IconBrandTypescript} from '@tabler/icons-svelte';
+  import {IconBrandReact, IconBrandSvelte, IconBrandTailwind, IconBrandTypescript, IconBrandVercel} from '@tabler/icons-svelte';
   import trackingEnabled from '$lib/stores/trackingStore';
 
   let container: HTMLDivElement;
@@ -25,11 +25,27 @@
     text: 'react',
   };
 
+  const svelteCrumb = {
+    icon: IconBrandSvelte,
+    text: 'svelte',
+  };
+
+  const tailwindCrumb = {
+    icon: IconBrandTailwind,
+    text: 'tailwindcss',
+  };
+
+  const vercelCrumb = {
+    icon: IconBrandVercel,
+    text: 'vercel',
+  };
+
   $: links = {
     scrabble: $trackingEnabled ? 'https://dub.sh/wqXwDGR' : 'https://github.com/MiniCheese26/scrabble-coursework',
     brickStore: $trackingEnabled ? 'https://dub.sh/SIu5pSA' : 'https://github.com/MiniCheese26/brick-store-coursework',
     companyAddressTracker: $trackingEnabled ? 'https://dub.sh/DhDsiqK' : 'https://github.com/MiniCheese26/company-address-tracker',
     matrixLibrary: $trackingEnabled ? 'https://dub.sh/I450W6I' : 'https://github.com/MiniCheese26/loc0CoreMatrixClient',
+    thisSite: $trackingEnabled ? 'https://dub.sh/qprUfGY' : 'https://github.com/MiniCheese26/emilymedhurst-site',
   };
 </script>
 
@@ -43,5 +59,7 @@
            link={links.companyAddressTracker} tags={[reactCrumb, typescriptCrumb, 'electron']}/>
     <Block title='Basic Matrix.org Bot Library' description='A basic library I wrote for writing basic bots for Matrix.org chats in C#.'
            link={links.matrixLibrary} tags={['C#', 'outdated']}/>
+    <Block title='This site' description='This site is simple, accessible and comfy, I like it :)'
+           link={links.thisSite} tags={[svelteCrumb, typescriptCrumb, tailwindCrumb, vercelCrumb]}/>
   </div>
 </Section>
