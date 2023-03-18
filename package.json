@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@tabler/icons-svelte": "^2.10.0"
+		"@tabler/icons-svelte": "^2.10.0",
+		"vite-plugin-mkcert": "^1.13.3"
 	}
 }
