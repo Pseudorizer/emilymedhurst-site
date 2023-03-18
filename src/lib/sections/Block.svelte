@@ -15,6 +15,7 @@
 </script>
 
 <div class='bg-lightHighlight dark:bg-darkHighlight rounded-xl flex flex-col p-2'>
+  <slot />
   <h3>
     {#if link}
       <BodyLink href={link}>{title}</BodyLink>

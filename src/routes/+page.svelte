@@ -2,6 +2,7 @@
   import BodyLink from '$lib/BodyLink.svelte';
   import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
   import Experience from '$lib/sections/experience/Experience.svelte';
+  import Dragon from "$lib/sections/dragon/Dragon.svelte";
 
   const title = 'Emily Medhurst';
   const description = 'A trans software developer currently based in Portsmouth';
@@ -36,4 +37,5 @@
   <p>Currently employed as a placement student from the University of Portsmouth but hoping to stay onboard afterwards.</p>
   <Portfolio />
   <Experience />
+  <Dragon />
 </main>
