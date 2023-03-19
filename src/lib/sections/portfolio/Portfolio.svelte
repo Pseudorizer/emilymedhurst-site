@@ -27,7 +27,7 @@
 
   const svelteCrumb = {
     icon: IconBrandSvelte,
-    text: 'svelte',
+    text: 'sveltekit',
   };
 
   const tailwindCrumb = {
