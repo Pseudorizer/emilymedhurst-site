@@ -41,8 +41,8 @@
 
 <svelte:window bind:innerWidth={innerWidth}/>
 
-<nav class='flex flex-col gap-2 md:gap-0'>
-  <div class="flex gap-2 mb-2">
+<nav class='flex flex-col gap-2'>
+  <div class="flex gap-2 items-center">
     <label for="link-tracking">Enable link tracking? I'm just curious :)</label>
     <input name="link-tracking" id="link-tracking" aria-label="link tracking" type="checkbox" bind:checked={$trackingEnabled}>
   </div>
