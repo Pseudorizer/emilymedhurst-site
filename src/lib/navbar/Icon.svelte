@@ -1,7 +1,7 @@
 <script lang='ts'>
-  import { SvelteComponent } from 'svelte';
+  import type { ComponentType } from 'svelte';
 
-  export let icon: SvelteComponent;
+  export let icon: ComponentType;
   export let iconSize = '1.75rem';
   export let link: string;
   export let ariaLabel: string;

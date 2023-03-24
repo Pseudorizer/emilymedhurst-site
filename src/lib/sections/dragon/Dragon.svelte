@@ -5,7 +5,7 @@
   import BodyLink from '$lib/BodyLink.svelte';
 
   let iframe: HTMLIFrameElement;
-  let iframeWidth;
+  let iframeWidth: number;
 
   onMount(() => {
     iframeWidth = (iframe.clientWidth / 16) * 9;

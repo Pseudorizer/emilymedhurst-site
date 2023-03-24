@@ -1,11 +1,6 @@
 <script lang='ts'>
   import BodyLink from '$lib/BodyLink.svelte';
-  import { SvelteComponent } from 'svelte';
-
-  type Tag = {
-    icon: SvelteComponent,
-    text: string,
-  }
+  import type { Tag } from './Block';
 
   export let title = '';
   export let subheading = '';

@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import {onMount} from 'svelte';
+  import {onMount, type ComponentType} from 'svelte';
   import {
     IconMoon,
     IconSun,
@@ -14,17 +14,24 @@
   import Icon from '$lib/navbar/Icon.svelte';
   import trackingEnabled from '$lib/stores/trackingStore';
 
-  let innerWidth;
-  let icon = IconSun;
+  let innerWidth: number;
+  let icon: ComponentType = IconSun;
 
   const toggleDarkMode = () => {
     const root = document.querySelector('html');
-    icon = root.classList.toggle('dark') ? IconSun : IconMoon;
+
+    if (root) {
+      icon = root.classList.toggle('dark') ? IconSun : IconMoon;
+    }
   };
 
   onMount(() => {
     const root = document.querySelector('html');
+
+    if (root) {
     icon = root.classList.contains('dark') ? IconSun : IconMoon;
+    }
+    
     innerWidth = window.innerWidth;
   });
 

@@ -11,7 +11,9 @@
     if (container && container.children.length % 2 !== 0) {
       const lastChild = container.lastElementChild;
 
-      lastChild.classList.add('md:col-span-2');
+      if (lastChild) {        
+        lastChild.classList.add('md:col-span-2');
+      }
     }
   });
 
