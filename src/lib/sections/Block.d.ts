@@ -1,6 +1,6 @@
-import type { ComponentType } from "svelte";
+import type { ComponentType } from 'svelte';
 
-export type Tag = {
-    icon: ComponentType,
-    text: string,
+export interface Tag {
+	icon: ComponentType;
+	text: string;
 }

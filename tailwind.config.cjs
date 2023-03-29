@@ -3,6 +3,10 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      'sans': ['Atkinson Hyperlegible', 'Helvitica'],
+      'mono': ['Jetbrains Mono', 'Consolas']
+    },
     extend: {
       colors: {
         dark: '#191716',

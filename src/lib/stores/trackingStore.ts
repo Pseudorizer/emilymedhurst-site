@@ -1,5 +1,5 @@
-import {browser} from '$app/environment';
-import {writable} from 'svelte/store';
+import { browser } from '$app/environment';
+import { writable } from 'svelte/store';
 
 const itemKey = 'tracking-enabled';
 const defaultValue = 'true';
@@ -8,9 +8,9 @@ const initialValue = browser ? window.localStorage.getItem(itemKey) ?? defaultVa
 const trackingEnabled = writable(initialValue === 'true');
 
 trackingEnabled.subscribe((value) => {
-  if (browser) {
-    window.localStorage.setItem(itemKey, value.toString());
-  }
+	if (browser) {
+		window.localStorage.setItem(itemKey, value.toString());
+	}
 });
 
 export default trackingEnabled;

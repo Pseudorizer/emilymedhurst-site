@@ -1,0 +1,15 @@
+<script lang="ts">
+	import type { ComponentType } from 'svelte';
+
+	export let icon: ComponentType;
+	export let iconSize = '1.75rem';
+	export let ariaLabel: string;
+</script>
+
+<button
+	class="hover:bg-light hover:dark:bg-dark rounded-xl p-1"
+	aria-label={ariaLabel}
+	on:click
+>
+	<svelte:component this={icon} size={iconSize} />
+</button>

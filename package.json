@@ -4,6 +4,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"prodBuild": "sh genEntries.sh && vite build",
 		"package": "svelte-kit package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -20,13 +21,15 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^2.4.1",
 		"@sveltejs/kit": "1.14.0",
-		"@tabler/icons-svelte": "^2.11.0",
-		"@typescript-eslint/eslint-plugin": "^5.56.0",
-		"@typescript-eslint/parser": "^5.56.0",
+		"@tabler/icons-svelte": "^2.12.0",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
 		"autoprefixer": "^10.4.14",
-		"eslint": "^8.36.0",
+		"dayjs": "^1.11.7",
+		"eslint": "^8.37.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"fuse.js": "^6.6.2",
 		"postcss": "^8.4.21",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.7",
@@ -34,11 +37,14 @@
 		"svelte": "^3.57.0",
 		"svelte-check": "^3.1.4",
 		"svelte-preprocess": "^5.0.3",
-		"tailwindcss": "^3.2.7",
+		"tailwindcss": "^3.3.0",
 		"tslib": "^2.5.0",
 		"typescript": "^5.0.2",
 		"vite": "^4.2.1",
 		"vite-plugin-mkcert": "^1.13.4"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"mdsvex": "^0.10.6"
+	}
 }

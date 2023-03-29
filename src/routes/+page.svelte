@@ -1,47 +1,48 @@
-<script lang='ts'>
-  import BodyLink from '$lib/BodyLink.svelte';
-  import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
-  import Experience from '$lib/sections/experience/Experience.svelte';
-  import Dragon from '$lib/sections/dragon/Dragon.svelte';
-  import trackingEnabled from '$lib/stores/trackingStore';
+<script lang="ts">
+	import BodyLink from '$lib/BodyLink.svelte';
+	import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
+	import Experience from '$lib/sections/experience/Experience.svelte';
+	import Dragon from '$lib/sections/dragon/Dragon.svelte';
+	import trackingEnabled from '$lib/stores/trackingStore';
+	import Posts from '$lib/sections/posts/Posts.svelte';
+	import type { PageData } from './$types';
+	import Block from '$lib/sections/Block.svelte';
+	import Headers from '$lib/Headers.svelte';
 
-  const title = 'Emily Medhurst';
-  const description = 'A trans software developer currently based in Portsmouth';
+	export let data: PageData;
 
-  $: links = {
-    radweb: $trackingEnabled ? 'https://dub.sh/OfrKsKi' : 'https://radweb.com/',
-    inventorybase: $trackingEnabled ? 'https://dub.sh/7PTdv8f' : 'https://inventorybase.co.uk/',
-  };
+	$: links = {
+		radweb: $trackingEnabled ? 'https://dub.sh/OfrKsKi' : 'https://radweb.com/',
+		inventorybase: $trackingEnabled ? 'https://dub.sh/7PTdv8f' : 'https://inventorybase.co.uk/'
+	};
 </script>
 
-<svelte:head>
-  <title>{title}</title>
-  <meta name='description' content={description}>
-  <meta name='robots' content='index, follow'>
-  <meta name='language' content='English'>
-  <meta name='og:title' content={title}>
-  <meta name='og:description' content={description}>
-  <meta name='og:type' content='website'>
-  <meta name='og:url' content='https://emilymedhurst.me/'>
-  <meta property='og:image' content='https://emilymedhurst.me/me.webp'>
-  <meta itemprop='name' content={title}>
-  <meta itemprop='description' content={description}>
-  <meta name='twitter:card' content='summary_large_image'>
-  <meta name='twitter:title' content={title}>
-  <meta name='twitter:description' content={description}>
-  <meta property='twitter:domain' content='emilymedhurst.me'>
-  <meta property='twitter:url' content='https://emilymedhurst.me/'>
-  <meta name='twitter:image' content='https://emilymedhurst.me/me.webp'>
-</svelte:head>
+<Headers
+	title="Emily Medhurst"
+	description="A trans software developer currently based in Portsmouth"
+/>
 
-<main class='pt-4 text-xl flex flex-col gap-4'>
-  <p>Ello, I'm a 🏳️‍⚧️ trans software developer currently based in Portsmouth working at
-    <BodyLink href={links.radweb}>Radweb,</BodyLink>
-    primarily working on the web application
-    <BodyLink href={links.inventorybase}>InventoryBase.</BodyLink>
-  </p>
-  <p>Currently employed as a placement student from the University of Portsmouth but hoping to stay onboard afterwards.</p>
-  <Portfolio/>
-  <Experience/>
-  <Dragon/>
-</main>
+<div class="text-xl flex flex-col gap-4">
+	<p>
+		Ello, I'm a 🏳️‍⚧️ trans software developer currently based in Portsmouth working at
+		<BodyLink href={links.radweb}>Radweb,</BodyLink>
+		primarily working on the web application
+		<BodyLink href={links.inventorybase}>InventoryBase.</BodyLink>
+	</p>
+	<p>
+		Currently employed as a placement student from the University of Portsmouth but hoping to stay
+		onboard afterwards.
+	</p>
+	<Portfolio />
+	<Experience />
+	{#if data.posts.length > 0}
+		<Posts posts={data.posts}>
+			<Block>
+				<div class="flex justify-center">
+					<BodyLink href="/posts" sameSite preload="hover">See More</BodyLink>
+				</div>
+			</Block>
+		</Posts>
+	{/if}
+	<Dragon />
+</div>
