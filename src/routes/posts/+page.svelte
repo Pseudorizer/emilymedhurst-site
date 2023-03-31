@@ -7,7 +7,7 @@
 	import { IconSearch, IconX } from '@tabler/icons-svelte';
 	import dayjs from 'dayjs';
 	import AdvancedFormat from 'dayjs/plugin/advancedFormat';
-  import IconButton from '$lib/icon/IconButton.svelte';
+	import IconButton from '$lib/icon/IconButton.svelte';
 	dayjs.extend(AdvancedFormat);
 	export let data: PageData;
 
@@ -45,7 +45,12 @@
 <div class="flex flex-col gap-2">
 	<Input bind:value={searchTerm} placeholder="Search for a post...">
 		<IconSearch slot="leftIcons" />
-		<IconButton slot="rightIcons" icon={IconX} ariaLabel="Clear search term" on:click={() => searchTerm = ''} />
+		<IconButton
+			slot="rightIcons"
+			icon={IconX}
+			ariaLabel="Clear search term"
+			on:click={() => (searchTerm = '')}
+		/>
 	</Input>
 	{#if filteredPosts.length === 0}
 		<h3>No posts found :(</h3>

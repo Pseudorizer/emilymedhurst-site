@@ -5,7 +5,6 @@ export interface MetadataValues {
 	tags?: string[];
 }
 
-export type PostMetadata = {
+export interface PostMetadata extends MetadataValues {
 	slug: string;
-	created: Date;
-} & Omit<MetadataValues, 'created'>;
+}

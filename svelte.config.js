@@ -12,6 +12,7 @@ const config = {
     })],
   kit: {
     adapter: vercel(),
+    prerender: {entries: ["*"],},
   },
 };
 

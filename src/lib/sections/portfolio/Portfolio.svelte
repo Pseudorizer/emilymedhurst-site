@@ -7,7 +7,8 @@
 		IconBrandSvelte,
 		IconBrandTailwind,
 		IconBrandTypescript,
-		IconBrandVercel
+		IconBrandVercel,
+		IconBrandVite
 	} from '@tabler/icons-svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
 
@@ -48,6 +49,11 @@
 		text: 'vercel'
 	};
 
+	const viteCrumb = {
+		icon: IconBrandVite,
+		text: 'vite'
+	};
+
 	$: links = {
 		scrabble: $trackingEnabled
 			? 'https://dub.sh/wqXwDGR'
@@ -63,7 +69,10 @@
 			: 'https://github.com/MiniCheese26/loc0CoreMatrixClient',
 		thisSite: $trackingEnabled
 			? 'https://dub.sh/qprUfGY'
-			: 'https://github.com/MiniCheese26/emilymedhurst-site'
+			: 'https://github.com/MiniCheese26/emilymedhurst-site',
+		viteEntriesPlugin: $trackingEnabled
+			? 'https://dub.sh/o7P2JW7'
+			: 'https://github.com/MiniCheese26/vite-plugin-svelte-entries-generator'
 	};
 </script>
 
@@ -98,6 +107,12 @@
 			description="This site is simple, accessible and comfy, I like it :)"
 			link={links.thisSite}
 			tags={[svelteCrumb, typescriptCrumb, tailwindCrumb, vercelCrumb]}
+		/>
+		<Block
+			title="vite-plugin-svelte-entries-generator"
+			description="A vite plugin to generate sveltekit prerender entries for paths that can't be scraped automatically"
+			link={links.viteEntriesPlugin}
+			tags={[viteCrumb, svelteCrumb, typescriptCrumb]}
 		/>
 	</div>
 </Section>

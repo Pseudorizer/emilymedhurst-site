@@ -2,12 +2,12 @@
 	import BodyLink from '$lib/BodyLink.svelte';
 	import Portfolio from '$lib/sections/portfolio/Portfolio.svelte';
 	import Experience from '$lib/sections/experience/Experience.svelte';
-	import Dragon from '$lib/sections/dragon/Dragon.svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
 	import Posts from '$lib/sections/posts/Posts.svelte';
 	import type { PageData } from './$types';
 	import Block from '$lib/sections/Block.svelte';
 	import Headers from '$lib/Headers.svelte';
+	import Stream from '$lib/sections/stream/Stream.svelte';
 
 	export let data: PageData;
 
@@ -44,5 +44,27 @@
 			</Block>
 		</Posts>
 	{/if}
-	<Dragon />
+	<Stream
+		title="Dragon Cam"
+		ariaLabel="Live stream of my bearded dragon"
+		src="https://restreamer.pseudorizer.com/c606d4af-e6be-432d-9131-2dd3aaeb8a43.html"
+	>
+		<p slot="topText">
+			My beloved beardie named Mog. She may not do much, but rest assured that she is plotting to
+			overthrow the world!
+		</p>
+		<p slot="bottomText">
+			I'm using
+			<BodyLink href="https://github.com/datarhei/restreamer">restreamer</BodyLink>
+			to achieve this. Had some quirks adding cameras correctly via my domain reverse proxied through
+			nginx. Wasn't generating the player html this iframe links to. Could've been a docker problem.
+		</p>
+	</Stream>
+	<Stream
+		title="Fish Cam"
+		ariaLabel="Live stream of my fishies"
+		src="https://restreamer.pseudorizer.com/878cc751-5149-4973-a3d1-918ea034ba7e.html"
+	>
+		<p slot="topText">My fishies are coming soon!</p>
+	</Stream>
 </div>
