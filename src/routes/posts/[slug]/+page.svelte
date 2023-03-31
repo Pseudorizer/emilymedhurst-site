@@ -1,4 +1,5 @@
 <script lang="ts">
+	import'../../../prism.css';
 	import Headers from '$lib/Headers.svelte';
 	import IconLink from '$lib/icon/IconLink.svelte';
 	import Block from '$lib/sections/Block.svelte';
@@ -12,9 +13,6 @@
 </script>
 
 <Headers title={data.metadata?.title ?? ''} description={data.metadata?.summary ?? ''} />
-<svelte:head>
-	<link href="/prism.css" rel="stylesheet" />
-</svelte:head>
 
 {#if data.metadata}
 	<article class="flex flex-col gap-4">
