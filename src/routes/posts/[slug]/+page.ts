@@ -2,6 +2,8 @@ import type { ComponentType } from 'node_modules/svelte/internal';
 import type { MetadataValues } from 'src/routes/page';
 import type { PageLoad } from './$types';
 
+export const prerender = 'auto';
+
 export const load = (async ({ params }) => {
 	const { slug } = params;
 
