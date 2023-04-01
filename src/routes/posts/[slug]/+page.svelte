@@ -1,5 +1,5 @@
 <script lang="ts">
-	import'../../../prism.css';
+	import'$src/prism.css';
 	import Headers from '$lib/Headers.svelte';
 	import IconLink from '$lib/icon/IconLink.svelte';
 	import Block from '$lib/sections/Block.svelte';

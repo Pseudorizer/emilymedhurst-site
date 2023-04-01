@@ -21,7 +21,10 @@ const config = {
 	],
 	resolve: {
 		alias: {
-			$lib: resolve('./src/lib')
+			$lib: resolve('./src/lib'),
+			$content: resolve('./src/content'),
+			$src: resolve('./src'),
+			$routes: resolve('./src/routes'),
 		}
 	},
 	css: { devSourcemap: true },

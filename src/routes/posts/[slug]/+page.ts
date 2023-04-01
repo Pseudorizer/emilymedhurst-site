@@ -1,5 +1,5 @@
 import type { ComponentType } from 'node_modules/svelte/internal';
-import type { MetadataValues } from 'src/routes/page';
+import type { MetadataValues } from '$routes/page';
 import type { PageLoad } from './$types';
 
 export const prerender = 'auto';

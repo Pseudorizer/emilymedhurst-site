@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Section from '$lib/Section.svelte';
-	import type { PostMetadata } from 'src/routes/page';
-	import Block from '../Block.svelte';
+	import type { PostMetadata } from '$routes/page';
+	import Block from '$lib/sections/Block.svelte';
 
 	export let posts: PostMetadata[];
 </script>

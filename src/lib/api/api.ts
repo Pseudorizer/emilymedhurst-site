@@ -1,4 +1,4 @@
-import type { MetadataValues, PostMetadata } from 'src/routes/page';
+import type { MetadataValues, PostMetadata } from '$routes/page';
 
 const getAllPosts = async () => {
 	const mdModules = import.meta.glob('../../content/posts/*.svx');

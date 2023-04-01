@@ -1,4 +1,4 @@
-import type { PostMetadata } from 'src/routes/page';
+import type { PostMetadata } from '$routes/page';
 import type { PageLoad } from './$types';
 
 export const load = (async ({ fetch }) => {
