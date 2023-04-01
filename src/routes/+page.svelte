@@ -67,7 +67,7 @@
 	>
 		<p slot="topText">My fishies are here!</p>
 		<div slot="bottomText">
-			<h3 class="my-2">Here are the fish we currently have</h3>
+			<h3 class="my-2">List of the current fish</h3>
 			<ul class="list-disc list-inside">
 				<li>5x Harlequin</li>
 			</ul>
