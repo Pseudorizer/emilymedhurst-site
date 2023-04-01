@@ -21,7 +21,7 @@ const transformByFilename: EntriesTransformFunction = async (apiPath, repoRoot) 
 	return fullPaths.map((filePath) => {
 		const extension = path.extname(filePath);
 		const fileName = path.basename(filePath, extension);
-		return `"${apiPath}${fileName}"`;
+		return apiPath.replace('[slug]', fileName);
 	});
 };
 

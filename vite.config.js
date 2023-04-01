@@ -13,9 +13,9 @@ const config = {
 		entitiesGenerator({
 			paths: [
 				{
+					apiPath: '/posts/[slug]',
 					transform,
-					apiPath: '/posts/',
-				}
+				},
 			]
 		})
 	],

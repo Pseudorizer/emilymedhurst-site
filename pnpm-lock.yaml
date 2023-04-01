@@ -13,8 +13,8 @@ devDependencies:
     specifier: 1.15.0
     version: 1.15.0(svelte@3.58.0)(vite@4.2.1)
   '@tabler/icons-svelte':
-    specifier: ^2.13.0
-    version: 2.13.0(svelte@3.58.0)
+    specifier: ^2.13.1
+    version: 2.13.1(svelte@3.58.0)
   '@types/node':
     specifier: ^18.15.11
     version: 18.15.11
@@ -82,8 +82,8 @@ devDependencies:
     specifier: ^1.14.0
     version: 1.14.0(vite@4.2.1)
   vite-plugin-svelte-entries-generator:
-    specifier: ^1.1.1
-    version: 1.1.1(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1)
+    specifier: ^1.1.3
+    version: 1.1.3(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1)
 
 packages:
 
@@ -783,17 +783,17 @@ packages:
       - supports-color
     dev: true
 
-  /@tabler/icons-svelte@2.13.0(svelte@3.58.0):
-    resolution: {integrity: sha512-z8QDZkqpPq1tcdq5oIIDwSTPK5nQkvpCBe9N+aXsImqN64al4xVljVoihuWEooC140ZFLk4JYll21O8QPZlYnA==}
+  /@tabler/icons-svelte@2.13.1(svelte@3.58.0):
+    resolution: {integrity: sha512-tHNSfSOzZfH3kD8PUSQIQy3ckPdwAtrIyb0wlK+LIDNIYVjfCgS9QIgZGHLsEQsQ7EFc6q3U22zL2uBT9iHA+A==}
     peerDependencies:
       svelte: ^3.49.0
     dependencies:
-      '@tabler/icons': 2.13.0
+      '@tabler/icons': 2.13.1
       svelte: 3.58.0
     dev: true
 
-  /@tabler/icons@2.13.0:
-    resolution: {integrity: sha512-YF1cl17cdhaAHQayv3zDRzYLT6AX49gm6RGTNkIfFiEcefMsJtyCt1qXbI/mxzFCugrb3LdlPmZPLceYl9kn8A==}
+  /@tabler/icons@2.13.1:
+    resolution: {integrity: sha512-hQkYW9+tnRUlnm3WDpNGLEB2FS6gyMdDb7eubmGjaWOtc9SK4CdBus465UGfx3M8FahlcOoS5BdzuaABrl/OMw==}
     dev: true
 
   /@types/cookie@0.5.1:
@@ -2933,8 +2933,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-svelte-entries-generator@1.1.1(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1):
-    resolution: {integrity: sha512-7O6hqmaLZueMxDTyMofW+0s2CHEejtV8/8JHr5oNjnN5qN6Z9pxiNTLiytRdeUKXhVytTmE3YU+6jod88htynA==}
+  /vite-plugin-svelte-entries-generator@1.1.3(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1):
+    resolution: {integrity: sha512-u0coWsogHVwIWScG9aAenz3S42mACmGyeIJkWCw1hkDQX+DZ2MeadH8az6ShnrFconhsf17/hDv8EaNgduea9A==}
     engines: {node: '>=14'}
     peerDependencies:
       '@sveltejs/kit': '*'
