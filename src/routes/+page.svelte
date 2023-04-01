@@ -65,6 +65,12 @@
 		ariaLabel="Live stream of my fishies"
 		src="https://restreamer.pseudorizer.com/878cc751-5149-4973-a3d1-918ea034ba7e.html"
 	>
-		<p slot="topText">My fishies are coming soon!</p>
+		<p slot="topText">My fishies are here!</p>
+		<div slot="bottomText">
+			<h3 class="my-2">Here are the fish we currently have</h3>
+			<ul class="list-disc list-inside">
+				<li>5x Harlequin</li>
+			</ul>
+		</div>
 	</Stream>
 </div>
