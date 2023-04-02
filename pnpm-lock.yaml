@@ -43,8 +43,8 @@ devDependencies:
     specifier: ^6.6.2
     version: 6.6.2
   glob:
-    specifier: ^9.3.2
-    version: 9.3.2
+    specifier: ^9.3.4
+    version: 9.3.4
   postcss:
     specifier: ^8.4.21
     version: 8.4.21
@@ -82,8 +82,8 @@ devDependencies:
     specifier: ^1.14.0
     version: 1.14.0(vite@4.2.1)
   vite-plugin-svelte-entries-generator:
-    specifier: ^1.1.4
-    version: 1.1.4(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1)
+    specifier: ^1.1.5
+    version: 1.1.5(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1)
 
 packages:
 
@@ -1716,12 +1716,12 @@ packages:
       path-is-absolute: 1.0.1
     dev: true
 
-  /glob@9.3.2:
-    resolution: {integrity: sha512-BTv/JhKXFEHsErMte/AnfiSv8yYOLLiyH2lTg8vn02O21zWFgHPTfxtgn1QRe7NRgggUhC8hacR2Re94svHqeA==}
+  /glob@9.3.4:
+    resolution: {integrity: sha512-qaSc49hojMOv1EPM4EuyITjDSgSKI0rthoHnvE81tcOi1SCVndHko7auqxdQ14eiQG2NDBJBE86+2xIrbIvrbA==}
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       fs.realpath: 1.0.0
-      minimatch: 7.4.3
+      minimatch: 8.0.2
       minipass: 4.2.5
       path-scurry: 1.6.3
     dev: true
@@ -2014,9 +2014,9 @@ packages:
       brace-expansion: 1.1.11
     dev: true
 
-  /minimatch@7.4.3:
-    resolution: {integrity: sha512-5UB4yYusDtkRPbRiy1cqZ1IpGNcJCGlEMG17RKzPddpyiPKoCdwohbED8g4QXT0ewCt8LTkQXuljsUfQ3FKM4A==}
-    engines: {node: '>=10'}
+  /minimatch@8.0.2:
+    resolution: {integrity: sha512-ikHGF67ODxj7vS5NKU2wvTsFLbExee+KXVCnBWh8Cg2hVJfBMQIrlo50qru/09E0EifjnU8dZhJ/iHhyXJM6Mw==}
+    engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
     dev: true
@@ -2933,8 +2933,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-svelte-entries-generator@1.1.4(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1):
-    resolution: {integrity: sha512-YDx7d1E0v6wXAG8IG7z0YCOlIsx2ohnXSdCQ2q/3TA0fB8LApc9RzB99qaE72iXECpzmTyQlMZ3zi+F55otRuw==}
+  /vite-plugin-svelte-entries-generator@1.1.5(@sveltejs/kit@1.15.0)(svelte@3.58.0)(vite@4.2.1):
+    resolution: {integrity: sha512-82+TCgRYg0GkCEQbeYL/1echlx8+XLgiDyvq9H6bhY17aJV4Ybv8dIa8pgicjUyn8fz2pp31yfQdLIXSjyJKmQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@sveltejs/kit': '*'

@@ -30,7 +30,7 @@
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"fuse.js": "^6.6.2",
-		"glob": "^9.3.2",
+		"glob": "^9.3.4",
 		"postcss": "^8.4.21",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.7",
@@ -43,7 +43,7 @@
 		"typescript": "^5.0.3",
 		"vite": "^4.2.1",
 		"vite-plugin-mkcert": "^1.14.0",
-		"vite-plugin-svelte-entries-generator": "^1.1.4"
+		"vite-plugin-svelte-entries-generator": "^1.1.5"
 	},
 	"type": "module",
 	"dependencies": {
