@@ -65,7 +65,7 @@
 			bind:checked={$trackingEnabled}
 		/>
 	</div>
-	<div class="flex flex-col md:flex-row">
+	<div class="flex flex-col md:flex-row mt-1 md:mt-0">
 		<div class="flex justify-start gap-2">
 			<a href="/"><h1>Emily Medhurst</h1></a>
 			<button

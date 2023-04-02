@@ -13,7 +13,7 @@ const config = {
 	],
 	kit: {
 		adapter: vercel(),
-		prerender: {entries: ["*"],  },
+		prerender: {entries: ["*"], },
 		csp: {
 			directives: {
 				'script-src': ['self', 'unsafe-inline'],
