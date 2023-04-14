@@ -70,6 +70,9 @@
 			<h3 class="my-2">List of the current fish</h3>
 			<ul class="list-disc list-inside">
 				<li>5x Harlequin</li>
+				<li>3x Koi Swordtail</li>
+				<li>3x Santa Swordtail</li>
+				<li>4x Amano Shrimp</li>
 			</ul>
 		</div>
 	</Stream>
