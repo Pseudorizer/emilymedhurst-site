@@ -1,5 +1,5 @@
 import path from 'path';
-import glob from 'glob';
+import { glob } from 'glob';
 import type { EntriesTransformFunction } from 'vite-plugin-svelte-entries-generator';
 
 const CONTENT_PATH = 'src/content/posts/*.svx';
