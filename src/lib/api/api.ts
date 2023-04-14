@@ -18,7 +18,7 @@ const getAllPosts = async (withHidden = false) => {
 		posts = posts.filter((post) => !post.hidden)
 	}
 
-	return posts;
+	return posts.filter((post) => !withHidden && !post.hidden);
 };
 
 export default getAllPosts;
