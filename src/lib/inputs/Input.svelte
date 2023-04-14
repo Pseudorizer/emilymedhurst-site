@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { ComponentType } from 'svelte';
-
 	export let value = '';
 	export let placeholder = '';
 </script>

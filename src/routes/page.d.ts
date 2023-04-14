@@ -3,6 +3,7 @@ export interface MetadataValues {
 	summary: string;
 	created: string;
 	tags?: string[];
+	hidden?: boolean;
 }
 
 export interface PostMetadata extends MetadataValues {
