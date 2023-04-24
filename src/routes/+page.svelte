@@ -69,10 +69,17 @@
 		<div slot="bottomText">
 			<h3 class="my-2">List of the current fish</h3>
 			<ul class="list-disc list-inside">
+				<li>6x Purple Emperor</li>
 				<li>5x Harlequin</li>
-				<li>3x Koi Swordtail</li>
-				<li>3x Santa Swordtail</li>
 				<li>4x Amano Shrimp</li>
+				<li>3x Koi Swordtail</li>
+				<li>3x Bumble Bee Guppy</li>
+				<li>3x Red Cobra Guppy</li>
+				<li>3x Red Dragon Guppy</li>
+				<li>3x Calico Endler Guppy</li>
+				<li>2x Yellow Tuxedo Guppy</li>
+				<li>2x Coral Red Guppy</li>
+				<li>1x Santa Swordtail</li>
 			</ul>
 		</div>
 	</Stream>
