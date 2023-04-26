@@ -9,7 +9,6 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="https://emilymedhurst.me/me.webp" />
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="emilymedhurst.me" />
 	<meta property="twitter:image" content="https://emilymedhurst.me/me.webp" />
 </svelte:head>
 
