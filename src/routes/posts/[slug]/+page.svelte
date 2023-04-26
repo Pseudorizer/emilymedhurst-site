@@ -26,7 +26,7 @@
 			<BodyLink href="/posts" sameSite classes="text-lg">My Other Posts</BodyLink>
 		</Block>
 		{#if !data.metadata.hidden}
-			<Headers title={data.metadata.title} description={data.metadata.summary} />
+			<Headers title={data.metadata.title} description={data.metadata.summary} type="article" />
 			<Block
 				title={data.metadata.title}
 				description={data.metadata.summary}
@@ -38,7 +38,7 @@
 				</Layout>
 			</Block>
 		{:else if data.metadata.hidden}
-			<Headers title="This article is hidden" description="This article is hidden" />
+			<Headers title="This article is hidden" description="This article is hidden" type="article" />
 			<Block title="This article is hidden" />
 		{/if}
 	</article>

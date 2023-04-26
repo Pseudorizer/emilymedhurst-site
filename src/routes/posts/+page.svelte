@@ -41,7 +41,7 @@
 		: data.posts;
 </script>
 
-<Headers title="Posts" description="All my little notes" />
+<Headers title="Posts" description="All my little notes" type="article" />
 
 <div class="flex flex-col gap-2">
 	<Input bind:value={searchTerm} placeholder="Search for a post...">

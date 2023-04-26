@@ -4,6 +4,7 @@
 	export let title: string;
 	export let description: string;
 	export let path: string = '';
+	export let type: string = 'website';
 
 	afterNavigate(({ to }) => {
 		if (!path) {
@@ -24,4 +25,5 @@
 	<meta property="twitter:title" content={title} />
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:url" content={url} />
+	<meta property="og:type" content={type} />
 </svelte:head>
