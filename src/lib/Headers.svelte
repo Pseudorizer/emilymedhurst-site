@@ -1,18 +1,12 @@
 <script lang="ts">
-	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	export let title: string;
 	export let description: string;
 	export let path: string = '';
 	export let type: string = 'website';
 
-	afterNavigate(({ to }) => {
-		if (!path) {
-			path = to?.url.pathname ?? '';
-		}
-	});
-
-	$: url = `https://emilymedhurst.me${path}`;
+	$: url = `https://emilymedhurst.me${path || $page.url.pathname}`;
 </script>
 
 <svelte:head>
