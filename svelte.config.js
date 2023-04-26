@@ -6,21 +6,23 @@ import { mdsvex } from 'mdsvex';
 const config = {
 	extensions: ['.svelte', '.md', '.svx'],
 	preprocess: [
-		mdsvex({ extensions: ['.md', '.svx'] }),
+		mdsvex({
+			extensions: ['.md', '.svx'],
+			layout: 'src/lib/Layout.svelte',
+		}),
 		preprocess({
 			postcss: true
 		})
 	],
 	kit: {
 		adapter: vercel(),
-		prerender: {entries: ["*"], },
+		prerender: {entries: ["*","/posts/slacked-part-1"],  },
 		csp: {
 			directives: {
 				'script-src': ['self', 'unsafe-inline'],
 				'frame-src': ['self', 'https://restreamer.pseudorizer.com/'],
 				'object-src': ['none'],
-				'base-uri': ['self'],
-				'require-trusted-types-for': ['script']
+				'base-uri': ['self']
 			}
 		}
 	}

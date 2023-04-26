@@ -24,7 +24,8 @@
 	let searchTerm = '';
 
 	const fuse = new Fuse(searchableData, {
-		keys: ['title', 'description', 'tags']
+		keys: ['title', 'description', 'tags'],
+		threshold: 0.2
 	});
 
 	const resetPage = () => {

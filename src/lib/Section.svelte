@@ -1,20 +1,16 @@
 <script lang="ts">
-	import { IconLink } from '@tabler/icons-svelte';
+	import FragmentLink from './FragmentLink.svelte';
+	import slugify from '@sindresorhus/slugify';
 
 	export let title = '';
 
-	$: titleFormatted = title.toLowerCase().replace(/\s/g, '-');
+	$: titleFormatted = slugify(title);
 </script>
 
 <section class="flex flex-col gap-2">
 	<div class="flex items-center [&>a]:hover:block gap-2">
 		<h2 id={titleFormatted}>{title}</h2>
-		<a
-			href={`#${titleFormatted}`}
-			class="hidden text-lightStandout dark:text-darkStandout hover:cursor-pointer"
-		>
-			<IconLink />
-		</a>
+		<FragmentLink fragementName={titleFormatted} />
 	</div>
 	<slot />
 </section>
