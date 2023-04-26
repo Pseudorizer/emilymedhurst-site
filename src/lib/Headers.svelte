@@ -10,17 +10,18 @@
 			path = to?.url.pathname ?? '';
 		}
 	});
+
+	$: url = `https://emilymedhurst.me${path}`;
 </script>
 
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content={description} />
-	<meta name="og:title" content={title} />
-	<meta name="og:description" content={description} />
-	<meta itemprop="name" content={title} />
-	<meta itemprop="description" content={description} />
-	<meta name="twitter:title" content={title} />
-	<meta name="twitter:description" content={description} />
-	<meta property="twitter:url" content={`https://emilymedhurst.me${path}`} />
-	<meta name="og:url" content={`https://emilymedhurst.me${path}`} />
+	<meta name="name" content={title} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:url" content={url} />
+	<meta property="twitter:title" content={title} />
+	<meta property="twitter:description" content={description} />
+	<meta property="twitter:url" content={url} />
 </svelte:head>
