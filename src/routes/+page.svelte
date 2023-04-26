@@ -68,7 +68,7 @@
 		<p slot="topText">My fishies are here!</p>
 		<div slot="bottomText">
 			<h3 class="my-2">List of the current fish</h3>
-			<ul class="list-disc list-inside">
+			<ul class="list-disc list-inside flex flex-col md:flex-wrap md:h-48">
 				<li>6x Purple Emperor</li>
 				<li>5x Harlequin</li>
 				<li>4x Amano Shrimp</li>
