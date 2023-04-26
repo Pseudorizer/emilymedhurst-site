@@ -8,6 +8,7 @@
 	import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 	import Layout from '$lib/Layout.svelte';
 	import BodyLink from '$lib/BodyLink.svelte';
+	import Headers from '$lib/Headers.svelte';
 	dayjs.extend(AdvancedFormat);
 
 	export let data: PageData;
@@ -25,6 +26,7 @@
 			<BodyLink href="/posts" sameSite classes="text-lg">My Other Posts</BodyLink>
 		</Block>
 		{#if !data.metadata.hidden}
+			<Headers title={data.metadata.title} description={data.metadata.summary} />
 			<Block
 				title={data.metadata.title}
 				description={data.metadata.summary}
@@ -36,6 +38,7 @@
 				</Layout>
 			</Block>
 		{:else if data.metadata.hidden}
+			<Headers title="This article is hidden" description="This article is hidden" />
 			<Block title="This article is hidden" />
 		{/if}
 	</article>
