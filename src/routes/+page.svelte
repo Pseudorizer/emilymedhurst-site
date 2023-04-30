@@ -77,6 +77,7 @@
 				<li>3x Red Cobra Guppy</li>
 				<li>3x Red Dragon Guppy</li>
 				<li>3x Calico Endler Guppy</li>
+        <li>3x Glass Catfish</li>
 				<li>2x Yellow Tuxedo Guppy</li>
 				<li>2x Coral Red Guppy</li>
 				<li>1x Santa Swordtail</li>
