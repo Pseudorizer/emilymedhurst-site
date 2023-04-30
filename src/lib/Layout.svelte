@@ -5,9 +5,8 @@
     import h2 from '$lib/layoutComponents/H2.svelte';
     import h3 from '$lib/layoutComponents/H3.svelte';
     import img from '$lib/layoutComponents/Img.svelte';
-    import code from '$lib/layoutComponents/Code.svelte';
 
-    export { a, p, h1, h2, img, h3, code }
+    export { a, p, h1, h2, img, h3 }
 </script>
 
 <!-- Can't override pre -->

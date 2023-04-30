@@ -1,13 +1,19 @@
 import type { ComponentType } from 'node_modules/svelte/internal';
 import type { MetadataValues } from '$routes/page';
-import type { PageLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
 export const prerender = 'auto';
 
-export const load = (async ({ params }) => {
+export const load: import('./$types').PageLoad = (async ({ params }) => {
 	const { slug } = params;
 
-	const post = await import(`../../../content/posts/${slug}.svx`);
+	let post;
+
+	try {
+		post = await import(`../../../content/posts/${slug}.svx`);
+	} catch (e) {
+		throw error(404, 'Post not found');
+	}
 
 	const { default: page, metadata } = post as {
 		metadata: MetadataValues;
@@ -15,13 +21,11 @@ export const load = (async ({ params }) => {
 	};
 
 	if (!page) {
-		return {
-			status: 404
-		};
+		throw error(404, 'Post not found');
 	}
 
 	return {
 		metadata,
 		page
 	};
-}) satisfies PageLoad;
+});
