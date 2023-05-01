@@ -19,7 +19,7 @@ const config = {
 		prerender: {entries: ["*","/posts/slacked-part-1"],  },
 		csp: {
 			directives: {
-				'script-src': ['self', 'unsafe-inline'],
+				'script-src': ['self', 'unsafe-inline', 'https://va.vercel-scripts.com/'],
 				'frame-src': ['self', 'https://restreamer.pseudorizer.com/'],
 				'object-src': ['none'],
 				'base-uri': ['self']
