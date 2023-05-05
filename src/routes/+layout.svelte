@@ -16,7 +16,7 @@
 	<meta property="twitter:image" content="https://emilymedhurst.me/me.webp" />
 </svelte:head>
 
-<div class="h-full max-w-4xl mx-auto p-6 text-dark dark:text-light">
+<div class="mx-auto h-full max-w-4xl p-6 text-dark dark:text-light">
 	<Navbar />
 	<main class="pt-4">
 		<slot />

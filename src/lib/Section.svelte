@@ -8,7 +8,7 @@
 </script>
 
 <section class="flex flex-col gap-2">
-	<div class="flex items-center [&>a]:hover:block gap-2">
+	<div class="flex items-center gap-2 [&>a]:hover:block">
 		<h2 id={titleFormatted}>{title}</h2>
 		<FragmentLink fragementName={titleFormatted} />
 	</div>

@@ -22,7 +22,7 @@
 	description="A trans software developer currently based in Portsmouth"
 />
 
-<div class="text-xl flex flex-col gap-4">
+<div class="flex flex-col gap-4 text-xl">
 	<p>
 		Ello, I'm a 🏳️‍⚧️ trans software developer currently based in Portsmouth working at
 		<BodyLink href={links.radweb}>Radweb,</BodyLink>
@@ -68,7 +68,7 @@
 		<p slot="topText">My fishies are here!</p>
 		<div slot="bottomText">
 			<h3 class="my-2">List of the current fish</h3>
-			<ul class="list-disc list-inside flex flex-col md:flex-wrap md:h-48">
+			<ul class="flex list-inside list-disc flex-col md:h-48 md:flex-wrap">
 				<li>6x Purple Emperor</li>
 				<li>5x Harlequin</li>
 				<li>4x Amano Shrimp</li>
@@ -77,7 +77,7 @@
 				<li>3x Red Cobra Guppy</li>
 				<li>3x Red Dragon Guppy</li>
 				<li>3x Calico Endler Guppy</li>
-        <li>3x Glass Catfish</li>
+				<li>3x Glass Catfish</li>
 				<li>2x Yellow Tuxedo Guppy</li>
 				<li>2x Coral Red Guppy</li>
 				<li>1x Santa Swordtail</li>

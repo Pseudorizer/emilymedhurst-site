@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex justify-center py-2">
-	<div class="border-dark dark:border-light border-2 rounded-lg">
+	<div class="rounded-lg border-2 border-dark dark:border-light">
 		{#if isVideo}
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video class="rounded-md" {src} controls />

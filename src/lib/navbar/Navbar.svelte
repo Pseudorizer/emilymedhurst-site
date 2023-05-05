@@ -55,7 +55,7 @@
 <svelte:window bind:innerWidth />
 
 <nav class="flex flex-col gap-2">
-	<div class="flex gap-2 items-center">
+	<div class="flex items-center gap-2">
 		<label for="link-tracking">Enable link tracking? I'm just curious :)</label>
 		<input
 			name="link-tracking"
@@ -65,18 +65,18 @@
 			bind:checked={$trackingEnabled}
 		/>
 	</div>
-	<div class="flex flex-col md:flex-row mt-1 md:mt-0">
+	<div class="mt-1 flex flex-col md:mt-0 md:flex-row">
 		<div class="flex justify-start gap-2">
 			<a href="/"><h1>Emily Medhurst</h1></a>
 			<button
 				on:click={toggleDarkMode}
-				class="hover:bg-lightHighlight hover:dark:bg-darkHighlight rounded-xl p-1"
+				class="rounded-xl p-1 hover:bg-lightHighlight hover:dark:bg-darkHighlight"
 				aria-label="theme"
 			>
 				<svelte:component this={icon} size={innerWidth < 768 ? '2.25rem' : '2rem'} />
 			</button>
 		</div>
-		<div class="flex md:ml-auto gap-3 flex-wrap">
+		<div class="flex flex-wrap gap-3 md:ml-auto">
 			<Icon icon={IconBrandGithub} href={links.github} ariaLabel="github" />
 			<Icon icon={IconBrandTwitter} href={links.twitter} ariaLabel="twitter" />
 			<Icon icon={IconBrandLinkedin} href={links.linkedin} ariaLabel="linkedin" />

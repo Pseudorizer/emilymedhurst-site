@@ -3,8 +3,8 @@
 
 	export let title: string;
 	export let description: string;
-	export let path: string = '';
-	export let type: string = 'website';
+	export let path = '';
+	export let type = 'website';
 
 	$: url = `https://emilymedhurst.me${path || $page.url.pathname}`;
 </script>

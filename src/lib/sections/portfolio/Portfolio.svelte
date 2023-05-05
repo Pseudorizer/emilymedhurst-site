@@ -77,7 +77,7 @@
 </script>
 
 <Section title="Portfolio">
-	<div bind:this={container} class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 md:gap-y-2">
+	<div bind:this={container} class="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2">
 		<Block
 			title="Scrabble Coursework"
 			description="First year university coursework where I designed and created an online browser-based Scrabble game."

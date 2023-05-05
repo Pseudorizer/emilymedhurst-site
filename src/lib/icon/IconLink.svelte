@@ -13,7 +13,7 @@
 	{href}
 	target={sameSite ? '' : '_blank'}
 	rel={sameSite ? '' : 'noreferrer noopener'}
-	class={`hover:bg-lightHighlight hover:dark:bg-darkHighlight hover:text-lightStandout hover:dark:text-darkStandout rounded-xl p-1 w-min`}
+	class={`w-min rounded-xl p-1 hover:bg-lightHighlight hover:text-lightStandout hover:dark:bg-darkHighlight hover:dark:text-darkStandout`}
 	aria-label={ariaLabel}
 >
 	<svelte:component this={icon} size={iconSize} color={colour ?? 'currentColor'} />

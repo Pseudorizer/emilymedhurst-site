@@ -30,7 +30,7 @@
 
 @layer components {
 	body {
-		@apply overflow-auto bg-light dark:bg-dark subpixel-antialiased;
+		@apply overflow-auto bg-light subpixel-antialiased dark:bg-dark;
 	}
 
 	h1 {

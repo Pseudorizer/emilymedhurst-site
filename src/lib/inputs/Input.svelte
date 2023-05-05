@@ -4,12 +4,12 @@
 </script>
 
 <div
-	class="flex items-center rounded-lg bg-lightHighlight text-dark dark:bg-darkHighlight dark:text-light px-2 py-2 gap-2"
+	class="flex items-center gap-2 rounded-lg bg-lightHighlight px-2 py-2 text-dark dark:bg-darkHighlight dark:text-light"
 >
 	<slot name="leftIcons" />
 	<input
 		bind:value
-		class="flex-1 px-2 py-1 bg-lightHighlight text-dark dark:bg-darkHighlight dark:text-light outline-lightStandout dark:outline-darkStandout placeholder:text-dark dark:placeholder:text-light"
+		class="flex-1 bg-lightHighlight px-2 py-1 text-dark outline-lightStandout placeholder:text-dark dark:bg-darkHighlight dark:text-light dark:outline-darkStandout dark:placeholder:text-light"
 		type="text"
 		{placeholder}
 	/>

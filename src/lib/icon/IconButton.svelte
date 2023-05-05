@@ -6,10 +6,6 @@
 	export let ariaLabel: string;
 </script>
 
-<button
-	class="hover:bg-light hover:dark:bg-dark rounded-xl p-1"
-	aria-label={ariaLabel}
-	on:click
->
+<button class="rounded-xl p-1 hover:bg-light hover:dark:bg-dark" aria-label={ariaLabel} on:click>
 	<svelte:component this={icon} size={iconSize} />
 </button>

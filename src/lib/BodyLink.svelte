@@ -12,7 +12,7 @@
 	target={sameSite ? '' : '_blank'}
 	rel={sameSite ? '' : 'noreferrer noopener'}
 	data-sveltekit-preload-data={preload}
-	class={'underline decoration-lightStandout dark:decoration-darkStandout text-lightStandout dark:text-darkStandout ' +
+	class={'text-lightStandout underline decoration-lightStandout dark:text-darkStandout dark:decoration-darkStandout ' +
 		classes}
 >
 	<slot />

@@ -8,8 +8,8 @@
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"lint": "prettier --check && eslint ./src",
+		"format": "prettier --write ./src"
 	},
 	"browserslist": [
 		"> 0.2%",
@@ -30,13 +30,14 @@
 		"dayjs": "^1.11.7",
 		"eslint": "^8.39.0",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-svelte3": "^4.0.0",
+		"eslint-plugin-svelte": "^2.27.3",
 		"fuse.js": "^6.6.2",
 		"postcss": "^8.4.23",
 		"postcss-load-config": "^4.0.1",
 		"postcss-nesting": "^11.2.2",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.0",
+		"prettier-plugin-tailwindcss": "^0.2.8",
 		"sharp": "^0.32.1",
 		"svelte": "^3.58.0",
 		"svelte-check": "^3.3.1",

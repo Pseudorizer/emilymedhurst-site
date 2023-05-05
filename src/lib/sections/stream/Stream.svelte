@@ -35,7 +35,7 @@
 					height={`${iframeWidth}px`}
 					width="100%"
 					bind:this={iframe}
-				></iframe>
+				/>
 			</div>
 			<slot name="bottomText" />
 		</div>

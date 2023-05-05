@@ -11,16 +11,32 @@
 		"strict": true,
 		"noFallthroughCasesInSwitch": true,
 		"exactOptionalPropertyTypes": true,
-    "baseUrl": "./",
+		"baseUrl": "./",
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"],
-			"$content": ["src/content"],
-			"$content/*": ["src/content/*"],
-			"$src": ["src/src"],
-			"$src/*": ["src/src/*"],
-			"$routes": ["src/routes"],
-			"$routes/*": ["src/routes/*"],
+			"$lib": [
+				"src/lib"
+			],
+			"$lib/*": [
+				"src/lib/*"
+			],
+			"$content": [
+				"src/content"
+			],
+			"$content/*": [
+				"src/content/*"
+			],
+			"$src": [
+				"src/src"
+			],
+			"$src/*": [
+				"src/src/*"
+			],
+			"$routes": [
+				"src/routes"
+			],
+			"$routes/*": [
+				"src/routes/*"
+			],
 		}
 	}
 }
