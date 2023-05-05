@@ -16,7 +16,6 @@ const config = {
 	],
 	kit: {
 		adapter: vercel(),
-		prerender: {entries: ["*","/posts/slacked-part-1"],  },
 		csp: {
 			directives: {
 				'script-src': ['self', 'unsafe-inline', 'https://va.vercel-scripts.com/'],

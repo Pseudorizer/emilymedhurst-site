@@ -1,7 +1,5 @@
 import { resolve } from 'path';
 import mkcert from 'vite-plugin-mkcert';
-import entitiesGenerator from 'vite-plugin-svelte-entries-generator';
-import transform from './transform';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -11,14 +9,6 @@ const config = {
 	plugins: [
 		sveltekit(),
 		mkcert(),
-		entitiesGenerator({
-			paths: [
-				{
-					apiPath: '/posts/[slug]',
-					transform,
-				},
-			]
-		}),
 		ViteImageOptimizer({
 			exclude: /\.svg$/i,
 		}),

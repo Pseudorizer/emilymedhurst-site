@@ -1,10 +1,9 @@
 import type { ComponentType } from 'node_modules/svelte/internal';
 import type { MetadataValues } from '$routes/page';
 import { error } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
 
-export const prerender = 'auto';
-
-export const load: import('./$types').PageLoad = (async ({ params }) => {
+export const load = (async ({ params }) => {
 	const { slug } = params;
 
 	let post;
@@ -28,4 +27,4 @@ export const load: import('./$types').PageLoad = (async ({ params }) => {
 		metadata,
 		page
 	};
-});
+}) satisfies PageLoad;
