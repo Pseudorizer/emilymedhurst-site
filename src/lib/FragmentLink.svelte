@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IconLink } from '@tabler/icons-svelte';
+	import IconLink from '@tabler/icons-svelte/dist/svelte/icons/IconLink.svelte';
 
 	export let fragementName: string;
 </script>

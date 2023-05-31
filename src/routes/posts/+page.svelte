@@ -4,7 +4,8 @@
 	import type { PageData } from './$types';
 	import Fuse from 'fuse.js';
 	import Input from '$lib/inputs/Input.svelte';
-	import { IconSearch, IconX } from '@tabler/icons-svelte';
+	import IconSearch from '@tabler/icons-svelte/dist/svelte/icons/IconSearch.svelte';
+	import IconX from '@tabler/icons-svelte/dist/svelte/icons/IconX.svelte';
 	import dayjs from 'dayjs';
 	import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 	import IconButton from '$lib/icon/IconButton.svelte';

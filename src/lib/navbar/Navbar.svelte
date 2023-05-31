@@ -1,16 +1,14 @@
 <script lang="ts">
 	import { onMount, type ComponentType } from 'svelte';
-	import {
-		IconMoon,
-		IconSun,
-		IconBrandGithub,
-		IconBrandTwitter,
-		IconBrandLinkedin,
-		IconBrandMastodon,
-		IconBrandDiscord,
-		IconBrandSpotify,
-		IconBrandLastfm
-	} from '@tabler/icons-svelte';
+	import IconMoon from '@tabler/icons-svelte/dist/svelte/icons/IconMoon.svelte';
+	import IconSun from '@tabler/icons-svelte/dist/svelte/icons/IconSun.svelte';
+	import IconBrandGithub from '@tabler/icons-svelte/dist/svelte/icons/IconBrandGithub.svelte';
+	import IconBrandTwitter from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTwitter.svelte';
+	import IconBrandLinkedin from '@tabler/icons-svelte/dist/svelte/icons/IconBrandLinkedin.svelte';
+	import IconBrandMastodon from '@tabler/icons-svelte/dist/svelte/icons/IconBrandMastodon.svelte';
+	import IconBrandDiscord from '@tabler/icons-svelte/dist/svelte/icons/IconBrandDiscord.svelte';
+	import IconBrandSpotify from '@tabler/icons-svelte/dist/svelte/icons/IconBrandSpotify.svelte';
+	import IconBrandLastfm from '@tabler/icons-svelte/dist/svelte/icons/IconBrandLastfm.svelte';
 	import Icon from '$lib/icon/IconLink.svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
 

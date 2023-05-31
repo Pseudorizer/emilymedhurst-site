@@ -1,14 +1,13 @@
 <script lang="ts">
 	import Section from '$lib/Section.svelte';
 	import Block from '$lib/sections/Block.svelte';
-	import {
-		IconBrandLaravel,
-		IconBrandMysql,
-		IconBrandPhp,
-		IconBrandReact,
-		IconBrandRedux,
-		IconPoo
-	} from '@tabler/icons-svelte';
+	import IconBrandLaravel from '@tabler/icons-svelte/dist/svelte/icons/IconBrandLaravel.svelte';
+	import IconBrandMysql from '@tabler/icons-svelte/dist/svelte/icons/IconBrandMysql.svelte';
+	import IconBrandPhp from '@tabler/icons-svelte/dist/svelte/icons/IconBrandPhp.svelte';
+	import IconBrandReact from '@tabler/icons-svelte/dist/svelte/icons/IconBrandReact.svelte';
+	import IconBrandRedux from '@tabler/icons-svelte/dist/svelte/icons/IconBrandRedux.svelte';
+	import IconPoo from '@tabler/icons-svelte/dist/svelte/icons/IconPoo.svelte';
+
 	import trackingEnabled from '$lib/stores/trackingStore';
 
 	const reactCrumb = {

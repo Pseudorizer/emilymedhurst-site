@@ -2,14 +2,12 @@
 	import Block from '$lib/sections/Block.svelte';
 	import Section from '$lib/Section.svelte';
 	import { onMount } from 'svelte';
-	import {
-		IconBrandReact,
-		IconBrandSvelte,
-		IconBrandTailwind,
-		IconBrandTypescript,
-		IconBrandVercel,
-		IconBrandVite
-	} from '@tabler/icons-svelte';
+	import IconBrandReact from '@tabler/icons-svelte/dist/svelte/icons/IconBrandReact.svelte';
+	import IconBrandSvelte from '@tabler/icons-svelte/dist/svelte/icons/IconBrandSvelte.svelte';
+	import IconBrandTailwind from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTailwind.svelte';
+	import IconBrandTypescript from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTypescript.svelte';
+	import IconBrandVercel from '@tabler/icons-svelte/dist/svelte/icons/IconBrandVercel.svelte';
+	import IconBrandVite from '@tabler/icons-svelte/dist/svelte/icons/IconBrandVite.svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
 
 	let container: HTMLDivElement;
