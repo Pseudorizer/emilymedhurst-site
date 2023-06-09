@@ -75,13 +75,13 @@
 			</button>
 		</div>
 		<div class="flex flex-wrap gap-3 md:ml-auto">
-			<Icon icon={IconBrandGithub} href={links.github} ariaLabel="github" />
-			<Icon icon={IconBrandTwitter} href={links.twitter} ariaLabel="twitter" />
-			<Icon icon={IconBrandLinkedin} href={links.linkedin} ariaLabel="linkedin" />
-			<Icon icon={IconBrandMastodon} href={links.mastodon} ariaLabel="mastodon" />
-			<Icon icon={IconBrandDiscord} href={links.discord} ariaLabel="discord" />
-			<Icon icon={IconBrandSpotify} href={links.spotify} ariaLabel="spotify" />
-			<Icon icon={IconBrandLastfm} href={links.lastfm} ariaLabel="last.fm" />
+			<Icon icon={IconBrandGithub} href={links.github} ariaLabel="github" rel="me" />
+			<Icon icon={IconBrandTwitter} href={links.twitter} ariaLabel="twitter" rel="me" />
+			<Icon icon={IconBrandLinkedin} href={links.linkedin} ariaLabel="linkedin" rel="me" />
+			<Icon icon={IconBrandMastodon} href={links.mastodon} ariaLabel="mastodon" rel="me" />
+			<Icon icon={IconBrandDiscord} href={links.discord} ariaLabel="discord" rel="me" />
+			<Icon icon={IconBrandSpotify} href={links.spotify} ariaLabel="spotify" rel="me" />
+			<Icon icon={IconBrandLastfm} href={links.lastfm} ariaLabel="last.fm" rel="me" />
 		</div>
 	</div>
 </nav>
