@@ -341,3 +341,5 @@ package
 .idea
 
 .vercel
+
+vite.config.js.timestamp*
