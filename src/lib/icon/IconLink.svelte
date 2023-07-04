@@ -16,6 +16,7 @@
 	rel={sameSite ? rel : `noreferrer noopener ${rel}`}
 	class={`w-min rounded-xl p-1 hover:bg-lightHighlight hover:text-lightStandout hover:dark:bg-darkHighlight hover:dark:text-darkStandout`}
 	aria-label={ariaLabel}
+	title={ariaLabel}
 >
 	<svelte:component this={icon} size={iconSize} color={colour ?? 'currentColor'} />
 </a>
