@@ -30,13 +30,13 @@
 			{#each tags as tag}
 				{#if typeof tag === 'string'}
 					<p
-						class="select-none rounded-2xl border-2 border-gray-600 p-1 px-2 text-sm dark:border-gray-500"
+						class="rounded-2xl border-2 border-gray-600 p-1 px-2 text-sm dark:border-gray-500"
 					>
 						{tag}
 					</p>
 				{:else}
 					<div
-						class="flex select-none items-center gap-1 rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500"
+						class="flex items-center gap-1 rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500"
 					>
 						<svelte:component this={tag.icon} size="1.25rem" />
 						<p class="text-sm">{tag.text}</p>
