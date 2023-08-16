@@ -39,7 +39,7 @@
 		<Posts posts={data.posts}>
 			<Block>
 				<div class="flex justify-center">
-					<BodyLink href="/posts" sameSite preload="hover">See More</BodyLink>
+					<BodyLink href="/posts" sameSite preload="hover">See More Posts</BodyLink>
 				</div>
 			</Block>
 		</Posts>
