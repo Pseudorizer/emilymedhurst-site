@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="dark" lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -6,6 +6,22 @@
 		<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/Atkinson-Hyperlegible-Regular.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin"
+		/>
+		<link
+			rel="preload"
+			href="%sveltekit.assets%/fonts/JetBrains-Mono-Regular.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin"
+		/>
+		<link rel="stylesheet" href="%sveltekit.assets%/font.css" type="text/css" />
+
 		%sveltekit.head%
 	</head>
 	<body>

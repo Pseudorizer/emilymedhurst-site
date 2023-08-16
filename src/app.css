@@ -2,32 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: 'Atkinson Hyperlegible';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Helvetica'), url('fonts/Atkinson-Hyperlegible-Regular.eot'); /* IE9 Compat Modes */
-	src: local('Helvetica'),
-		url('fonts/Atkinson-Hyperlegible-Regular.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('fonts/Atkinson-Hyperlegible-Regular.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('fonts/Atkinson-Hyperlegible-Regular.woff') format('woff'),
-		/* Modern Browsers */ url('fonts/Atkinson-Hyperlegible-Regular.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('fonts/Atkinson-Hyperlegible-Regular.svg#AtkinsonHyperlegible')
-			format('svg'); /* Legacy iOS */
-}
-
-@font-face {
-	font-family: 'Jetbrains Mono';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Consolas'), url('fonts/JetBrains-Mono-Regular.eot'); /* IE9 Compat Modes */
-	src: local('Consolas'), url('fonts/JetBrains-Mono-Regular.eot?#iefix') format('embedded-opentype'),
-		/* IE6-IE8 */ url('fonts/JetBrains-Mono-Regular.woff2') format('woff2'),
-		/* Super Modern Browsers */ url('fonts/JetBrains-Mono-Regular.woff') format('woff'),
-		/* Modern Browsers */ url('fonts/JetBrains-Mono-Regular.ttf') format('truetype'),
-		/* Safari, Android, iOS */ url('fonts/JetBrains-Mono-Regular.svg#JetBrainsMono') format('svg'); /* Legacy iOS */
-}
-
 @layer components {
 	body {
 		@apply overflow-auto bg-light subpixel-antialiased dark:bg-dark;

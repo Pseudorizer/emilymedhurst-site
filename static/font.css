@@ -1,0 +1,14 @@
+/* tailwind or sveltekit breaks something when preloading fonts and declaring font-faces in app.css  */
+@font-face {
+	font-family: 'Atkinson Hyperlegible';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/Atkinson-Hyperlegible-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Jetbrains Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/JetBrains-Mono-Regular.woff2') format('woff2');
+}
