@@ -4,6 +4,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url('/fonts/Atkinson-Hyperlegible-Regular.woff2') format('woff2');
+	font-display: swap;
 }
 
 @font-face {
@@ -11,4 +12,5 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url('/fonts/JetBrains-Mono-Regular.woff2') format('woff2');
+	font-display: swap;
 }
