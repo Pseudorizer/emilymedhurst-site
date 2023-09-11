@@ -24,14 +24,15 @@
 
 <div class="flex flex-col gap-4 text-xl">
 	<p>
-		Ello, I'm a 🏳️‍⚧️ trans software developer currently based in Portsmouth working at
+		Ello, I'm a 🏳️‍⚧️ trans software developer who's just completed a placement year in Portsmouth
+		working at
 		<BodyLink href={links.radweb}>Radweb,</BodyLink>
 		primarily working on the web application
 		<BodyLink href={links.inventorybase}>InventoryBase.</BodyLink>
 	</p>
 	<p>
-		Currently employed as a placement student from the University of Portsmouth but hoping to stay
-		onboard afterwards.
+		Now heading back to complete my final year of university to earn my BSc in Software Engineering.
+		But planning to return to <BodyLink href={links.radweb}>Radweb</BodyLink> after graduating.
 	</p>
 	<Portfolio />
 	<Experience />
