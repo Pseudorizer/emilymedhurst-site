@@ -23,6 +23,12 @@ const config = {
 				'object-src': ['none'],
 				'base-uri': ['self']
 			}
+		},
+		alias: {
+			"$lib/*": "src/lib/*",
+			"$content/*": "src/content/*",
+			"$src/*": "src/src/*",
+			"$routes/*": "src/routes/*",
 		}
 	}
 };
