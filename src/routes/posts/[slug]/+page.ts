@@ -11,7 +11,7 @@ export const load = (async ({ params }) => {
 	try {
 		post = await import(`../../../content/posts/${slug}.svx`);
 	} catch (e) {
-		throw error(404, 'Post not found');
+		error(404, 'Post not found');
 	}
 
 	const { default: page, metadata } = post as {
@@ -20,7 +20,7 @@ export const load = (async ({ params }) => {
 	};
 
 	if (!page) {
-		throw error(404, 'Post not found');
+		error(404, 'Post not found');
 	}
 
 	return {
