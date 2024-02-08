@@ -27,7 +27,7 @@ const config = {
 		alias: {
 			"$lib/*": "src/lib/*",
 			"$content/*": "src/content/*",
-			"$src/*": "src/src/*",
+			"$src/*": "src/*",
 			"$routes/*": "src/routes/*",
 		}
 	}
