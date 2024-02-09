@@ -9,8 +9,8 @@
 	import IconBrandDiscord from '@tabler/icons-svelte/dist/svelte/icons/IconBrandDiscord.svelte';
 	import IconBrandSpotify from '@tabler/icons-svelte/dist/svelte/icons/IconBrandSpotify.svelte';
 	import IconBrandLastfm from '@tabler/icons-svelte/dist/svelte/icons/IconBrandLastfm.svelte';
-	import IconSquareRoundedFilled from '@tabler/icons-svelte/dist/svelte/icons/IconSquareRoundedFilled.svelte';
-	import Icon from '$lib/icon/IconLink.svelte';
+	import IconBrandBluesky from '@tabler/icons-svelte/dist/svelte/icons/IconBrandBluesky.svelte';
+	import IconLink from '$lib/icon/IconLink.svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
 
 	let innerWidth: number;
@@ -78,15 +78,15 @@
 				<svelte:component this={icon} size={innerWidth < 768 ? '2.25rem' : '2rem'} />
 			</button>
 		</div>
-		<div class="flex gap-2 md:gap-3 md:ml-auto">
-			<Icon icon={IconBrandGithub} href={links.github} ariaLabel="github" rel="me" />
-			<Icon icon={IconBrandTwitter} href={links.twitter} ariaLabel="twitter" rel="me" />
-			<Icon icon={IconBrandLinkedin} href={links.linkedin} ariaLabel="linkedin" rel="me" />
-			<Icon icon={IconBrandMastodon} href={links.mastodon} ariaLabel="mastodon" rel="me" />
-			<Icon icon={IconBrandDiscord} href={links.discord} ariaLabel="discord" rel="me" />
-			<Icon icon={IconBrandSpotify} href={links.spotify} ariaLabel="spotify" rel="me" />
-			<Icon icon={IconBrandLastfm} href={links.lastfm} ariaLabel="last.fm" rel="me" />
-			<Icon icon={IconSquareRoundedFilled} href={links.bluesky} ariaLabel="bluesky" rel="me" />
+		<div class="flex gap-2 md:ml-auto md:gap-3">
+			<IconLink icon={IconBrandGithub} href={links.github} ariaLabel="github" rel="me" />
+			<IconLink icon={IconBrandTwitter} href={links.twitter} ariaLabel="twitter" rel="me" />
+			<IconLink icon={IconBrandLinkedin} href={links.linkedin} ariaLabel="linkedin" rel="me" />
+			<IconLink icon={IconBrandMastodon} href={links.mastodon} ariaLabel="mastodon" rel="me" />
+			<IconLink icon={IconBrandDiscord} href={links.discord} ariaLabel="discord" rel="me" />
+			<IconLink icon={IconBrandSpotify} href={links.spotify} ariaLabel="spotify" rel="me" />
+			<IconLink icon={IconBrandLastfm} href={links.lastfm} ariaLabel="last.fm" rel="me" />
+			<IconLink icon={IconBrandBluesky} href={links.bluesky} ariaLabel="bluesky" rel="me" />
 		</div>
 	</div>
 </nav>
