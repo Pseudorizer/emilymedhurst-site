@@ -6,7 +6,7 @@
 	import IconBrandPhp from '@tabler/icons-svelte/dist/svelte/icons/IconBrandPhp.svelte';
 	import IconBrandReact from '@tabler/icons-svelte/dist/svelte/icons/IconBrandReact.svelte';
 	import IconBrandRedux from '@tabler/icons-svelte/dist/svelte/icons/IconBrandRedux.svelte';
-	import IconPoo from '@tabler/icons-svelte/dist/svelte/icons/IconPoo.svelte';
+	import IconBrandTypescript from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTypescript.svelte';
 
 	import trackingEnabled from '$lib/stores/trackingStore';
 
@@ -36,8 +36,8 @@
 	};
 
 	const flowCrumb = {
-		icon: IconPoo,
-		text: 'flow'
+		icon: IconBrandTypescript,
+		text: 'typescript'
 	};
 
 	$: links = {
