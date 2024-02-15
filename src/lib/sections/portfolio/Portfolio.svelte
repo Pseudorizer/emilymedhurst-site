@@ -11,46 +11,16 @@
 	import IconBrandAstro from '@tabler/icons-svelte/dist/svelte/icons/IconQuestionMark.svelte';
 	import IconBrandGithub from '@tabler/icons-svelte/dist/svelte/icons/IconBrandGithub.svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
+	import { createCrumb } from '$lib/helpers';
 
-	const typescriptCrumb = {
-		icon: IconBrandTypescript,
-		text: 'typescript'
-	};
-
-	const reactCrumb = {
-		icon: IconBrandReact,
-		text: 'react'
-	};
-
-	const svelteCrumb = {
-		icon: IconBrandSvelte,
-		text: 'sveltekit'
-	};
-
-	const tailwindCrumb = {
-		icon: IconBrandTailwind,
-		text: 'tailwindcss'
-	};
-
-	const vercelCrumb = {
-		icon: IconBrandVercel,
-		text: 'vercel'
-	};
-
-	const viteCrumb = {
-		icon: IconBrandVite,
-		text: 'vite'
-	};
-
-	const astroCrumb = {
-		icon: IconBrandAstro,
-		text: 'astro'
-	};
-
-	const githubPagesCrumb = {
-		icon: IconBrandGithub,
-		text: 'github pages'
-	};
+	const typescriptCrumb = createCrumb(IconBrandTypescript, 'typescript');
+	const reactCrumb = createCrumb(IconBrandReact, 'react');
+	const svelteCrumb = createCrumb(IconBrandSvelte, 'svelte');
+	const tailwindCrumb = createCrumb(IconBrandTailwind, 'tailwind');
+	const vercelCrumb = createCrumb(IconBrandVercel, 'vercel');
+	const viteCrumb = createCrumb(IconBrandVite, 'vite');
+	const astroCrumb = createCrumb(IconBrandAstro, 'astro');
+	const githubPagesCrumb = createCrumb(IconBrandGithub, 'github pages');
 
 	$: links = {
 		scrabble: $trackingEnabled

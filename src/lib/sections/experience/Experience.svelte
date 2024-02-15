@@ -9,36 +9,14 @@
 	import IconBrandTypescript from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTypescript.svelte';
 
 	import trackingEnabled from '$lib/stores/trackingStore';
+	import { createCrumb } from '$lib/helpers';
 
-	const reactCrumb = {
-		icon: IconBrandReact,
-		text: 'react'
-	};
-
-	const phpCrumb = {
-		icon: IconBrandPhp,
-		text: 'php'
-	};
-
-	const laravelCrumb = {
-		icon: IconBrandLaravel,
-		text: 'laravel'
-	};
-
-	const mysqlCrumb = {
-		icon: IconBrandMysql,
-		text: 'mysql'
-	};
-
-	const reduxCrumb = {
-		icon: IconBrandRedux,
-		text: 'redux'
-	};
-
-	const flowCrumb = {
-		icon: IconBrandTypescript,
-		text: 'typescript'
-	};
+	const reactCrumb = createCrumb(IconBrandReact, 'react');
+	const phpCrumb = createCrumb(IconBrandPhp, 'php');
+	const laravelCrumb = createCrumb(IconBrandLaravel, 'laravel');
+	const mysqlCrumb = createCrumb(IconBrandMysql, 'mysql');
+	const reduxCrumb = createCrumb(IconBrandRedux, 'redux');
+	const typescriptCrumb = createCrumb(IconBrandTypescript, 'typescript');
 
 	$: links = {
 		radweb: $trackingEnabled ? 'https://dub.sh/OfrKsKi' : 'https://radweb.com/'
@@ -57,7 +35,7 @@
 				laravelCrumb,
 				mysqlCrumb,
 				reduxCrumb,
-				flowCrumb,
+				typescriptCrumb,
 				'real customers'
 			]}
 			link={links.radweb}
