@@ -10,9 +10,10 @@
 	export let linkSameSite = false;
 	export let linkPreload: PreloadDataOptions = 'off';
 	export let tags: (Tag | string)[] = [];
+  export let containerClass = '';
 </script>
 
-<div class="flex flex-col rounded-xl bg-lightHighlight p-2 dark:bg-darkHighlight">
+<div class={`flex flex-col rounded-xl bg-lightHighlight p-2 dark:bg-darkHighlight ${containerClass}`}>
 	<slot />
 	<h3>
 		{#if link}

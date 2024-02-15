@@ -1,26 +1,16 @@
 <script lang="ts">
 	import Block from '$lib/sections/Block.svelte';
 	import Section from '$lib/Section.svelte';
-	import { onMount } from 'svelte';
+	import { type ComponentProps, type ComponentType } from 'svelte';
 	import IconBrandReact from '@tabler/icons-svelte/dist/svelte/icons/IconBrandReact.svelte';
 	import IconBrandSvelte from '@tabler/icons-svelte/dist/svelte/icons/IconBrandSvelte.svelte';
 	import IconBrandTailwind from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTailwind.svelte';
 	import IconBrandTypescript from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTypescript.svelte';
 	import IconBrandVercel from '@tabler/icons-svelte/dist/svelte/icons/IconBrandVercel.svelte';
 	import IconBrandVite from '@tabler/icons-svelte/dist/svelte/icons/IconBrandVite.svelte';
+	import IconBrandAstro from '@tabler/icons-svelte/dist/svelte/icons/IconQuestionMark.svelte';
+	import IconBrandGithub from '@tabler/icons-svelte/dist/svelte/icons/IconBrandGithub.svelte';
 	import trackingEnabled from '$lib/stores/trackingStore';
-
-	let container: HTMLDivElement;
-
-	onMount(() => {
-		if (container && container.children.length % 2 !== 0) {
-			const lastChild = container.lastElementChild;
-
-			if (lastChild) {
-				lastChild.classList.add('md:col-span-2');
-			}
-		}
-	});
 
 	const typescriptCrumb = {
 		icon: IconBrandTypescript,
@@ -52,6 +42,16 @@
 		text: 'vite'
 	};
 
+	const astroCrumb = {
+		icon: IconBrandAstro,
+		text: 'astro'
+	};
+
+	const githubPagesCrumb = {
+		icon: IconBrandGithub,
+		text: 'github pages'
+	};
+
 	$: links = {
 		scrabble: $trackingEnabled
 			? 'https://dub.sh/wqXwDGR'
@@ -70,47 +70,93 @@
 			: 'https://github.com/MiniCheese26/emilymedhurst-site',
 		viteEntriesPlugin: $trackingEnabled
 			? 'https://dub.sh/o7P2JW7'
-			: 'https://github.com/MiniCheese26/vite-plugin-svelte-entries-generator'
+			: 'https://github.com/MiniCheese26/vite-plugin-svelte-entries-generator',
+		disso: $trackingEnabled ? 'https://dub.sh/jGPzNOI' : 'https://github.com/pompeybug/website/'
+	};
+
+	$: blocks = [
+		[
+			Block,
+			{
+				title: 'Scrabble Coursework',
+				description:
+					'First year university coursework where I designed and created an online browser-based Scrabble game.',
+				link: links.scrabble,
+				tags: [reactCrumb, typescriptCrumb, 'express', 'websockets']
+			}
+		],
+		[
+			Block,
+			{
+				title: 'Brick Store Coursework',
+				description:
+					'Second year university coursework where I designed and created an online storefront for a Lego brick store',
+				link: links.brickStore,
+				tags: [typescriptCrumb, 'fastify', 'auth0', 'postgresql']
+			}
+		],
+		[
+			Block,
+			{
+				title: 'Company Address Tracker',
+				description:
+					'A prototype desktop tool I made for a local company to manage company addresses.',
+				link: links.companyAddressTracker,
+				tags: [reactCrumb, typescriptCrumb, 'electron']
+			}
+		],
+		[
+			Block,
+			{
+				title: 'Basic Matrix.org Bot Library',
+				description: 'A basic library I wrote for writing basic bots for Matrix.org chats in C#.',
+				link: links.matrixLibrary,
+				tags: ['C#', 'outdated']
+			}
+		],
+		[
+			Block,
+			{
+				title: 'This site',
+				description: 'This site is simple, accessible and comfy, I like it :)',
+				link: links.thisSite,
+				tags: [svelteCrumb, typescriptCrumb, tailwindCrumb, vercelCrumb]
+			}
+		],
+		[
+			Block,
+			{
+				title: 'vite-plugin-svelte-entries-generator',
+				description:
+					"A vite plugin to generate SvelteKit prerender entries for paths that can't be scraped automatically",
+				link: links.viteEntriesPlugin,
+				tags: [viteCrumb, svelteCrumb, typescriptCrumb]
+			}
+		],
+		[
+			Block,
+			{
+				title: 'Undergraduate Dissertation (WIP)',
+				description:
+					'A cheap, fast and client-agnostic blogging platform initially designed and built for the Portsmouth Cycle Forum',
+				link: links.disso,
+				tags: [astroCrumb, typescriptCrumb, svelteCrumb, githubPagesCrumb]
+			}
+		]
+	] satisfies [ComponentType<Block>, ComponentProps<Block>][];
+
+	$: shouldModifyLastBlock = (index: number) => {
+		return blocks.length % 2 === 1 && index === blocks.length - 1;
 	};
 </script>
 
 <Section title="Portfolio">
-	<div bind:this={container} class="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2">
-		<Block
-			title="Scrabble Coursework"
-			description="First year university coursework where I designed and created an online browser-based Scrabble game."
-			link={links.scrabble}
-			tags={[reactCrumb, typescriptCrumb, 'express', 'websockets']}
-		/>
-		<Block
-			title="Brick Store Coursework"
-			description="Second year university coursework where I designed and created an online storefront for a lego brick store"
-			link={links.brickStore}
-			tags={[typescriptCrumb, 'fastify', 'auth0', 'postgresql']}
-		/>
-		<Block
-			title="Company Address Tracker"
-			description="A prototype desktop tool I made for a local company to manage company addresses."
-			link={links.companyAddressTracker}
-			tags={[reactCrumb, typescriptCrumb, 'electron']}
-		/>
-		<Block
-			title="Basic Matrix.org Bot Library"
-			description="A basic library I wrote for writing basic bots for Matrix.org chats in C#."
-			link={links.matrixLibrary}
-			tags={['C#', 'outdated']}
-		/>
-		<Block
-			title="This site"
-			description="This site is simple, accessible and comfy, I like it :)"
-			link={links.thisSite}
-			tags={[svelteCrumb, typescriptCrumb, tailwindCrumb, vercelCrumb]}
-		/>
-		<Block
-			title="vite-plugin-svelte-entries-generator"
-			description="A vite plugin to generate sveltekit prerender entries for paths that can't be scraped automatically"
-			link={links.viteEntriesPlugin}
-			tags={[viteCrumb, svelteCrumb, typescriptCrumb]}
-		/>
+	<div class="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2">
+		{#each blocks as [component, props], index}
+			<svelte:component
+				this={component}
+				{...{ containerClass: shouldModifyLastBlock(index) ? 'md:col-span-2' : '', ...props }}
+			/>
+		{/each}
 	</div>
 </Section>
