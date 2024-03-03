@@ -7,5 +7,5 @@
 </script>
 
 <button class="rounded-xl p-1 hover:bg-light hover:dark:bg-dark" aria-label={ariaLabel} on:click>
-	<svelte:component this={icon} size={iconSize} />
+	<svelte:component this={icon} style={`font-size: ${iconSize}`} />
 </button>

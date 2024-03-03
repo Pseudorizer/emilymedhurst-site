@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconLink from '@tabler/icons-svelte/dist/svelte/icons/IconLink.svelte';
+	import TablerLink from '~icons/tabler/link';
 
 	export let fragementName: string;
 </script>
@@ -8,5 +8,5 @@
 	href={`#${fragementName}`}
 	class="hidden text-lightStandout hover:cursor-pointer dark:text-darkStandout"
 >
-	<IconLink />
+	<TablerLink />
 </a>

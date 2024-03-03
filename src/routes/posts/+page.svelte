@@ -4,8 +4,8 @@
 	import type { PageData } from './$types';
 	import Fuse from 'fuse.js';
 	import Input from '$lib/inputs/Input.svelte';
-	import IconSearch from '@tabler/icons-svelte/dist/svelte/icons/IconSearch.svelte';
-	import IconX from '@tabler/icons-svelte/dist/svelte/icons/IconX.svelte';
+	import TablerSearch from '~icons/tabler/search';
+	import TablerX from '~icons/tabler/x';
 	import dayjs from 'dayjs';
 	import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 	import IconButton from '$lib/icon/IconButton.svelte';
@@ -46,10 +46,10 @@
 
 <div class="flex flex-col gap-2">
 	<Input bind:value={searchTerm} placeholder="Search for a post...">
-		<IconSearch slot="leftIcons" />
+		<TablerSearch slot="leftIcons" />
 		<IconButton
 			slot="rightIcons"
-			icon={IconX}
+			icon={TablerX}
 			ariaLabel="Clear search term"
 			on:click={() => (searchTerm = '')}
 		/>

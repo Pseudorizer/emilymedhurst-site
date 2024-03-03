@@ -18,5 +18,5 @@
 	aria-label={ariaLabel}
 	title={ariaLabel}
 >
-	<svelte:component this={icon} size={iconSize} color={colour ?? 'currentColor'} />
+	<svelte:component this={icon} style={`font-size: ${iconSize}; color: ${colour ?? 'currentColor'}`} />
 </a>

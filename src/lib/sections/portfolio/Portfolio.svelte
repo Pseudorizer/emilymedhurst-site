@@ -2,25 +2,25 @@
 	import Block from '$lib/sections/Block.svelte';
 	import Section from '$lib/Section.svelte';
 	import { type ComponentProps, type ComponentType } from 'svelte';
-	import IconBrandReact from '@tabler/icons-svelte/dist/svelte/icons/IconBrandReact.svelte';
-	import IconBrandSvelte from '@tabler/icons-svelte/dist/svelte/icons/IconBrandSvelte.svelte';
-	import IconBrandTailwind from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTailwind.svelte';
-	import IconBrandTypescript from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTypescript.svelte';
-	import IconBrandVercel from '@tabler/icons-svelte/dist/svelte/icons/IconBrandVercel.svelte';
-	import IconBrandVite from '@tabler/icons-svelte/dist/svelte/icons/IconBrandVite.svelte';
-	import IconBrandAstro from '@tabler/icons-svelte/dist/svelte/icons/IconQuestionMark.svelte';
-	import IconBrandGithub from '@tabler/icons-svelte/dist/svelte/icons/IconBrandGithub.svelte';
+	import TablerBrandReact from '~icons/tabler/brand-react';
+	import TablerBrandSvelte from '~icons/tabler/brand-svelte';
+	import TablerBrandTailwind from '~icons/tabler/brand-tailwind';
+	import TablerBrandTypescript from '~icons/tabler/brand-typescript';
+	import TablerBrandVercel from '~icons/tabler/brand-vercel';
+	import TablerBrandVite from '~icons/tabler/brand-vite';
+	import TablerBrandAstro from '~icons/tabler/brand-astro';
+	import TablerBrandGithub from '~icons/tabler/brand-github';
 	import trackingEnabled from '$lib/stores/trackingStore';
 	import { createCrumb } from '$lib/helpers';
 
-	const typescriptCrumb = createCrumb(IconBrandTypescript, 'typescript');
-	const reactCrumb = createCrumb(IconBrandReact, 'react');
-	const svelteCrumb = createCrumb(IconBrandSvelte, 'svelte');
-	const tailwindCrumb = createCrumb(IconBrandTailwind, 'tailwind');
-	const vercelCrumb = createCrumb(IconBrandVercel, 'vercel');
-	const viteCrumb = createCrumb(IconBrandVite, 'vite');
-	const astroCrumb = createCrumb(IconBrandAstro, 'astro');
-	const githubPagesCrumb = createCrumb(IconBrandGithub, 'github pages');
+	const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
+	const reactCrumb = createCrumb(TablerBrandReact, 'react');
+	const svelteCrumb = createCrumb(TablerBrandSvelte, 'svelte');
+	const tailwindCrumb = createCrumb(TablerBrandTailwind, 'tailwind');
+	const vercelCrumb = createCrumb(TablerBrandVercel, 'vercel');
+	const viteCrumb = createCrumb(TablerBrandVite, 'vite');
+	const astroCrumb = createCrumb(TablerBrandAstro, 'astro');
+	const githubPagesCrumb = createCrumb(TablerBrandGithub, 'github pages');
 
 	$: links = {
 		scrabble: $trackingEnabled

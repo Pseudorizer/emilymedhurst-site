@@ -1,22 +1,22 @@
 <script lang="ts">
 	import Section from '$lib/Section.svelte';
 	import Block from '$lib/sections/Block.svelte';
-	import IconBrandLaravel from '@tabler/icons-svelte/dist/svelte/icons/IconBrandLaravel.svelte';
-	import IconBrandMysql from '@tabler/icons-svelte/dist/svelte/icons/IconBrandMysql.svelte';
-	import IconBrandPhp from '@tabler/icons-svelte/dist/svelte/icons/IconBrandPhp.svelte';
-	import IconBrandReact from '@tabler/icons-svelte/dist/svelte/icons/IconBrandReact.svelte';
-	import IconBrandRedux from '@tabler/icons-svelte/dist/svelte/icons/IconBrandRedux.svelte';
-	import IconBrandTypescript from '@tabler/icons-svelte/dist/svelte/icons/IconBrandTypescript.svelte';
+	import TablerBrandLaravel from '~icons/tabler/brand-laravel';
+	import TablerBrandMysql from '~icons/tabler/brand-mysql';
+	import TablerBrandPhp from '~icons/tabler/brand-php';
+	import TablerBrandReact from '~icons/tabler/brand-react';
+	import TablerBrandRedux from '~icons/tabler/brand-redux';
+	import TablerBrandTypescript from '~icons/tabler/brand-typescript';
 
 	import trackingEnabled from '$lib/stores/trackingStore';
 	import { createCrumb } from '$lib/helpers';
 
-	const reactCrumb = createCrumb(IconBrandReact, 'react');
-	const phpCrumb = createCrumb(IconBrandPhp, 'php');
-	const laravelCrumb = createCrumb(IconBrandLaravel, 'laravel');
-	const mysqlCrumb = createCrumb(IconBrandMysql, 'mysql');
-	const reduxCrumb = createCrumb(IconBrandRedux, 'redux');
-	const typescriptCrumb = createCrumb(IconBrandTypescript, 'typescript');
+	const reactCrumb = createCrumb(TablerBrandReact, 'react');
+	const phpCrumb = createCrumb(TablerBrandPhp, 'php');
+	const laravelCrumb = createCrumb(TablerBrandLaravel, 'laravel');
+	const mysqlCrumb = createCrumb(TablerBrandMysql, 'mysql');
+	const reduxCrumb = createCrumb(TablerBrandRedux, 'redux');
+	const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
 
 	$: links = {
 		radweb: $trackingEnabled ? 'https://dub.sh/OfrKsKi' : 'https://radweb.com/'
