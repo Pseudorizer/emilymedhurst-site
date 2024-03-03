@@ -11,9 +11,11 @@ const config = {
 		sveltekit(),
 		mkcert(),
 		ViteImageOptimizer({
-			exclude: /\.svg$/i
+			webp: {
+				lossless: false
+			}
 		}),
-		Icons({compiler: 'svelte'})
+		Icons({ compiler: 'svelte' })
 	],
 	resolve: {
 		alias: {

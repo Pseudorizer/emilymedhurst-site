@@ -8,13 +8,20 @@ tags:
   - vencord
 ---
 
+<script>
+import oneko from "$lib/assets/oneko.png";
+import devtools from "$lib/assets/devtools.webm";
+import notWorking from "$lib/assets/not-working.webm";
+import working from "$lib/assets/working.webm";
+</script>
+
 For a while now, I've been using [Vencord](https://github.com/Vendicated/Vencord) - a Discord client mod.
 
 It allows you to write custom plugins and load custom themes, that sort of stuff.
 
 In my case, I have a nice [Catppuccin Mocha](https://github.com/catppuccin/discord) theme and several plugins such as a deleted message logger, ability to see channels not available to me and a plugin that adds a little oneko that follows my cursor.
 
-![Little Oneko Vibin](/img/posts/slacked-part-1/oneko.png)
+![Little Oneko Vibin]({oneko})
 
 But at work, we use Slack, Discord for super profressional serious business people. Which from my research has no such client mod.
 
@@ -63,7 +70,7 @@ require(require.main!.filename);
 
 Interesting! So all it's doing is replacing `require.main!.filename` with the path to Discord's actual `package.json` and loading that at the end! But, does this work for Slack?
 
-![Uhhh kinda?](/img/posts/slacked-part-1/not-working.webm)
+![Uhhh kinda?]({notWorking})
 
 It started! Which is a good sign, the code runs but it seems to exit for some reason.
 
@@ -81,7 +88,7 @@ Inside of `main.bundle.js` `requestSingleInstanceLock` appears to fail, I suppos
 sed 's/||oe.app.exit(0),process.exit(0)//g' -i main.bundle.js
 ```
 
-![It's alive!](/img/posts/slacked-part-1/working.webm)
+![It's alive!]({working})
 
 This skeleton code now boots into slack via our script! This is where the fun starts.
 
@@ -155,7 +162,7 @@ const initIpc = (window: electron.BrowserWindow) => {
 
 Annnnnnnnd...
 
-![There he is! Mr. Devtools](/img/posts/slacked-part-1/devtools.webm)
+![There he is! Mr. Devtools]({devtools})
 
 Wowie, we did it! We can now execute custom code automatically within a Slack desktop client :D
 
