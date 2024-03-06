@@ -4,8 +4,8 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		fontFamily: {
-			sans: ['Atkinson Hyperlegible', 'Helvitica'],
-			mono: ['Jetbrains Mono', 'Consolas']
+			sans: ['Atkinson Hyperlegible', 'Helvetica'],
+			mono: ['Jetbrains Mono Variable', 'Consolas']
 		},
 		extend: {
 			colors: {

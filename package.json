@@ -18,6 +18,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.0.20",
+    "@fontsource/atkinson-hyperlegible": "^5.0.19",
     "@iconify-json/tabler": "^1.1.106",
     "@sindresorhus/slugify": "^2.2.1",
     "@sveltejs/adapter-vercel": "^5.1.0",
