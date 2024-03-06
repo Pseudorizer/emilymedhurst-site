@@ -1,8 +1,6 @@
 import type { EntryGenerator } from './$types';
 import path from 'path';
 
-export const prerender = true;
-
 export const entries = (() => {
 	const mdModules = import.meta.glob('../../../content/posts/*.svx');
 

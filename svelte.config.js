@@ -1,4 +1,4 @@
-import vercel from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 
@@ -15,7 +15,7 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: vercel(),
+		adapter: adapter(),
 		csp: {
 			directives: {
 				'script-src': ['self', 'unsafe-inline', 'https://va.vercel-scripts.com/'],

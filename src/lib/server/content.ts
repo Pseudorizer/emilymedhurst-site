@@ -1,7 +1,9 @@
 import type { MetadataValues, PostMetadata } from '$routes/page';
+import { error } from '@sveltejs/kit';
 import path from 'path';
+import type { ComponentType } from 'svelte';
 
-const getAllPosts = async (withHidden = false) => {
+export const getAllPosts = async (withHidden = false) => {
 	const mdModules = import.meta.glob('../../content/posts/*.svx');
 	const postFiles = Object.entries(mdModules);
 
@@ -23,4 +25,30 @@ const getAllPosts = async (withHidden = false) => {
 	return posts;
 };
 
-export default getAllPosts;
+export const getPost = async (slug: string) => {
+	let post;
+
+	try {
+		post = await import(`../../content/posts/${slug}.svx`);
+	} catch (err) {
+		error(404, 'Post not found');
+	}
+
+	if (!post) {
+		error(404, 'Post not found');
+	}
+
+	const { default: page, metadata } = post as {
+		metadata: MetadataValues;
+		default: ComponentType | null;
+	};
+
+	if (!page) {
+		error(404, 'Post not found');
+	}
+
+	return {
+		page,
+		metadata
+	};
+};

@@ -343,3 +343,5 @@ package
 .vercel
 
 vite.config.js.timestamp*
+
+build

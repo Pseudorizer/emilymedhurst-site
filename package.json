@@ -22,7 +22,7 @@
     "@fontsource/atkinson-hyperlegible": "^5.0.19",
     "@iconify-json/tabler": "^1.1.106",
     "@sindresorhus/slugify": "^2.2.1",
-    "@sveltejs/adapter-vercel": "^5.1.0",
+    "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.5.2",
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "@types/node": "^20.11.24",
