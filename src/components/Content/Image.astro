@@ -4,16 +4,22 @@ import { cn } from '@lib/cn';
 
 interface Props {
 	src: string;
+	description?: string;
 	alt: string;
 }
 
-const { src, alt } = Astro.props;
+const { src, alt, description } = Astro.props;
 ---
 
 <div class={cn('flex justify-center py-2')}>
 	<div class={cn('rounded-lg border-2 border-dark dark:border-light')}>
 		<!-- @ts-ignore -->
-		<Picture {src} {alt} formats={['avif', 'webp', 'jpg']} />
-		<p class={cn('p-2 text-center')}>{alt}</p>
+		<Picture
+			{src}
+			{alt}
+			formats={['avif', 'webp', 'jpg']}
+			pictureAttributes={{ class: cn('flex justify-center') }}
+		/>
+		<p class={cn('p-2 text-center')}>{description ?? alt}</p>
 	</div>
 </div>
