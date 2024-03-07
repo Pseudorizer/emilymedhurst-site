@@ -4,14 +4,15 @@ import { cn } from '@lib/cn';
 interface Props {
 	src: string;
 	alt: string;
+	muted?: boolean;
 }
 
-const { src, alt } = Astro.props;
+const { src, alt, muted = true } = Astro.props;
 ---
 
 <div class={cn('flex justify-center py-2')}>
 	<div class={cn('rounded-lg border-2 border-dark dark:border-light')}>
-		<video class="rounded-md" {src} controls></video>
+		<video class="rounded-md" {src} controls {muted}></video>
 		<p class={cn('p-2 text-center')}>{alt}</p>
 	</div>
 </div>

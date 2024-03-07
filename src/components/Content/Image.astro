@@ -6,9 +6,10 @@ interface Props {
 	src: string;
 	description?: string;
 	alt: string;
+	eager?: boolean;
 }
 
-const { src, alt, description } = Astro.props;
+const { src, alt, description, eager } = Astro.props;
 ---
 
 <div class={cn('flex justify-center py-2')}>
@@ -17,6 +18,7 @@ const { src, alt, description } = Astro.props;
 		<Picture
 			{src}
 			{alt}
+			loading={eager ? 'eager' : 'lazy'}
 			formats={['avif', 'webp', 'jpg']}
 			pictureAttributes={{ class: cn('flex justify-center') }}
 		/>
