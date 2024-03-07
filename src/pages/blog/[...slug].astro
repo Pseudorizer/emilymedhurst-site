@@ -59,6 +59,10 @@ const { Content } = await article.render();
 		pre.astro-code {
 			@apply my-2 rounded-md border-2 border-solid border-transparent p-3 dark:border-light;
 		}
+
+		:not(pre) > code {
+			@apply bg-dark px-1;
+		}
 	}
 
 	html.dark .astro-code,
