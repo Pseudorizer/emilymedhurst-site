@@ -15,18 +15,19 @@ import oneko from './oneko.png';
 
 import Video from "../../../components/Content/Video.astro";
 import Image from "../../../components/Content/Image.astro";
+import Link from "../../../components/BodyLink.astro";
 
-For a while now, I've been using [Vencord](https://github.com/Vendicated/Vencord) - a Discord client mod.
+For a while now, I've been using <Link href="https://github.com/Vendicated/Vencord">Vencord</Link> - a Discord client mod.
 
 It allows you to write custom plugins and load custom themes, that sort of stuff.
 
-In my case, I have a nice [Catppuccin Mocha](https://github.com/catppuccin/discord) theme and several plugins such as a deleted message logger, ability to see channels not available to me and a plugin that adds a little oneko that follows my cursor.
+In my case, I have a nice <Link href="https://github.com/catppuccin/discord">Catppuccin Mocha</Link> theme and several plugins such as a deleted message logger, ability to see channels not available to me and a plugin that adds a little oneko that follows my cursor.
 
 <Image src={oneko} alt="Little Oneko Vibin" />
 
 But at work, we use Slack, Discord for super profressional serious business people. Which from my research has no such client mod.
 
-There was some interesting stuff, there's [this repo](https://github.com/Noskcaj19/slack-mods) which is very old but shows a POC. There's also [SlackMod](https://dev.to/f53/adding-a-custom-css-menu-to-slack-1090),
+There was some interesting stuff, there's <Link href="https://github.com/Noskcaj19/slack-mods">this repo</Link> which is very old but shows a POC. There's also <Link href="https://dev.to/f53/adding-a-custom-css-menu-to-slack-1090">SlackMod</Link>,
 which uses a python library electron_inject to inject javascript into closed source electron apps, a neat idea.
 
 But Vencord's method of code injection into Discord was interesting to me.
