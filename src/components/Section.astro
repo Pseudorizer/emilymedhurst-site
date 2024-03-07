@@ -1,0 +1,21 @@
+---
+import slugify from '@sindresorhus/slugify';
+import FragmentLink from './FragmentLink.astro';
+import { cn } from '@lib/cn';
+
+interface Props {
+	title?: string;
+}
+
+const { title = '' } = Astro.props;
+
+const slug = slugify(title);
+---
+
+<section class={cn('flex flex-col gap-2')}>
+	<div class={cn('flex items-center gap-2 [&>a]:hover:block')}>
+		<h2 id={slug}>{title}</h2>
+		<FragmentLink link={slug} />
+	</div>
+	<slot />
+</section>

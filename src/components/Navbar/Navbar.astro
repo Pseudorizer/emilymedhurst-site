@@ -1,0 +1,72 @@
+---
+import TablerBrandGithub from 'icons:astro/tabler/brand-github';
+import TablerBrandTwitter from 'icons:astro/tabler/brand-twitter';
+import TablerBrandLinkedin from 'icons:astro/tabler/brand-linkedin';
+import TablerBrandMastodon from 'icons:astro/tabler/brand-mastodon';
+import TablerBrandDiscord from 'icons:astro/tabler/brand-discord';
+import TablerBrandSpotify from 'icons:astro/tabler/brand-spotify';
+import TablerBrandLastfm from 'icons:astro/tabler/brand-lastfm';
+import TablerBrandBluesky from 'icons:astro/tabler/brand-bluesky';
+import ThemeToggle from './ThemeToggle.svelte';
+import IconLink from '@components/Icon/IconLink.astro';
+import { cn } from '@lib/cn';
+---
+
+<nav class={cn('flex flex-col gap-2')}>
+	<div class={cn('mt-1 flex flex-col md:mt-0 md:flex-row')}>
+		<div class={cn('flex items-center justify-start gap-2')}>
+			<a href="/"><h1>Emily Medhurst</h1></a>
+			<ThemeToggle client:load />
+		</div>
+		<div class={cn('flex gap-2 overflow-x-auto md:ml-auto md:gap-3')}>
+			<IconLink
+				icon={TablerBrandGithub}
+				href="https://github.com/MiniCheese26"
+				ariaLabel="github"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandTwitter}
+				href="https://twitter.com/Pseudorizer"
+				ariaLabel="x (formely twitter)"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandLinkedin}
+				href="https://www.linkedin.com/in/emily-medhurst"
+				ariaLabel="linkedin"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandMastodon}
+				href="https://tech.lgbt/@pseudorizer"
+				ariaLabel="mastodon"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandDiscord}
+				href="https://discordapp.com/users/398887208947286017"
+				ariaLabel="discord"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandSpotify}
+				href="https://open.spotify.com/user/minicheese26"
+				ariaLabel="spotify"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandLastfm}
+				href="https://www.last.fm/user/pseudorizer"
+				ariaLabel="last.fm"
+				rel="me"
+			/>
+			<IconLink
+				icon={TablerBrandBluesky}
+				href="https://bsky.app/profile/emilymedhurst.gay"
+				ariaLabel="bluesky"
+				rel="me"
+			/>
+		</div>
+	</div>
+</nav>

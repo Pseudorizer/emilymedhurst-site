@@ -1,0 +1,74 @@
+---
+import BodyLink from './BodyLink.astro';
+import { cn } from '@lib/cn';
+import type { Tag } from '@lib/types';
+
+interface Props {
+	title?: string;
+	subheading?: string;
+	description?: string;
+	link?: string;
+	tags?: (Tag | string)[];
+	containerClasses?: string;
+	id?: string;
+}
+
+const {
+	title = '',
+	subheading = '',
+	description = '',
+	link = '',
+	tags = [],
+	containerClasses = '',
+	id
+} = Astro.props;
+---
+
+<div
+	class={cn(
+		'flex flex-col rounded-xl bg-lightHighlight p-2 dark:bg-darkHighlight',
+		containerClasses
+	)}
+	{id}
+>
+	<slot />
+	{title && <h3>{link ? <BodyLink href={link}>{title}</BodyLink> : title}</h3>}
+	{subheading && <h4 class={cn('mb-1 text-xs')}>{subheading}</h4>}
+	{description && <p>{description}</p>}
+	{
+		tags.length > 0 && (
+			<div class={cn('mt-2.5 flex flex-wrap gap-x-1 gap-y-2')}>
+				{tags.map((tag) => {
+					let Icon;
+
+					if (typeof tag !== 'string') {
+						Icon = tag.icon;
+					}
+
+					return typeof tag === 'string' ? (
+						<Fragment>
+							<p
+								class={cn(
+									'rounded-2xl border-2 border-gray-600 p-1 px-2 text-sm dark:border-gray-500'
+								)}
+							>
+								{tag}
+							</p>
+						</Fragment>
+					) : (
+						<Fragment>
+							<div
+								class={cn(
+									'flex items-center gap-1 rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500'
+								)}
+							>
+								<Icon style="font-size: 1.25rem" />
+								<p class={cn('text-sm')}>{tag.text}</p>
+							</div>
+						</Fragment>
+					);
+				})}
+			</div>
+		)
+	}
+</div>

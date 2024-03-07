@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Block from '@components/Block.astro';
+import Section from '@components/Section.astro';
+
+const articles = await getCollection('articles');
+---
+
+<Section title="Posts">
+	{
+		articles
+			.slice(0, 5)
+			.map((article) => (
+				<Block
+					title={article.data.title}
+					description={article.data.description}
+					link={`/blog/${article.slug}`}
+					tags={article.data.tags}
+				/>
+			))
+	}
+	<slot />
+</Section>

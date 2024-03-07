@@ -1,0 +1,73 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import dayjs from 'dayjs';
+import AdvancedFormat from 'dayjs/plugin/advancedFormat';
+import Base from '@layouts/Base.astro';
+import { cn } from '@lib/cn';
+import Block from '@components/Block.astro';
+import BodyLink from '@components/BodyLink.astro';
+dayjs.extend(AdvancedFormat);
+
+export async function getStaticPaths() {
+	const articles = await getCollection('articles');
+	return articles.map((article) => ({
+		params: { slug: article.slug },
+		props: article
+	}));
+}
+type Props = CollectionEntry<'articles'>;
+
+const article = Astro.props;
+const { Content } = await article.render();
+---
+
+<Base
+	title={article.data.title}
+	description={article.data.description}
+	seo={{ keywords: article.data.tags, facebook: { type: 'article' } }}
+>
+	<article class={cn('flex flex-col gap-2')}>
+		<Block>
+			<BodyLink href="/blog" classes="text-lg">My Other Posts</BodyLink>
+		</Block>
+		<Block
+			title={article.data.title}
+			description={article.data.description}
+			subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
+		/>
+		<Block tags={article.data.tags} id="article">
+			<Content />
+		</Block>
+	</article>
+</Base>
+
+<style is:global>
+	#article {
+		p {
+			@apply py-1;
+		}
+
+		h1 {
+			@apply py-4;
+		}
+
+		h2,
+		h3 {
+			@apply py-3;
+		}
+
+		pre.astro-code {
+			@apply my-2 rounded-md border-2 border-solid border-transparent p-3 dark:border-light;
+		}
+	}
+
+	html.dark .astro-code,
+	html.dark .astro-code span {
+		color: var(--shiki-dark) !important;
+		background-color: var(--shiki-dark-bg) !important;
+		/* Optional, if you also want font styles */
+		font-style: var(--shiki-dark-font-style) !important;
+		font-weight: var(--shiki-dark-font-weight) !important;
+		text-decoration: var(--shiki-dark-text-decoration) !important;
+	}
+</style>
