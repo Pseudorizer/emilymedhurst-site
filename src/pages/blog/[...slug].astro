@@ -10,10 +10,12 @@ dayjs.extend(AdvancedFormat);
 
 export async function getStaticPaths() {
 	const articles = await getCollection('articles');
-	return articles.map((article) => ({
-		params: { slug: article.slug },
-		props: article
-	}));
+	return articles
+		.filter((article) => !article.data.hidden)
+		.map((article) => ({
+			params: { slug: article.slug },
+			props: article
+		}));
 }
 type Props = CollectionEntry<'articles'>;
 

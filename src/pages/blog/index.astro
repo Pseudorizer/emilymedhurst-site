@@ -13,17 +13,19 @@ const articles = await getCollection('articles');
 <Base title="Posts" description="All my little notes">
 	<ul class="flex flex-col gap-2">
 		{
-			articles.map((article) => (
-				<li>
-					<Block
-						title={article.data.title}
-						description={article.data.description}
-						link={`/blog/${article.slug}`}
-						tags={article.data.tags ?? []}
-						subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
-					/>
-				</li>
-			))
+			articles
+				.filter((article) => !article.data.hidden)
+				.map((article) => (
+					<li>
+						<Block
+							title={article.data.title}
+							description={article.data.description}
+							link={`/blog/${article.slug}`}
+							tags={article.data.tags ?? []}
+							subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
+						/>
+					</li>
+				))
 		}
 	</ul>
 </Base>
