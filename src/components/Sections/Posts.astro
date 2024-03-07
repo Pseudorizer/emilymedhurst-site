@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Block from '@components/Block.astro';
 import Section from '@components/Section.astro';
+import { isHidden } from '@lib/utils';
 
 const articles = await getCollection('articles');
 ---
@@ -10,6 +11,7 @@ const articles = await getCollection('articles');
 	{
 		articles
 			.slice(0, 5)
+			.filter((article) => !isHidden(article))
 			.map((article) => (
 				<Block
 					title={article.data.title}

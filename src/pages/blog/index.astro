@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 import Base from '@layouts/Base.astro';
 import Block from '@components/Block.astro';
+import { isHidden } from '@lib/utils';
 // eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(AdvancedFormat);
 
@@ -14,7 +15,7 @@ const articles = await getCollection('articles');
 	<ul class="flex flex-col gap-2">
 		{
 			articles
-				.filter((article) => !article.data.hidden)
+				.filter((article) => !isHidden(article))
 				.map((article) => (
 					<li>
 						<Block

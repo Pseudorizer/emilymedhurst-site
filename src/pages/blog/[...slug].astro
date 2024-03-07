@@ -6,12 +6,13 @@ import Base from '@layouts/Base.astro';
 import { cn } from '@lib/cn';
 import Block from '@components/Block.astro';
 import BodyLink from '@components/BodyLink.astro';
+import { isHidden } from '@lib/utils';
 dayjs.extend(AdvancedFormat);
 
 export async function getStaticPaths() {
 	const articles = await getCollection('articles');
 	return articles
-		.filter((article) => !article.data.hidden)
+		.filter((article) => !isHidden(article))
 		.map((article) => ({
 			params: { slug: article.slug },
 			props: article
