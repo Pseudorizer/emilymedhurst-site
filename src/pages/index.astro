@@ -1,16 +1,82 @@
 ---
+import { getCollection } from 'astro:content';
+import Block from '@components/Block.astro';
+import BodyLink from '@components/BodyLink.astro';
+import Experience from '@components/Sections/Experience.astro';
+import Portfolio from '@components/Sections/Portfolio.astro';
+import Posts from '@components/Sections/Posts.astro';
+import Base from '@layouts/Base.astro';
+import { cn } from '@lib/cn';
+import Stream from '@components/Sections/Stream.astro';
 
+const articles = await getCollection('articles');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Emily Medhurst" description="A trans software developer doing things">
+	<div class={cn('flex flex-col gap-4 text-xl')}>
+		<p>
+			Ello, I'm a 🏳️‍⚧️ trans software developer who's just completed a placement year in Portsmouth
+			working at
+			<BodyLink href="https://radweb.com/">Radweb,</BodyLink> primarily working on the web application
+			<BodyLink href="https://inventorybase.co.uk/">InventoryBase.</BodyLink>
+		</p>
+		<p>
+			Now heading back to complete my final year of university to earn my BSc in Software
+			Engineering. But planning to return to <BodyLink href="https://radweb.com/">Radweb</BodyLink> after
+			graduating.
+		</p>
+		<Portfolio />
+		<Experience />
+		{
+			articles.length > 0 && (
+				<Posts>
+					<Block>
+						<div class={cn('flex justify-center')}>
+							<BodyLink href="/blog">See More Posts</BodyLink>
+						</div>
+					</Block>
+				</Posts>
+			)
+		}
+		<Stream
+			title="Dragon Cam"
+			src="https://restreamer.pseudorizer.com/c606d4af-e6be-432d-9131-2dd3aaeb8a43.html"
+			ariaLabel="Live stream of my bearded dragon"
+		>
+			<p slot="topText">
+				My beloved beardie named Mog. She may not do much, but rest assured that she is plotting to
+				overthrow the world!
+			</p>
+			<p slot="bottomText">
+				I'm using
+				<BodyLink href="https://github.com/datarhei/restreamer">restreamer</BodyLink>
+				to achieve this. Had some quirks adding cameras correctly via my domain reverse proxied through
+				nginx. Wasn't generating the player html this iframe links to. Could've been a docker problem.
+			</p>
+		</Stream>
+		<Stream
+			title="Fish Cam"
+			src="https://restreamer.pseudorizer.com/878cc751-5149-4973-a3d1-918ea034ba7e.html"
+			ariaLabel="Live stream of my fishies"
+		>
+			<p slot="topText">My fishies are here!</p>
+			<div slot="bottomText">
+				<h3 class={cn('my-2')}>List of the current fish</h3>
+				<ul class={cn('flex list-inside list-disc flex-col md:h-48 md:flex-wrap')}>
+					<li>6x Purple Emperor</li>
+					<li>5x Harlequin</li>
+					<li>4x Amano Shrimp</li>
+					<li>3x Koi Swordtail</li>
+					<li>3x Bumble Bee Guppy</li>
+					<li>3x Red Cobra Guppy</li>
+					<li>3x Red Dragon Guppy</li>
+					<li>3x Calico Endler Guppy</li>
+					<li>3x Glass Catfish</li>
+					<li>2x Yellow Tuxedo Guppy</li>
+					<li>2x Coral Red Guppy</li>
+					<li>1x Santa Swordtail</li>
+				</ul>
+			</div>
+		</Stream>
+	</div>
+</Base>

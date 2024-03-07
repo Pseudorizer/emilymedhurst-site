@@ -1,0 +1,35 @@
+---
+import { Seo, type SeoProps } from 'astro-seo-meta';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import { getImage } from 'astro:assets';
+import coverImage from '@assets/me.webp';
+
+interface Props {
+	title: string;
+	description: string;
+	seo?: SeoProps;
+}
+
+const { title, description, seo } = Astro.props;
+
+const coverImageRendered = await getImage({
+	src: coverImage,
+	format: 'jpg',
+	height: 630,
+	width: 1200
+});
+
+const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<Seo
+	{title}
+	{description}
+	twitter={{ image, card: 'summary_large_image', site: '@Pseudorizer' }}
+	facebook={{ image, url: Astro.request.url, type: 'website' }}
+	{...seo}
+/>
+<SpeedInsights />

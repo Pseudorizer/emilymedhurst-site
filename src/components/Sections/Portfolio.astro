@@ -1,0 +1,86 @@
+---
+import TablerBrandReact from 'icons:astro/tabler/brand-react';
+import TablerBrandSvelte from 'icons:astro/tabler/brand-svelte';
+import TablerBrandTailwind from 'icons:astro/tabler/brand-tailwind';
+import TablerBrandTypescript from 'icons:astro/tabler/brand-typescript';
+import TablerBrandVercel from 'icons:astro/tabler/brand-vercel';
+import TablerBrandVite from 'icons:astro/tabler/brand-vite';
+import TablerBrandAstro from 'icons:astro/tabler/brand-astro';
+import TablerBrandGithub from 'icons:astro/tabler/brand-github';
+import Section from '@components/Section.astro';
+import Block from '@components/Block.astro';
+import { createCrumb } from '@lib/utils';
+import { cn } from '@lib/cn';
+
+const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
+const reactCrumb = createCrumb(TablerBrandReact, 'react');
+const svelteCrumb = createCrumb(TablerBrandSvelte, 'svelte');
+const tailwindCrumb = createCrumb(TablerBrandTailwind, 'tailwind');
+const vercelCrumb = createCrumb(TablerBrandVercel, 'vercel');
+const viteCrumb = createCrumb(TablerBrandVite, 'vite');
+const astroCrumb = createCrumb(TablerBrandAstro, 'astro');
+const githubPagesCrumb = createCrumb(TablerBrandGithub, 'github pages');
+
+const blocks = [
+	{
+		title: 'Scrabble Coursework',
+		description:
+			'First year university coursework where I designed and created an online browser-based Scrabble game.',
+		link: 'https://github.com/MiniCheese26/scrabble-coursework',
+		tags: [reactCrumb, typescriptCrumb, 'express', 'websockets']
+	},
+	{
+		title: 'Brick Store Coursework',
+		description:
+			'Second year university coursework where I designed and created an online storefront for a Lego brick store',
+		link: 'https://github.com/MiniCheese26/brick-store-coursework',
+		tags: [typescriptCrumb, 'fastify', 'auth0', 'postgresql']
+	},
+	{
+		title: 'Company Address Tracker',
+		description: 'A prototype desktop tool I made for a local company to manage company addresses.',
+		link: 'https://github.com/MiniCheese26/company-address-tracker',
+		tags: [reactCrumb, typescriptCrumb, 'electron']
+	},
+	{
+		title: 'Basic Matrix.org Bot Library',
+		description: 'A basic library I wrote for writing basic bots for Matrix.org chats in C#.',
+		link: 'https://github.com/MiniCheese26/loc0CoreMatrixClient',
+		tags: ['C#', 'outdated']
+	},
+	{
+		title: 'This site',
+		description: 'This site is simple, accessible and comfy, I like it :)',
+		link: 'https://github.com/MiniCheese26/emilymedhurst-site',
+		tags: [svelteCrumb, typescriptCrumb, tailwindCrumb, vercelCrumb]
+	},
+	{
+		title: 'vite-plugin-svelte-entries-generator',
+		description:
+			"A vite plugin to generate SvelteKit prerender entries for paths that can't be scraped automatically",
+		link: 'https://github.com/MiniCheese26/vite-plugin-svelte-entries-generator',
+		tags: [viteCrumb, svelteCrumb, typescriptCrumb]
+	},
+	{
+		title: 'Undergraduate Dissertation (WIP)',
+		description:
+			'A cheap, fast and client-agnostic blogging platform initially designed and built for the Portsmouth Cycle Forum',
+		link: 'https://github.com/pompeybug/website/',
+		tags: [astroCrumb, typescriptCrumb, svelteCrumb, githubPagesCrumb]
+	}
+];
+
+const shouldModifyLastBlock = (index: number) => {
+	return blocks.length % 2 === 1 && index === blocks.length - 1;
+};
+---
+
+<Section title="Portfolio">
+	<div class={cn('grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2')}>
+		{
+			blocks.map((block, i) => (
+				<Block {...block} containerClasses={shouldModifyLastBlock(i) ? 'md:col-span-2' : ''} />
+			))
+		}
+	</div>
+</Section>

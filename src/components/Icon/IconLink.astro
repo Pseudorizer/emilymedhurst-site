@@ -1,0 +1,42 @@
+---
+import type { JSX } from 'astro/jsx-runtime';
+import { cn } from '@lib/cn';
+import { isSameSite } from '@lib/utils';
+
+interface Props {
+	icon: JSX.Element;
+	href: string;
+	iconSize?: string;
+	ariaLabel: string;
+	colour?: string;
+	sameSite?: boolean;
+	rel?: string;
+}
+
+let { sameSite = undefined } = Astro.props;
+const {
+	icon: Icon,
+	href,
+	ariaLabel,
+	iconSize = '1.75rem',
+	colour = 'currentColor',
+	rel = ''
+} = Astro.props;
+
+if (sameSite === undefined) {
+	sameSite = isSameSite(href);
+}
+---
+
+<a
+	{href}
+	target={sameSite ? '' : '_blank'}
+	rel={sameSite ? rel : `noreferrer noopener ${rel}`}
+	class={cn(
+		'w-min rounded-xl p-1 hover:bg-lightHighlight hover:text-lightStandout hover:dark:bg-darkHighlight hover:dark:text-darkStandout flex items-center'
+	)}
+	aria-label={ariaLabel}
+	title={ariaLabel}
+>
+	<Icon style={`font-size: ${iconSize}; color: ${colour}`} />
+</a>

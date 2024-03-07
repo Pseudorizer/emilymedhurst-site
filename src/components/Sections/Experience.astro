@@ -1,0 +1,40 @@
+---
+import TablerBrandLaravel from 'icons:astro/tabler/brand-laravel';
+import TablerBrandMysql from 'icons:astro/tabler/brand-mysql';
+import TablerBrandPhp from 'icons:astro/tabler/brand-php';
+import TablerBrandReact from 'icons:astro/tabler/brand-react';
+import TablerBrandRedux from 'icons:astro/tabler/brand-redux';
+import TablerBrandTypescript from 'icons:astro/tabler/brand-typescript';
+
+import { createCrumb } from '@lib/utils';
+import Section from '@components/Section.astro';
+import { cn } from '@lib/cn';
+import Block from '@components/Block.astro';
+
+const reactCrumb = createCrumb(TablerBrandReact, 'react');
+const phpCrumb = createCrumb(TablerBrandPhp, 'php');
+const laravelCrumb = createCrumb(TablerBrandLaravel, 'laravel');
+const mysqlCrumb = createCrumb(TablerBrandMysql, 'mysql');
+const reduxCrumb = createCrumb(TablerBrandRedux, 'redux');
+const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
+---
+
+<Section title="Experience">
+	<div class={cn('grid grid-cols-1')}>
+		<Block
+			title="Radweb"
+			description="This was my first hire! I'm currently working as a junior developer on InventoryBase. I'll write more about this in time."
+			subheading="2022-Current"
+			tags={[
+				reactCrumb,
+				phpCrumb,
+				laravelCrumb,
+				mysqlCrumb,
+				reduxCrumb,
+				typescriptCrumb,
+				'real customers'
+			]}
+			link="https://radweb.com/"
+		/>
+	</div>
+</Section>

@@ -1,0 +1,17 @@
+---
+import TablerLink from 'icons:astro/tabler/link';
+import { cn } from '@lib/cn';
+
+interface Props {
+	link: string;
+}
+
+const { link } = Astro.props;
+---
+
+<a
+	href={`#${link}`}
+	class={cn('hidden text-lightStandout hover:cursor-pointer dark:text-darkStandout')}
+>
+	<TablerLink />
+</a>

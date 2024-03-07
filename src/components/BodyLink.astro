@@ -1,0 +1,28 @@
+---
+import { cn } from '@lib/cn';
+import { isSameSite } from '@lib/utils';
+
+interface Props {
+	href: string;
+	sameSite?: boolean;
+	classes?: string;
+}
+
+let { sameSite = undefined } = Astro.props;
+const { href, classes } = Astro.props;
+
+if (sameSite === undefined) {
+	sameSite = isSameSite(href);
+}
+---
+
+<a
+	{href}
+	target={sameSite ? '' : '_blank'}
+	rel={sameSite ? '' : 'noreferrer noopener'}
+	data-astro-prefetch={sameSite}
+	class={cn(
+		'text-lightStandout underline decoration-lightStandout dark:text-darkStandout dark:decoration-darkStandout',
+		classes
+	)}><slot /></a
+>

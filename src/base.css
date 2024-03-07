@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	body {
+		@apply overflow-auto bg-light subpixel-antialiased dark:bg-dark;
+	}
+
+	h1 {
+		@apply text-4xl font-semibold;
+	}
+
+	h2 {
+		@apply text-3xl font-semibold;
+	}
+
+	h3 {
+		@apply text-2xl;
+	}
+}

@@ -1,0 +1,30 @@
+---
+import { Head } from 'astro-capo';
+import { type SeoProps } from 'astro-seo-meta';
+import { cn } from '@lib/cn';
+import BaseHead from '@components/BaseHead.astro';
+import '@fontsource-variable/jetbrains-mono';
+import '@fontsource/atkinson-hyperlegible';
+import '@src/base.css';
+import Navbar from '@components/Navbar/Navbar.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	seo?: SeoProps;
+}
+
+const { title, description, seo } = Astro.props;
+---
+
+<html class="dark" lang="en">
+	<Head>
+		<BaseHead {title} {description} {seo} />
+	</Head>
+	<body class={cn('mx-auto h-full max-w-4xl p-6 text-dark dark:text-light')}>
+		<Navbar />
+		<main class={cn('pt-4')}>
+			<slot />
+		</main>
+	</body>
+</html>

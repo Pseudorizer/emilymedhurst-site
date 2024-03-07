@@ -1,0 +1,17 @@
+---
+import { cn } from '@lib/cn';
+
+interface Props {
+	src: string;
+	alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class={cn('flex justify-center py-2')}>
+	<div class={cn('rounded-lg border-2 border-dark dark:border-light')}>
+		<video class="rounded-md" {src} controls></video>
+		<p class={cn('p-2 text-center')}>{alt}</p>
+	</div>
+</div>
