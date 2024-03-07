@@ -24,6 +24,7 @@ const { src, title, ariaLabel } = Astro.props;
 					{title}
 					aria-label={ariaLabel}
 					width="100%"
+					loading="lazy"
 					id={`${title.replace(' ', '-')}-iframe`}></iframe>
 			</div>
 			<slot name="bottomText" />
