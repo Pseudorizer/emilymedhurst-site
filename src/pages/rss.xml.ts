@@ -9,7 +9,7 @@ export const GET: APIRoute = async (context) => {
 		// `<title>` field in output xml
 		title: 'Emily Medhurst',
 		// `<description>` field in output xml
-		description: 'A humble Astronaut’s guide to the stars',
+		description: 'A trans software developer doing things',
 		// Pull in your project "site" from the endpoint context
 		// https://docs.astro.build/en/reference/api-reference/#contextsite
 		site: context.site as URL,
