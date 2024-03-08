@@ -1,10 +1,7 @@
 import rss from '@astrojs/rss';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import sanitizeHtml from 'sanitize-html';
-import MarkdownIt from 'markdown-it';
 import { isHidden } from '@lib/utils';
-const parser = new MarkdownIt();
 
 export const GET: APIRoute = async (context) => {
 	const articles = await getCollection('articles');
@@ -24,8 +21,7 @@ export const GET: APIRoute = async (context) => {
 				title: article.data.title,
 				pubDate: article.data.created,
 				description: article.data.description,
-				link: `/blog/${article.slug}`,
-				content: sanitizeHtml(parser.render(article.body))
+				link: `/blog/${article.slug}`
 			})),
 		// (optional) inject custom xml
 		customData: `<language>en-us</language>`
