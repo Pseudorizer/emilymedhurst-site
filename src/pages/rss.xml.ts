@@ -22,8 +22,6 @@ export const GET: APIRoute = async (context) => {
 				pubDate: article.data.created,
 				description: article.data.description,
 				link: `/blog/${article.slug}`
-			})),
-		// (optional) inject custom xml
-		customData: `<language>en-us</language>`
+			}))
 	});
 };
