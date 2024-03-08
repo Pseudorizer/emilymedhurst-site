@@ -21,10 +21,29 @@ const { title, description, seo } = Astro.props;
 	<Head>
 		<BaseHead {title} {description} {seo} />
 	</Head>
-	<body class={cn('mx-auto h-full max-w-4xl p-6 text-dark dark:text-light')}>
+	<body class={cn('mx-auto h-full max-w-4xl p-6 text-dark dark:text-light dark')}>
 		<Navbar />
 		<main class={cn('pt-4')}>
 			<slot />
 		</main>
+		<script is:inline>
+			const getTheme = () => {
+				if (window.localStorage.getItem('theme')) {
+					return window.localStorage.getItem('theme');
+				}
+				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+					return 'light';
+				}
+				return 'dark';
+			};
+
+			const theme = getTheme();
+
+			if (theme === 'light') {
+				document.documentElement.classList.remove('dark');
+				document.body.classList.remove('dark');
+			}
+			window.localStorage.setItem('theme', theme);
+		</script>
 	</body>
 </html>

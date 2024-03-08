@@ -14,16 +14,20 @@
 		if (root && body) {
 			icon = root.classList.toggle('dark') ? TablerSun : TablerMoon;
 			body.classList.toggle('dark');
+
+			if (root.classList.contains('dark')) {
+				window.localStorage.setItem('theme', 'dark');
+			} else {
+				window.localStorage.setItem('theme', 'light');
+			}
 		}
 	};
 
 	onMount(() => {
 		const root = document.querySelector('html');
-		const body = document.querySelector('body');
 
-		if (root && body) {
+		if (root) {
 			icon = root.classList.contains('dark') ? TablerSun : TablerMoon;
-			body.classList.toggle('dark');
 		}
 	});
 </script>
