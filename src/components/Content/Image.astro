@@ -14,21 +14,23 @@ interface Props {
 const { src, alt, description, eager, width, height } = Astro.props;
 ---
 
-<div class={cn('flex justify-center py-2')}>
-	<div class={cn('rounded-lg border-2 border-dark dark:border-light bg-light dark:bg-dark')}>
-		<!-- @ts-ignore -->
-		<Picture
-			{src}
-			{alt}
-			{width}
-			{height}
-			loading={eager ? 'eager' : 'lazy'}
-			formats={['avif', 'webp', 'jpg']}
-			pictureAttributes={{ class: cn('flex justify-center') }}
-			class={cn('rounded-t-md')}
-		/>
-		<p class={cn('p-2 text-center bg-lightHighlight dark:bg-darkHighlight rounded-b-lg')}>
-			{description ?? alt}
-		</p>
-	</div>
-</div>
+<figure
+	class={cn(
+		'flex flex-col justify-center rounded-lg border-2 border-dark dark:border-light bg-light dark:bg-dark'
+	)}
+>
+	<!-- @ts-ignore -->
+	<Picture
+		{src}
+		{alt}
+		{width}
+		{height}
+		loading={eager ? 'eager' : 'lazy'}
+		formats={['avif', 'webp', 'jpg']}
+		pictureAttributes={{ class: cn('flex justify-center') }}
+		class={cn('rounded-t-md')}
+	/>
+	<figcaption class={cn('p-2 text-center bg-lightHighlight dark:bg-darkHighlight rounded-b-lg')}>
+		{description ?? alt}
+	</figcaption>
+</figure>
