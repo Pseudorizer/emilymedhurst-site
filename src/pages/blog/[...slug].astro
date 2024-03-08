@@ -60,11 +60,23 @@ const { Content } = await article.render();
 		}
 
 		pre.astro-code {
-			@apply my-2 rounded-md border-2 border-solid border-transparent p-3 dark:border-light;
+			@apply my-2 rounded-md border-2 border-solid border-transparent p-3 text-sm dark:border-light;
 		}
 
 		:not(pre) > code {
 			@apply bg-light px-1 text-sm dark:bg-dark;
+		}
+
+		h1 > code {
+			@apply text-3xl;
+		}
+
+		h2 > code {
+			@apply text-2xl;
+		}
+
+		h3 > code {
+			@apply text-xl;
 		}
 	}
 
