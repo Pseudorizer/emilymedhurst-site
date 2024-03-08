@@ -11,6 +11,7 @@ interface Props {
 	tags?: (Tag | string)[];
 	containerClasses?: string;
 	id?: string;
+	largeHeadings?: boolean;
 }
 
 const {
@@ -20,7 +21,8 @@ const {
 	link = '',
 	tags = [],
 	containerClasses = '',
-	id
+	id,
+	largeHeadings
 } = Astro.props;
 ---
 
@@ -32,8 +34,19 @@ const {
 	{id}
 >
 	<slot />
-	{title && <h3>{link ? <BodyLink href={link}>{title}</BodyLink> : title}</h3>}
-	{subheading && <h4 class={cn('mb-1 text-xs')}>{subheading}</h4>}
+	{
+		(title || subheading) && largeHeadings ? (
+			<>
+				{title && <h1>{link ? <BodyLink href={link}>{title}</BodyLink> : title}</h1>}
+				{subheading && <h2 class={cn('mb-1 text-sm font-medium')}>{subheading}</h2>}
+			</>
+		) : (
+			<>
+				{title && <h3>{link ? <BodyLink href={link}>{title}</BodyLink> : title}</h3>}
+				{subheading && <h4 class={cn('mb-1 text-xs')}>{subheading}</h4>}
+			</>
+		)
+	}
 	{description && <p>{description}</p>}
 	{
 		tags.length > 0 && (

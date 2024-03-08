@@ -13,7 +13,7 @@ import missingString from "./missing-string.png";
 import libFolder from "./lib-folder.png";
 import jnienvReplace from "./jnienv-replace.png";
 import success from "./success.png";
-import app from "./app.jpg";
+import app from "./app.webp";
 
 import Video from "../../../components/Content/Video.astro";
 import Image from "../../../components/Content/Image.astro";
@@ -26,17 +26,17 @@ But no actually, there's no scanner on the buses here.
 So you end up just showing the driver your ticket. A ticket which has this spinning graphic with a different word on it every day and the current time, which I can only assume
 is what they're checking, as to make sure it's not just a screenshot or something.
 
-<Image src={app} alt="Example of the ticket view in the Stagecoach app" height={600} eager />
+<Image src={app} alt="Example of the ticket view in the Stagecoach app" height={700} eager />
 
 This made me curious, where were they getting this word from? Was it just some plain array in the app or retrieved from a remote server you need authentication for.
 
-## Decompiling the app
+### Decompiling the app
 
 This part is pretty easy, plenty of tools exist to do this for you. I chose to use <Link href="https://github.com/skylot/jadx">jadx</Link> as it seemed the most popular.
 
 I grabbed the apk off of an apk mirroring site and loaded it into jadx.
 
-<Image src={jadxInitial} alt="jadx successfully loading the Stagecoach apk" description="Success!" eager />
+<Image src={jadxInitial} alt="jadx successfully loading the Stagecoach apk" description="Success!" height={800} eager />
 
 But what am I even looking for? I tried searching the word for today which is `prize` but that yielded nothing. I then remembered that the ticket screen has some
 paragraph about reporting missing people, so I search for some text from that and found a resource defining strings.
@@ -72,7 +72,7 @@ new Gson().parse(this.AES.decryptJsonWithKey(new WordOfTheDayFile().getBytesArra
 
 So this is where the words come from, figure out to how to decrypt these bytes and we've got them.
 
-## The Word of the Day File
+### The Word of the Day File
 
 The `WordOfTheDayFile` class is simply a class that contains a series of static classes with a single field in each containing an array of bytes, presumably the words in json format.
 
@@ -108,7 +108,7 @@ public byte[] getBytesArray() throws IOException {
 
 This seems like a weird way of doing this, not sure if this is some weird decompilation artifact or what.
 
-## The `getGeneratedKey` Function
+### The `getGeneratedKey` Function
 
 Initially the name of this function worried me, there are so many ways this key could be generated, this might just end here. Thankfully, it didn't.
 
@@ -143,7 +143,7 @@ So, for whatever reason they're doing this "unhiding" logic within a native libr
 
 We can find the location of this native library in the `resources/lib` folder, let's dig into that.
 
-## Decompiling `ticket-ref-code.so`
+### Decompiling `ticket-ref-code.so`
 
 I'm not a C++ developer. I'm also not terribly experienced with reverse engineering decompiled C++ code. 
 So that's why I called upon my boyfriend <Link href="https://github.com/NoSharp">@nosharp</Link> who is more familiar to help me with this part.
@@ -272,7 +272,7 @@ public class AES256Cipher {
 
 At this point, we were ready to write a little python script to do this for us.
 
-## Decryption Script
+### Decryption Script
 
 ```python
 import base64

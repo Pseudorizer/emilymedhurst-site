@@ -37,6 +37,7 @@ const { Content } = await article.render();
 			title={article.data.title}
 			description={article.data.description}
 			subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
+			largeHeadings
 		/>
 		<Block tags={article.data.tags} id="article">
 			<Content />
@@ -56,7 +57,7 @@ const { Content } = await article.render();
 
 		h2,
 		h3 {
-			@apply py-3;
+			@apply py-3 text-3xl font-semibold;
 		}
 
 		pre.astro-code {
@@ -71,12 +72,9 @@ const { Content } = await article.render();
 			@apply text-3xl;
 		}
 
-		h2 > code {
-			@apply text-2xl;
-		}
-
+		h2 > code,
 		h3 > code {
-			@apply text-xl;
+			@apply text-2xl;
 		}
 	}
 
