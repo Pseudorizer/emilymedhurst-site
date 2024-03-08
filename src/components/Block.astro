@@ -59,7 +59,7 @@ const {
 					}
 
 					return typeof tag === 'string' ? (
-						<Fragment>
+						<>
 							<p
 								class={cn(
 									'rounded-2xl border-2 border-gray-600 p-1 px-2 text-sm dark:border-gray-500'
@@ -67,9 +67,9 @@ const {
 							>
 								{tag}
 							</p>
-						</Fragment>
+						</>
 					) : (
-						<Fragment>
+						<>
 							<div
 								class={cn(
 									'flex items-center gap-1 rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500'
@@ -78,7 +78,7 @@ const {
 								<Icon style="font-size: 1.25rem" />
 								<p class={cn('text-sm')}>{tag.text}</p>
 							</div>
-						</Fragment>
+						</>
 					);
 				})}
 			</div>
