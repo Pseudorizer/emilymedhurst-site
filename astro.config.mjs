@@ -5,8 +5,8 @@ import robotsTxt from 'astro-robots-txt';
 import vercel from '@astrojs/vercel/static';
 import Icons from 'unplugin-icons/vite';
 import svelte from '@astrojs/svelte';
-
 import mdx from '@astrojs/mdx';
+import critters from 'astro-critters';
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,7 +19,8 @@ export default defineConfig({
 		sitemap(),
 		robotsTxt(),
 		svelte(),
-		mdx()
+		mdx(),
+		critters()
 	],
 	prefetch: true,
 	adapter: vercel({
