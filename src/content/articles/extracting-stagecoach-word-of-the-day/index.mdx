@@ -54,7 +54,7 @@ First thing I scan through is the imports and class fields, perhaps there's some
 
 A database model called Word catches my eye.
 
-```java {2} title=com.stagecoach.stagecoachbus.views.home.ticketview.activeticketview.AbstractQrActiveTicketView.java
+```java {2} title=views.home.ticketview.activeticketview.AbstractQrActiveTicketView.java
 import com.stagecoach.core.cache.SecureUserInfoManager;
 import com.stagecoach.core.model.database.word.Word;
 import com.stagecoach.core.model.secureapi.DynamicSettingsResponse;
@@ -62,7 +62,7 @@ import com.stagecoach.core.model.secureapi.DynamicSettingsResponse;
 
 Jumping into this file reveals this is what we we're looking for, the class fields of `day`, `word` and `colour` make sense. Time to check the usages.
 
-```java title=com.stagecoach.core.model.database.word.Word.java
+```java title=model.database.word.Word.java
 public class Word {
     private String colour;
     private int day;
@@ -71,7 +71,7 @@ public class Word {
 
 One if its usages leads to a class simply named `DatabaseProvider` and gives us this critical line of code.
 
-```java title=com.stagecoach.stagecoachbus.logic.DatabaseProvider.java
+```java title=logic.DatabaseProvider.java
 new Gson().parse(this.AES.decryptJsonWithKey(new WordOfTheDayFile().getBytesArray(), this.secureUserInfoManager.getGeneratedKey())
 ```
 
@@ -81,7 +81,7 @@ So this is where the words come from, figure out to how to decrypt these bytes a
 
 The `WordOfTheDayFile` class is simply a class that contains a series of static classes with a single field in each containing an array of bytes, presumably the words in json format.
 
-```java title=com.stagecoach.core.logic.WordOfTheDayFile.java
+```java title=logic.WordOfTheDayFile.java
 public class WordOfTheDayFile {
     public final byte[] bytes = {...};
 
@@ -95,7 +95,7 @@ public class WordOfTheDayFile {
 
 With a method that writes them all into a single byte array.
 
-```java title=com.stagecoach.core.logic.WordOfTheDayFile.java
+```java title=logic.WordOfTheDayFile.java
 public byte[] getBytesArray() throws IOException {
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(27000);
     byteArrayOutputStream.write(this.bytes);
@@ -119,7 +119,7 @@ Initially the name of this function worried me, there are so many ways this key 
 
 This function calls a function called `unhide` on the class `HidingUtils`. It passes a base64 encoded string to this `unhide` function.
 
-```java title=com.stagecoach.core.cache.SecureUserInfoManager.java
+```java title=cache.SecureUserInfoManager.java
 public byte[] getGeneratedKey() {
     return new HidingUtils().unhide("<key>").getBytes();
 }
@@ -285,7 +285,7 @@ need to take the key from the `getGeneratedKey` function and the key found insid
 
 There's also the `AES256Cipher` class that's used to do the decryption, there's nothing special in here other than telling us the IV used and AES mode.
 
-```java title=com.stagecoach.core.utils.AES256Cipher.java
+```java title=utils.AES256Cipher.java
 public class AES256Cipher {
     private static final String AES_MODE = "AES/CBC/PKCS5PADDING";
     private static final String TAG = "com.stagecoach.core.utils.AES256Cipher";
