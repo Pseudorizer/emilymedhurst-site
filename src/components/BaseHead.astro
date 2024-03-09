@@ -1,6 +1,5 @@
 ---
 import { Seo, type SeoProps } from 'astro-seo-meta';
-import SpeedInsights from '@vercel/speed-insights/astro';
 import { getImage } from 'astro:assets';
 import coverImage from '@assets/me.webp';
 
@@ -38,4 +37,3 @@ const image = `${import.meta.env.SITE}${coverImageRendered.src}`;
 	facebook={{ image, url: Astro.request.url, type: 'website' }}
 	{...seo}
 />
-<SpeedInsights />

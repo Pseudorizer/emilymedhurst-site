@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
-import vercel from '@astrojs/vercel/static';
 import Icons from 'unplugin-icons/vite';
 import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
@@ -27,9 +26,6 @@ export default defineConfig({
 		critters()
 	],
 	prefetch: true,
-	adapter: vercel({
-		webAnalytics: true
-	}),
 	markdown: {
 		shikiConfig: {
 			experimentalThemes: {
@@ -39,7 +35,12 @@ export default defineConfig({
 		},
 		rehypePlugins: [
 			rehypeHeadingIds,
-			[rehypeAutolinkHeadings, { behavior: 'wrap' }],
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: 'wrap'
+				}
+			],
 			rehypeWidont,
 			rehypeSectionize
 		]
