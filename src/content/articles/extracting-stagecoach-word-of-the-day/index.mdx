@@ -19,6 +19,8 @@ import Video from "../../../components/Content/Video.astro";
 import Image from "../../../components/Content/Image.astro";
 import Link from "../../../components/BodyLink.astro";
 
+### Where This Started
+
 I rely on my cities bus services to get me around, one of which is Stagecoach. But I noticed something interesting with their ticketing system.
 When I bought a ticket via their app, it had a QR code on it, makes sense - scan that on the bus.
 
@@ -36,7 +38,7 @@ This part is pretty easy, plenty of tools exist to do this for you. I chose to u
 
 I grabbed the apk off of an apk mirroring site and loaded it into jadx.
 
-<Image src={jadxInitial} alt="jadx successfully loading the Stagecoach apk" description="Success!" height={800} eager />
+<Image src={jadxInitial} alt="jadx successfully loading the Stagecoach apk" description="Success!" height={800} />
 
 But what am I even looking for? I tried searching the word for today which is `prize` but that yielded nothing. I then remembered that the ticket screen has some
 paragraph about reporting missing people, so I search for some text from that and found a resource defining strings.

@@ -7,6 +7,10 @@ import Icons from 'unplugin-icons/vite';
 import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import critters from 'astro-critters';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import rehypeWidont from 'rehype-widont';
+import rehypeSectionize from '@hbsnow/rehype-sectionize';
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,7 +36,13 @@ export default defineConfig({
 				dark: 'catppuccin-mocha',
 				light: 'catppuccin-latte'
 			}
-		}
+		},
+		rehypePlugins: [
+			rehypeHeadingIds,
+			[rehypeAutolinkHeadings, { behavior: 'wrap' }],
+			rehypeWidont,
+			rehypeSectionize
+		]
 	},
 	vite: {
 		resolve: {
