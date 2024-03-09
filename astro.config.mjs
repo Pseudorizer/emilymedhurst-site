@@ -70,12 +70,5 @@ export default defineConfig({
 				autoInstall: true
 			})
 		]
-	},
-	output: 'hybrid',
-	adapter: cloudflare({
-		runtime: {
-			mode: 'local',
-			type: 'pages'
-		}
-	})
+	}
 });
