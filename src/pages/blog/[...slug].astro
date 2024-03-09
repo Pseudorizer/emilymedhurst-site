@@ -76,6 +76,14 @@ const { Content } = await article.render();
 		h3 > code {
 			@apply text-2xl;
 		}
+
+		ul {
+			@apply list-inside list-disc;
+		}
+
+		li {
+			@apply py-1;
+		}
 	}
 
 	html.dark .astro-code,

@@ -17,6 +17,8 @@ import Video from "../../../components/Content/Video.astro";
 import Image from "../../../components/Content/Image.astro";
 import Link from "../../../components/BodyLink.astro";
 
+### Contents
+
 For a while now, I've been using <Link href="https://github.com/Vendicated/Vencord">Vencord</Link> - a Discord client mod.
 
 It allows you to write custom plugins and load custom themes, that sort of stuff.
@@ -32,7 +34,7 @@ which uses a python library electron_inject to inject javascript into closed sou
 
 But Vencord's method of code injection into Discord was interesting to me.
 
-## How does Vencord work?
+### How does Vencord work?
 
 All electron apps have a resources folder, inside which you'll find an app.asar. This file contains the apps source code packaged into a single file. There's nothing special about these files, they're not encrypted or obfuscated, you can extract the content inside.
 Electron apps will also load an app.asar directory if extracted, it doesn't need to be bundled into the archive.
@@ -111,7 +113,7 @@ app.setAppPath(asarPath);
 require(require.main!.filename);
 ```
 
-## Opening Chrome Dev Tools on Startup
+### Opening Chrome Dev Tools on Startup
 
 Let's start with something simple, how can we trigger the dev tools on startup?
 

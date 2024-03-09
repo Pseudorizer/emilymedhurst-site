@@ -10,6 +10,9 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeWidont from 'rehype-widont';
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
+import remarkCapitalizeHeadings from 'remark-capitalize-headings';
+import a11yEmoji from '@fec/remark-a11y-emoji';
+import remarkToc from 'remark-toc';
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,6 +36,7 @@ export default defineConfig({
 				light: 'catppuccin-latte'
 			}
 		},
+		remarkPlugins: [remarkCapitalizeHeadings, a11yEmoji, remarkToc],
 		rehypePlugins: [
 			rehypeHeadingIds,
 			[
