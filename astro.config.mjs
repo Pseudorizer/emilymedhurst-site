@@ -11,6 +11,8 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeWidont from 'rehype-widont';
 import rehypeSectionize from '@hbsnow/rehype-sectionize';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://emilymedhurst.gay',
@@ -68,5 +70,12 @@ export default defineConfig({
 				autoInstall: true
 			})
 		]
-	}
+	},
+	output: 'hybrid',
+	adapter: cloudflare({
+		runtime: {
+			mode: 'local',
+			type: 'pages'
+		}
+	})
 });
