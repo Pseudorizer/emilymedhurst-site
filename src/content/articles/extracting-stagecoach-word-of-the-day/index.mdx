@@ -205,7 +205,7 @@ that told Ghidra `string` types had a function called `slice` at offset `0x458`,
 With that archive imported, we did some googling to find out how JNI functions are written in C++ and quickly found that the first argument of most functions is `JNIEnv *param_1`, effectively a pointer to a function table.
 With the GDT archive, updating the first parameters signature to `JNIEnv *` should reveal some function calls...
 
-```c++ "(*(*param_1)->GetStringUTFChars)" title=libticket-ref-code.so
+```c++ "(*(*param_1)->GetStringUTFChars)" "JNIEnv *param_1" title=libticket-ref-code.so
 void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,undefined8 param_2,jstring param_3)
 
 {
