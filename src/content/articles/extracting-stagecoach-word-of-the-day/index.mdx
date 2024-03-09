@@ -9,9 +9,7 @@ tags:
 ---
 
 import jadxInitial from "./jadx-initial.png";
-import missingString from "./missing-string.png";
 import libFolder from "./lib-folder.png";
-import jnienvReplace from "./jnienv-replace.png";
 import success from "./success.png";
 import app from "./app.webp";
 
@@ -44,7 +42,11 @@ I grabbed the apk off of an apk mirroring site and loaded it into jadx.
 But what am I even looking for? I tried searching the word for today which is `prize` but that yielded nothing. I then remembered that the ticket screen has some
 paragraph about reporting missing people, so I search for some text from that and found a resource defining strings.
 
-<Image src={missingString} alt="Resource file defining strings" />
+```xml {3} title=res/values/strings.xml
+<string name="minutes">minutes</string>
+<string name="miss">Miss</string>
+<string name="missing_people">Missing People</string>
+```
 
 With this I searched for the name of the string and found `AbstractQrActiveTicketView`, the view used for showing tickets, which is where the word of the day should be displayed.
 
@@ -52,15 +54,15 @@ First thing I scan through is the imports and class fields, perhaps there's some
 
 A database model called Word catches my eye.
 
-```java
+```java {2} title=com.stagecoach.stagecoachbus.views.home.ticketview.activeticketview.AbstractQrActiveTicketView.java
 import com.stagecoach.core.cache.SecureUserInfoManager;
-import com.stagecoach.core.model.database.word.Word; // this line here!
+import com.stagecoach.core.model.database.word.Word;
 import com.stagecoach.core.model.secureapi.DynamicSettingsResponse;
 ```
 
 Jumping into this file reveals this is what we we're looking for, the class fields of `day`, `word` and `colour` make sense. Time to check the usages.
 
-```java
+```java title=com.stagecoach.core.model.database.word.Word.java
 public class Word {
     private String colour;
     private int day;
@@ -69,7 +71,7 @@ public class Word {
 
 One if its usages leads to a class simply named `DatabaseProvider` and gives us this critical line of code.
 
-```java
+```java title=com.stagecoach.stagecoachbus.logic.DatabaseProvider.java
 new Gson().parse(this.AES.decryptJsonWithKey(new WordOfTheDayFile().getBytesArray(), this.secureUserInfoManager.getGeneratedKey())
 ```
 
@@ -79,12 +81,12 @@ So this is where the words come from, figure out to how to decrypt these bytes a
 
 The `WordOfTheDayFile` class is simply a class that contains a series of static classes with a single field in each containing an array of bytes, presumably the words in json format.
 
-```java
+```java title=com.stagecoach.core.logic.WordOfTheDayFile.java
 public class WordOfTheDayFile {
-    public final byte[] bytes = {<bytes-here>};
+    public final byte[] bytes = {...};
 
     public static class WordOfTheDayFile0 {
-        final byte[] bytes = {<bytes-here>};
+        final byte[] bytes = {...};
 
         WordOfTheDayFile0() {
         }
@@ -93,7 +95,7 @@ public class WordOfTheDayFile {
 
 With a method that writes them all into a single byte array.
 
-```java
+```java title=com.stagecoach.core.logic.WordOfTheDayFile.java
 public byte[] getBytesArray() throws IOException {
     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(27000);
     byteArrayOutputStream.write(this.bytes);
@@ -117,30 +119,30 @@ Initially the name of this function worried me, there are so many ways this key 
 
 This function calls a function called `unhide` on the class `HidingUtils`. It passes a base64 encoded string to this `unhide` function.
 
-```java
+```java title=com.stagecoach.core.cache.SecureUserInfoManager.java
 public byte[] getGeneratedKey() {
-    return new HidingUtils().unhide("<key-here>").getBytes();
+    return new HidingUtils().unhide("<key>").getBytes();
 }
 ```
 
 This `unhide` function is actually a native Java function, meaning it's using the Java Native Interface (<Link href="https://en.wikipedia.org/wiki/Java_Native_Interface">JNI</Link>) to call a shared native library.
+Which is loaded further up in the class. The native library is called `ticket-ref-code`.
 
-```java
-public native String unhide(String str);
-```
-
-Which is loaded further up in the class here. The native library is called `ticket-ref-code`.
-
-```java
+```java {10, 4-6} title=com.lagoru.jnirealm.HidingUtils.java
 public class HidingUtils {
     private static final String TAG = "HidingUtil";
 
     static {
         System.loadLibrary("ticket-ref-code");
     }
+
+    static String[] generateKeyXorParts(String str) {...}
+
+    public native String unhide(String str);
+}
 ```
 
-So, for whatever reason they're doing this "unhiding" logic within a native library, most likely c++.
+So, they're doing this "unhiding" logic within a native library, most likely c++. This is probably to make extracting these secrets harder/take more time.
 
 <Image src={libFolder} alt="The file directory tree showing the shared library location" />
 
@@ -155,7 +157,7 @@ This wouldn't of been possible without him.
 One thing I do know about C++ decompiling/reverse engineering is that <Link href="https://ghidra-sre.org/">Ghidra</Link> exists and that I should use that.
 After trekking on a journey to download JDK 17 I was ready to get going.
 
-```c++
+```c++ title=libticket-ref-code.so
 void Java_com_lagoru_jnirealm_HidingUtils_unhide(long *param_1,undefined8 param_2,undefined8 param_3)
 
 {
@@ -175,7 +177,7 @@ void Java_com_lagoru_jnirealm_HidingUtils_unhide(long *param_1,undefined8 param_
   memset(&local_138,0,0x101);
   memset(local_248,0,0x101);
   Base64Decode(uVar1,&local_138,0x100);
-  Base64Decode("<key-here>",local_248,0x100);
+  Base64Decode("...",local_248,0x100);
   memset(local_358,0,0x101);
   if (local_138 != 0) {
     uVar2 = 0;
@@ -203,13 +205,30 @@ that told Ghidra `string` types had a function called `slice` at offset `0x458`,
 With that archive imported, we did some googling to find out how JNI functions are written in C++ and quickly found that the first argument of most functions is `JNIEnv *param_1`, effectively a pointer to a function table.
 With the GDT archive, updating the first parameters signature to `JNIEnv *` should reveal some function calls...
 
-<Image src={jnienvReplace} alt="An unreadable part of the code now shows the function GetStringUTFChars being called" />
+```c++ "(*(*param_1)->GetStringUTFChars)" title=libticket-ref-code.so
+void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,undefined8 param_2,jstring param_3)
+
+{
+  char *chars;
+  ulong uVar1;
+  byte *pbVar2;
+  long in_FS_OFFSET;
+  byte local_358 [272];
+  byte local_248 [272];
+  byte local_138;
+  byte abStack_137 [263];
+  long local_30;
+  
+  pbVar2 = local_358;
+  local_30 = *(long *)(in_FS_OFFSET + 0x28);
+  chars = (*(*param_1)->GetStringUTFChars)(param_1,param_3,(jboolean *)0x0);
+```
 
 Awesome! Now we have a slightly better idea of what's going on. Though it didn't reveal anything too significant, it helps us parse out what is and isn't useful.
 
 We now went through and started naming variables to make it easier to track what's going on.
 
-```c++
+```c++ title=libticket-ref-code.so
 void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,jobject param_2,jstring input)
 
 {
@@ -229,7 +248,7 @@ void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,jobject param_2
   memset(&input_decoded,0,0x101);
   memset(key_decoded,0,0x101);
   Base64Decode(chars,&input_decoded,0x100);
-  Base64Decode("<key-here>",key_decoded,0x100);
+  Base64Decode("...",key_decoded,0x100);
   memset(final_string,0,0x101);
   if (input_decoded != 0) {
     counter = 0;
@@ -248,7 +267,7 @@ void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,jobject param_2
 
 I'm sure most of us can figure out what's happening here, the only part we really had to take a second to understand was:
 
-```c++
+```c++ title=libticket-ref-code.so
 memset(final_string,0,0x101);
 if (input_decoded != 0) {
   counter = 0;
@@ -266,7 +285,7 @@ need to take the key from the `getGeneratedKey` function and the key found insid
 
 There's also the `AES256Cipher` class that's used to do the decryption, there's nothing special in here other than telling us the IV used and AES mode.
 
-```java
+```java title=com.stagecoach.core.utils.AES256Cipher.java
 public class AES256Cipher {
     private static final String AES_MODE = "AES/CBC/PKCS5PADDING";
     private static final String TAG = "com.stagecoach.core.utils.AES256Cipher";
@@ -277,7 +296,7 @@ At this point, we were ready to write a little python script to do this for us.
 
 ### Decryption Script
 
-```python
+```python title=decryption.python
 import base64
 from Crypto.Util.Padding import unpad
 from cryptography.hazmat.primitives.ciphers import Cipher
@@ -290,7 +309,7 @@ encrypted_bytes = bytes([byte % 256 for byte in encrypted_bytes_list])
 
 iv = bytes([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
-private_key = base64.b64decode('<key-from-ref-ticket-lib>')
+private_key = base64.b64decode('<key-from-ticket-ref-lib>')
 other_key = base64.b64decode('<key-from-get-generated-key-function>')
 
 key = bytes(a ^ b for a, b in zip(private_key, other_key))

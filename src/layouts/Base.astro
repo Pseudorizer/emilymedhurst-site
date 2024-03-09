@@ -17,7 +17,7 @@ interface Props {
 const { title, description, seo } = Astro.props;
 ---
 
-<html class="dark" lang="en">
+<html class="dark" data-theme="catppuccin-mocha" lang="en">
 	<Head>
 		<BaseHead {title} {description} {seo} />
 	</Head>
@@ -41,6 +41,7 @@ const { title, description, seo } = Astro.props;
 
 			if (theme === 'light') {
 				document.documentElement.classList.remove('dark');
+				document.documentElement.dataset.theme = 'catppuccin-latte';
 				document.body.classList.remove('dark');
 			}
 			window.localStorage.setItem('theme', theme);

@@ -16,8 +16,10 @@
 			body.classList.toggle('dark');
 
 			if (root.classList.contains('dark')) {
+				root.dataset.theme = 'catppuccin-mocha';
 				window.localStorage.setItem('theme', 'dark');
 			} else {
+				root.dataset.theme = 'catppuccin-latte';
 				window.localStorage.setItem('theme', 'light');
 			}
 		}

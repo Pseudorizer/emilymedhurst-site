@@ -60,8 +60,9 @@ const { Content } = await article.render();
 			@apply py-3 text-3xl font-semibold;
 		}
 
-		pre.astro-code {
-			@apply my-2 rounded-md border-2 border-solid border-transparent p-3 text-sm dark:border-light;
+		figure,
+		.expressive-code {
+			@apply my-2;
 		}
 
 		:not(pre) > code {
@@ -72,8 +73,8 @@ const { Content } = await article.render();
 			@apply text-3xl;
 		}
 
-		h2 > code,
-		h3 > code {
+		h2 code,
+		h3 code {
 			@apply text-2xl;
 		}
 
@@ -84,15 +85,5 @@ const { Content } = await article.render();
 		li {
 			@apply py-1;
 		}
-	}
-
-	html.dark .astro-code,
-	html.dark .astro-code span {
-		color: var(--shiki-dark) !important;
-		background-color: var(--shiki-dark-bg) !important;
-		/* Optional, if you also want font styles */
-		font-style: var(--shiki-dark-font-style) !important;
-		font-weight: var(--shiki-dark-font-weight) !important;
-		text-decoration: var(--shiki-dark-text-decoration) !important;
 	}
 </style>

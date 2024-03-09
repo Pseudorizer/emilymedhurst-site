@@ -13,6 +13,9 @@ import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 import a11yEmoji from '@fec/remark-a11y-emoji';
 import remarkToc from 'remark-toc';
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+
+import expressiveCode from 'astro-expressive-code';
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,17 +28,15 @@ export default defineConfig({
 		sitemap(),
 		robotsTxt(),
 		svelte(),
+		expressiveCode({
+			plugins: [pluginLineNumbers()],
+			themes: ['catppuccin-mocha', 'catppuccin-latte']
+		}),
 		mdx(),
 		critters()
 	],
 	prefetch: true,
 	markdown: {
-		shikiConfig: {
-			experimentalThemes: {
-				dark: 'catppuccin-mocha',
-				light: 'catppuccin-latte'
-			}
-		},
 		remarkPlugins: [remarkCapitalizeHeadings, a11yEmoji, remarkToc],
 		rehypePlugins: [
 			rehypeHeadingIds,
