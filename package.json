@@ -47,6 +47,7 @@
     "prettier-plugin-tailwindcss": "^0.5.12",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-widont": "^0.1.1",
+    "sharp": "^0.33.2",
     "svelte": "^4.2.12",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
