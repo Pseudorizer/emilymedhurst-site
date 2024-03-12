@@ -60,13 +60,13 @@ const {
 
 					return typeof tag === 'string' ? (
 						<>
-							<p
+							<div
 								class={cn(
-									'rounded-2xl border-2 border-gray-600 p-1 px-2 text-sm dark:border-gray-500'
+									'flex items-center rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500 '
 								)}
 							>
-								{tag}
-							</p>
+								<p class={cn('text-sm')}>{tag}</p>
+							</div>
 						</>
 					) : (
 						<>
