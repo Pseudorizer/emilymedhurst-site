@@ -18,7 +18,7 @@ const coverImageRendered = await getImage({
 	width: 1200
 });
 
-const image = `${Astro.site}${coverImageRendered.src}`;
+const image = `${Astro.site}${coverImageRendered.src.slice(1)}`;
 ---
 
 <meta charset="UTF-8" />
