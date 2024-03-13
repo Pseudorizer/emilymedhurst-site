@@ -46,7 +46,6 @@ export const GET: APIRoute<Props> = async ({ props }) => {
 					height: '100%',
 					display: 'flex',
 					flexDirection: 'column',
-					fontWeight: '700',
 					position: 'relative'
 				}
 			}
@@ -58,7 +57,7 @@ export const GET: APIRoute<Props> = async ({ props }) => {
 				{
 					name: 'Atkinson Hyperlegible',
 					data: fontBuffer,
-					weight: 400,
+					weight: 700,
 					style: 'normal'
 				}
 			]
