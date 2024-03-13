@@ -1,6 +1,7 @@
 ---
 import { Head } from 'astro-capo';
-import { type SeoProps } from 'astro-seo-meta';
+import { type Props as SeoProps } from 'astro-seo';
+import type { CollectionEntry } from 'astro:content';
 import { cn } from '@lib/cn';
 import BaseHead from '@components/BaseHead.astro';
 import '@fontsource-variable/jetbrains-mono';
@@ -11,15 +12,16 @@ import Navbar from '@components/Navbar/Navbar.astro';
 interface Props {
 	title: string;
 	description: string;
+	article?: CollectionEntry<'articles'>;
 	seo?: SeoProps;
 }
 
-const { title, description, seo } = Astro.props;
+const { title, description, seo, article } = Astro.props;
 ---
 
 <html class="dark" data-theme="catppuccin-mocha" lang="en">
 	<Head>
-		<BaseHead {title} {description} {seo} />
+		<BaseHead {title} {description} {seo} {article} />
 	</Head>
 	<body class={cn('mx-auto h-full max-w-4xl p-6 text-dark dark:text-light dark')}>
 		<Navbar />

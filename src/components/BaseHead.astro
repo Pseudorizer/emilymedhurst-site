@@ -1,24 +1,36 @@
 ---
-import { Seo, type SeoProps } from 'astro-seo-meta';
+import { SEO, type Props as SeoProps } from 'astro-seo';
 import { getImage } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
 import coverImage from '@assets/me.webp';
 
 interface Props {
 	title: string;
 	description: string;
+	article?: CollectionEntry<'articles'>;
 	seo?: SeoProps;
 }
 
-const { title, description, seo } = Astro.props;
+const { title, description, seo, article } = Astro.props;
 
-const coverImageRendered = await getImage({
-	src: coverImage,
-	format: 'jpg',
-	height: 630,
-	width: 1200
-});
+const getCoverImage = async () => {
+	if (article) {
+		return `og/${article.slug}.png`;
+	} else {
+		const coverImageRendered = await getImage({
+			src: coverImage,
+			format: 'jpg',
+			height: 630,
+			width: 1200
+		});
 
-const image = `${Astro.site}${coverImageRendered.src.slice(1)}`;
+		return coverImageRendered.src.slice(1);
+	}
+};
+
+const coverImageUrl = await getCoverImage();
+
+const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${coverImageUrl}`;
 ---
 
 <meta charset="UTF-8" />
@@ -31,10 +43,33 @@ const image = `${Astro.site}${coverImageRendered.src.slice(1)}`;
 	title="Your Site's Title"
 	href={`${Astro.site}rss.xml`}
 />
-<Seo
+<SEO
+	{title}
+	{description}
+	charset="UTF-8"
+	openGraph={{
+		basic: { title, type: article ? 'article' : 'website', image },
+		optional: { description, siteName: 'emilymedhurst' },
+		image: { type: 'image/png', height: 630, width: 1200, alt: title },
+		article: {
+			publishedTime: article?.data.created.toISOString(),
+			tags: article?.data.tags
+		}
+	}}
+	twitter={{
+		card: 'summary_large_image',
+		site: '@Pseudorizer',
+		creator: '@Pseudorizer',
+		image,
+		imageAlt: title,
+		description
+	}}
+	{...seo}
+/>
+<!-- <Seo
 	{title}
 	{description}
 	twitter={{ image, card: 'summary_large_image', site: '@Pseudorizer' }}
 	facebook={{ image, url: Astro.request.url, type: 'website' }}
 	{...seo}
-/>
+/> -->

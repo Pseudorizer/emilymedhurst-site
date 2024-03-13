@@ -1,7 +1,8 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import dayjs from 'dayjs';
 import AdvancedFormat from 'dayjs/plugin/advancedFormat';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '@layouts/Base.astro';
 import { cn } from '@lib/cn';
 import Block from '@components/Block.astro';
@@ -9,7 +10,7 @@ import BodyLink from '@components/BodyLink.astro';
 import { isHidden } from '@lib/utils';
 dayjs.extend(AdvancedFormat);
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
 	const articles = await getCollection('articles');
 	return articles
 		.filter((article) => !isHidden(article))
@@ -17,18 +18,15 @@ export async function getStaticPaths() {
 			params: { slug: article.slug },
 			props: article
 		}));
-}
-type Props = CollectionEntry<'articles'>;
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const article = Astro.props;
 const { Content } = await article.render();
 ---
 
-<Base
-	title={article.data.title}
-	description={article.data.description}
-	seo={{ keywords: article.data.tags, facebook: { type: 'article' } }}
->
+<Base title={article.data.title} description={article.data.description} {article}>
 	<article class={cn('flex flex-col gap-2')}>
 		<Block>
 			<BodyLink href="/blog" classes="text-lg">My Other Posts</BodyLink>
