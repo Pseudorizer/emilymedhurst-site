@@ -51,6 +51,7 @@
     "rehype-widont": "^0.1.1",
     "remark-capitalize-headings": "^2.0.1",
     "remark-toc": "^9.0.0",
+    "satori": "^0.10.13",
     "sharp": "^0.33.2",
     "svelte": "^4.2.12",
     "tailwind-merge": "^2.2.1",
