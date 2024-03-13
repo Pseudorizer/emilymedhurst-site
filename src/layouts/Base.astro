@@ -28,25 +28,27 @@ const { title, description, seo, article } = Astro.props;
 		<main class={cn('pt-4')}>
 			<slot />
 		</main>
-		<script is:inline>
-			const getTheme = () => {
-				if (window.localStorage.getItem('theme')) {
-					return window.localStorage.getItem('theme');
-				}
-				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-					return 'light';
-				}
-				return 'dark';
-			};
-
-			const theme = getTheme();
-
-			if (theme === 'light') {
-				document.documentElement.classList.remove('dark');
-				document.documentElement.dataset.theme = 'catppuccin-latte';
-				document.body.classList.remove('dark');
+	</body><script>
+		const getTheme = () => {
+			if (window.localStorage.getItem('theme')) {
+				return window.localStorage.getItem('theme');
 			}
+			if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+				return 'light';
+			}
+			return 'dark';
+		};
+
+		const theme = getTheme();
+
+		if (theme === 'light') {
+			document.documentElement.classList.remove('dark');
+			document.documentElement.dataset.theme = 'catppuccin-latte';
+			document.body.classList.remove('dark');
+		}
+
+		if (theme) {
 			window.localStorage.setItem('theme', theme);
-		</script>
-	</body>
+		}
+	</script>
 </html>
