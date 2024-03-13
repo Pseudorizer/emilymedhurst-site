@@ -1,13 +1,13 @@
 ---
-import TablerBrandGithub from 'icons:astro/tabler/brand-github';
-import TablerBrandTwitter from 'icons:astro/tabler/brand-twitter';
-import TablerBrandLinkedin from 'icons:astro/tabler/brand-linkedin';
-import TablerBrandMastodon from 'icons:astro/tabler/brand-mastodon';
-import TablerBrandDiscord from 'icons:astro/tabler/brand-discord';
-import TablerBrandSpotify from 'icons:astro/tabler/brand-spotify';
-import TablerBrandLastfm from 'icons:astro/tabler/brand-lastfm';
-import TablerBrandBluesky from 'icons:astro/tabler/brand-bluesky';
-import ThemeToggle from './ThemeToggle.svelte';
+import TablerBrandGithub from '~icons/tabler/brand-github';
+import TablerBrandTwitter from '~icons/tabler/brand-twitter';
+import TablerBrandLinkedin from '~icons/tabler/brand-linkedin';
+import TablerBrandMastodon from '~icons/tabler/brand-mastodon';
+import TablerBrandDiscord from '~icons/tabler/brand-discord';
+import TablerBrandSpotify from '~icons/tabler/brand-spotify';
+import TablerBrandLastfm from '~icons/tabler/brand-lastfm';
+import TablerBrandBluesky from '~icons/tabler/brand-bluesky';
+import ThemeToggle from './ThemeToggle.astro';
 import IconLink from '@components/Icon/IconLink.astro';
 import { cn } from '@lib/cn';
 ---
@@ -16,7 +16,7 @@ import { cn } from '@lib/cn';
 	<div class={cn('mt-1 flex flex-col md:mt-0 md:flex-row')}>
 		<div class={cn('flex items-center justify-start gap-2')}>
 			<a href="/"><h1>Emily Medhurst</h1></a>
-			<ThemeToggle client:load />
+			<ThemeToggle />
 		</div>
 		<div class={cn('flex gap-2 overflow-x-auto md:ml-auto md:gap-3')}>
 			<IconLink

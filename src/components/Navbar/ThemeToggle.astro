@@ -1,0 +1,61 @@
+---
+import TablerMoon from '~icons/tabler/moon';
+import TablerSun from '~icons/tabler/sun';
+import { cn } from '@lib/cn';
+---
+
+<button
+	id="theme-toggle"
+	class={cn('rounded-xl p-1 hover:bg-lightHighlight hover:dark:bg-darkHighlight')}
+	aria-label="theme"
+>
+	<TablerMoon id="moon-icon" class="text-[2.25rem] md:text-[2rem]" data-hide="true" />
+	<TablerSun id="sun-icon" class="text-[2.25rem] md:text-[2rem]" data-hide="true" />
+</button>
+
+<style>
+	svg[data-hide='true'] {
+		display: none;
+	}
+</style>
+
+<script>
+	const root = document.querySelector<HTMLElement>('html');
+	const body = document.querySelector<HTMLBodyElement>('body');
+	const sunIcon = document.querySelector<SVGElement>('#sun-icon');
+	const moonIcon = document.querySelector<SVGElement>('#moon-icon');
+	const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+
+	if (root && sunIcon && moonIcon) {
+		const isDarkMode = root.classList.contains('dark');
+
+		if (isDarkMode) {
+			sunIcon.dataset.hide = 'false';
+			moonIcon.dataset.hide = 'true';
+		} else {
+			moonIcon.dataset.hide = 'false';
+			sunIcon.dataset.hide = 'true';
+		}
+	}
+
+	if (themeToggle) {
+		themeToggle.addEventListener('click', () => {
+			if (root && body && sunIcon && moonIcon) {
+				const isDarkMode = root.classList.toggle('dark');
+				body.classList.toggle('dark');
+
+				if (isDarkMode) {
+					sunIcon.dataset.hide = 'false';
+					moonIcon.dataset.hide = 'true';
+					root.dataset.theme = 'catppuccin-mocha';
+					window.localStorage.setItem('theme', 'dark');
+				} else {
+					moonIcon.dataset.hide = 'false';
+					sunIcon.dataset.hide = 'true';
+					root.dataset.theme = 'catppuccin-latte';
+					window.localStorage.setItem('theme', 'light');
+				}
+			}
+		});
+	}
+</script>

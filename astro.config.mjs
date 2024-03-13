@@ -3,7 +3,6 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import Icons from 'unplugin-icons/vite';
-import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import critters from 'astro-critters';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -27,7 +26,6 @@ export default defineConfig({
 		}),
 		sitemap(),
 		robotsTxt(),
-		svelte(),
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
 			themes: ['catppuccin-mocha', 'catppuccin-latte']
@@ -51,23 +49,7 @@ export default defineConfig({
 		]
 	},
 	vite: {
-		resolve: {
-			alias: [
-				{
-					find: 'icons:svelte',
-					replacement: '~icons'
-				},
-				{
-					find: 'icons:astro',
-					replacement: '~icons'
-				}
-			]
-		},
 		plugins: [
-			Icons({
-				compiler: 'svelte',
-				autoInstall: true
-			}),
 			Icons({
 				compiler: 'astro',
 				autoInstall: true

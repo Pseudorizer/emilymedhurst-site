@@ -12,9 +12,7 @@ module.exports = {
 		'plugin:astro/jsx-a11y-recommended',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
-		'prettier',
-		'plugin:svelte/recommended',
-		'plugin:svelte/prettier'
+		'prettier'
 	],
 	settings: {
 		'import/resolver': {
@@ -54,14 +52,6 @@ module.exports = {
 					{ argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' }
 				],
 				'@typescript-eslint/no-non-null-assertion': 'off'
-			}
-		},
-		{
-			files: ['*.svelte'],
-			parser: 'svelte-eslint-parser',
-			parserOptions: {
-				parser: '@typescript-eslint/parser',
-				extraFileExtensions: ['.svelte']
 			}
 		}
 		// ...
