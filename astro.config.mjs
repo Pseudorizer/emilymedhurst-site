@@ -30,7 +30,9 @@ export default defineConfig({
 			plugins: [pluginLineNumbers()],
 			themes: ['catppuccin-mocha', 'catppuccin-latte']
 		}),
-		mdx(),
+		mdx({
+			optimize: true
+		}),
 		critters()
 	],
 	prefetch: true,

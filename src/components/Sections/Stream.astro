@@ -32,7 +32,7 @@ const { src, title, ariaLabel } = Astro.props;
 	</Block>
 </Section>
 
-<script is:inline define:vars={{ title }}>
+<script defer is:inline define:vars={{ title }}>
 	const iframe = document.querySelector(`#${title.replace(' ', '-')}-iframe`);
 
 	const reSize = () => {

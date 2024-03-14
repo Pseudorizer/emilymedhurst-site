@@ -19,12 +19,12 @@ import { cn } from '@lib/cn';
 	}
 </style>
 
-<script>
-	const root = document.querySelector<HTMLElement>('html');
-	const body = document.querySelector<HTMLBodyElement>('body');
-	const sunIcon = document.querySelector<SVGElement>('#sun-icon');
-	const moonIcon = document.querySelector<SVGElement>('#moon-icon');
-	const themeToggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+<script defer is:inline>
+	const root = document.querySelector('html');
+	const body = document.querySelector('body');
+	const sunIcon = document.querySelector('#sun-icon');
+	const moonIcon = document.querySelector('#moon-icon');
+	const themeToggle = document.querySelector('#theme-toggle');
 
 	if (root && sunIcon && moonIcon) {
 		const isDarkMode = root.classList.contains('dark');
