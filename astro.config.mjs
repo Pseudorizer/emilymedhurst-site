@@ -13,6 +13,7 @@ import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 import a11yEmoji from '@fec/remark-a11y-emoji';
 import remarkToc from 'remark-toc';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
 
 import expressiveCode from 'astro-expressive-code';
 
@@ -27,7 +28,7 @@ export default defineConfig({
 		sitemap(),
 		robotsTxt(),
 		expressiveCode({
-			plugins: [pluginLineNumbers()],
+			plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
 			themes: ['catppuccin-mocha', 'catppuccin-latte']
 		}),
 		mdx({
