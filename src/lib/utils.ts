@@ -1,6 +1,6 @@
 import type { JSX } from 'astro/jsx-runtime';
-import type { Tag } from './types';
 import type { CollectionEntry } from 'astro:content';
+import type { Tag } from './types';
 
 export const isSameSite = (href: string) => !href.startsWith('http');
 
