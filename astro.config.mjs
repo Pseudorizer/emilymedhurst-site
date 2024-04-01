@@ -26,7 +26,9 @@ export default defineConfig({
 			applyBaseStyles: false
 		}),
 		sitemap(),
-		robotsTxt(),
+		robotsTxt({
+			sitemap: ['https://emilymedhurst.gay/sitemap-index.xml']
+		}),
 		expressiveCode({
 			plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
 			themes: ['catppuccin-mocha', 'catppuccin-latte']
