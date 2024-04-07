@@ -27,19 +27,25 @@ const { Content } = await article.render();
 ---
 
 <Base title={article.data.title} description={article.data.description} {article}>
-	<article class={cn('flex flex-col gap-2')}>
-		<Block>
-			<BodyLink href="/blog" classes="text-lg">My Other Posts</BodyLink>
-		</Block>
-		<Block
-			title={article.data.title}
-			description={article.data.description}
-			subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
-			largeHeadings
-		/>
-		<Block tags={article.data.tags} id="article">
-			<Content />
-		</Block>
+	<article title={article.data.title} class={cn('flex flex-col gap-2')}>
+		<nav class={cn('contents')}>
+			<Block>
+				<BodyLink href="/blog" class="text-lg">My Other Posts</BodyLink>
+			</Block>
+		</nav>
+		<hgroup class={cn('contents')}>
+			<Block
+				title={article.data.title}
+				description={article.data.description}
+				subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
+				largeHeadings
+			/>
+		</hgroup>
+		<main class={cn('contents')}>
+			<Block tags={article.data.tags} id="article">
+				<Content />
+			</Block>
+		</main>
 	</article>
 </Base>
 

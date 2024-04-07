@@ -14,7 +14,6 @@ import a11yEmoji from '@fec/remark-a11y-emoji';
 import remarkToc from 'remark-toc';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
-
 import expressiveCode from 'astro-expressive-code';
 
 // https://astro.build/config

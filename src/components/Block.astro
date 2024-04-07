@@ -9,7 +9,7 @@ interface Props {
 	description?: string;
 	link?: string;
 	tags?: (Tag | string)[];
-	containerClasses?: string;
+	class?: string;
 	id?: string;
 	largeHeadings?: boolean;
 }
@@ -20,17 +20,14 @@ const {
 	description = '',
 	link = '',
 	tags = [],
-	containerClasses = '',
+	class: className = '',
 	id,
 	largeHeadings
 } = Astro.props;
 ---
 
-<div
-	class={cn(
-		'flex flex-col rounded-xl bg-lightHighlight p-2 dark:bg-darkHighlight',
-		containerClasses
-	)}
+<section
+	class={cn('flex flex-col rounded-xl bg-lightHighlight p-2 dark:bg-darkHighlight', className)}
 	{id}
 >
 	<slot />
@@ -50,7 +47,7 @@ const {
 	{description && <p>{description}</p>}
 	{
 		tags.length > 0 && (
-			<div class={cn('mt-2.5 flex flex-wrap gap-x-1 gap-y-2')}>
+			<footer class={cn('mt-2.5 flex flex-wrap gap-x-1 gap-y-2')}>
 				{tags.map((tag) => {
 					let Icon;
 
@@ -81,7 +78,7 @@ const {
 						</>
 					);
 				})}
-			</div>
+			</footer>
 		)
 	}
-</div>
+</section>

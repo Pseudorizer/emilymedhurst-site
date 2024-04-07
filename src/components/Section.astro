@@ -1,6 +1,6 @@
 ---
 import slugify from '@sindresorhus/slugify';
-import FragmentLink from './FragmentLink.astro';
+import BodyLink from '@components/BodyLink.astro';
 import { cn } from '@lib/cn';
 
 interface Props {
@@ -13,9 +13,8 @@ const slug = slugify(title);
 ---
 
 <section class={cn('flex flex-col gap-2')}>
-	<div class={cn('flex items-center gap-2 [&>a]:hover:block')}>
-		<h2 id={slug}>{title}</h2>
-		<FragmentLink link={slug} />
-	</div>
-	<slot />
+	<h2 id={slug}><BodyLink href={`#${slug}`} class="no-underline">{title}</BodyLink></h2>
+	<main class={cn('contents')}>
+		<slot />
+	</main>
 </section>

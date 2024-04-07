@@ -5,11 +5,11 @@ import { isSameSite } from '@lib/utils';
 interface Props {
 	href: string;
 	sameSite?: boolean;
-	classes?: string;
+	class?: string;
 }
 
 let { sameSite = undefined } = Astro.props;
-const { href, classes } = Astro.props;
+const { href, class: className } = Astro.props;
 
 if (sameSite === undefined) {
 	sameSite = isSameSite(href);
@@ -23,6 +23,6 @@ if (sameSite === undefined) {
 	data-astro-prefetch={sameSite}
 	class={cn(
 		'text-lightStandout underline decoration-lightStandout dark:text-darkStandout dark:decoration-darkStandout',
-		classes
+		className
 	)}><slot /></a
 >
