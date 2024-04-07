@@ -43,6 +43,7 @@ const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${c
 	title="Your Site's Title"
 	href={`${Astro.site}rss.xml`}
 />
+<link rel="sitemap" href="/sitemap-index.xml" />
 <SEO
 	{title}
 	{description}
