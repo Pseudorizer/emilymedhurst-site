@@ -37,6 +37,13 @@ export default defineConfig({
 		}),
 		critters()
 	],
+	server: {
+		headers: {
+			'x-frame-options': 'SAMEORIGIN',
+			'content-security-policy':
+				"frame-src 'self' https://restreamer.pseudorizer.com/; object-src 'none'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self'; default-src 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+		}
+	},
 	prefetch: true,
 	markdown: {
 		remarkPlugins: [remarkCapitalizeHeadings, a11yEmoji, remarkToc],
