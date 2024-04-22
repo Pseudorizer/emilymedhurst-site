@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import Icons from 'unplugin-icons/vite';
 import mdx from '@astrojs/mdx';
-import critters from 'astro-critters';
+import critters from '@playform/inline';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeWidont from 'rehype-widont';

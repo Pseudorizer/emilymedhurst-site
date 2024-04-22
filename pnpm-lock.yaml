@@ -47,6 +47,9 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.1.110
         version: 1.1.110
+      '@playform/inline':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@sindresorhus/slugify':
         specifier: ^2.2.1
         version: 2.2.1
@@ -62,9 +65,6 @@ importers:
       astro-capo:
         specifier: ^0.0.1
         version: 0.0.1(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))
-      astro-critters:
-        specifier: ^2.1.6
-        version: 2.1.6
       astro-expressive-code:
         specifier: ^0.35.2
         version: 0.35.2(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))
@@ -744,6 +744,12 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@playform/inline@0.0.2':
+    resolution: {integrity: sha512-2+h7t4mydMVJjP+U8PZhFz7iUlCqf/oGZX/Y5hUO72WeP6YD76MxkRSMCLJjXbqQkIQ2e5N3irbhz0JKKzMBTQ==}
+
+  '@playform/pipe@0.0.2':
+    resolution: {integrity: sha512-1LJADjJVxUDIfpp5vkIup7vuxsZllWPYYbZO7gLN1CUcOFIekYSi1uxptkrYWBDRW/usiAyUdpd3gSKisED/sQ==}
+
   '@rollup/rollup-android-arm-eabi@4.13.0':
     resolution: {integrity: sha512-5ZYPOuaAqEH/W3gYsRkxQATBW3Ii1MfaT4EQstTnLKViLi2gLSQmlmtTpGucNP3sXEpOiI5tdGhjdE111ekyEg==}
     cpu: [arm]
@@ -890,6 +896,9 @@ packages:
 
   '@types/node@20.11.30':
     resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}
+
+  '@types/node@20.12.4':
+    resolution: {integrity: sha512-E+Fa9z3wSQpzgYQdYmme5X3OTuejnnTx88A6p6vkkJosR3KBz+HpE3kqNm98VE6cfLFcISx7zW7MsJkH6KwbTw==}
 
   '@types/parse5@6.0.3':
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -1137,9 +1146,6 @@ packages:
     resolution: {integrity: sha512-KyQD1mzgEQnbqrKpYdoIZMAYejkOcIJocdGuQBH9Yzr4KqGzIR8P2DDNbV/FQXaSyq900lCZwWJH45tBIQCG8w==}
     peerDependencies:
       astro: '>= 2.8'
-
-  astro-critters@2.1.6:
-    resolution: {integrity: sha512-LwTTXeAsmbJXsotQQyimFiswhQKuV+qSNesHjv/AqMQAcHw9F/6ysGfyK0NnDAsEFPvFYENx3/pzgG2plBZPtw==}
 
   astro-eslint-parser@0.17.0:
     resolution: {integrity: sha512-yTgzioUI9MKgBF4LxP7YI+uuZLrnXgHDeW4dpa3VqCNbDmPzL7ix93tc0JJIwWGcskoSAAHZZVaBSp8bHyZZZA==}
@@ -1878,9 +1884,6 @@ packages:
   filename-reserved-regex@3.0.0:
     resolution: {integrity: sha512-hn4cQfU6GOT/7cFHXBqeBg2TbrMBgdD0kcjLhvSQYYwm3s4B6cjvBfb7nBALJLAXqmU5xajSa7X2NnUud/VCdw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
-  files-pipe@2.1.15:
-    resolution: {integrity: sha512-HYPXV6nh/H3U0WUDErZMVUoUJh15XDe5/rFwHWZXU5wIyCbCkA7UAuhLySs7sua3MRuwILuwZLDnQtXhaibNeg==}
 
   fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
@@ -4817,6 +4820,17 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
+  '@playform/inline@0.0.2':
+    dependencies:
+      '@playform/pipe': 0.0.2
+      critters: 0.0.22
+
+  '@playform/pipe@0.0.2':
+    dependencies:
+      '@types/node': 20.12.4
+      deepmerge-ts: 5.1.0
+      fast-glob: 3.3.2
+
   '@rollup/rollup-android-arm-eabi@4.13.0':
     optional: true
 
@@ -4946,6 +4960,10 @@ snapshots:
   '@types/node@17.0.45': {}
 
   '@types/node@20.11.30':
+    dependencies:
+      undici-types: 5.26.5
+
+  '@types/node@20.12.4':
     dependencies:
       undici-types: 5.26.5
 
@@ -5261,11 +5279,6 @@ snapshots:
     dependencies:
       astro: 4.6.3(@types/node@20.11.30)(typescript@5.4.5)
       ultrahtml: 1.5.3
-
-  astro-critters@2.1.6:
-    dependencies:
-      critters: 0.0.22
-      files-pipe: 2.1.15
 
   astro-eslint-parser@0.17.0(typescript@5.4.5):
     dependencies:
@@ -6289,12 +6302,6 @@ snapshots:
       flat-cache: 3.2.0
 
   filename-reserved-regex@3.0.0: {}
-
-  files-pipe@2.1.15:
-    dependencies:
-      '@types/node': 20.11.30
-      deepmerge-ts: 5.1.0
-      fast-glob: 3.3.2
 
   fill-range@7.0.1:
     dependencies:
