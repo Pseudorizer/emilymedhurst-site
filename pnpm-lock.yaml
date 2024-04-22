@@ -16,31 +16,31 @@ importers:
         version: 5.1.0
       '@astrojs/mdx':
         specifier: ^2.3.1
-        version: 2.3.1(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5))
+        version: 2.3.1(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))
       '@astrojs/rss':
         specifier: ^4.0.5
         version: 4.0.5
       '@astrojs/sitemap':
-        specifier: ^3.1.3
-        version: 3.1.3
+        specifier: ^3.1.4
+        version: 3.1.4
       '@astrojs/tailwind':
         specifier: ^5.1.0
-        version: 5.1.0(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5))(tailwindcss@3.4.3)
+        version: 5.1.0(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))(tailwindcss@3.4.3)
       '@expressive-code/plugin-collapsible-sections':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.35.2
+        version: 0.35.2
       '@expressive-code/plugin-line-numbers':
-        specifier: ^0.35.0
-        version: 0.35.0
+        specifier: ^0.35.2
+        version: 0.35.2
       '@fec/remark-a11y-emoji':
         specifier: ^4.0.2
         version: 4.0.2
       '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.0.21
+        version: 5.0.21
+      '@fontsource/atkinson-hyperlegible':
         specifier: ^5.0.20
         version: 5.0.20
-      '@fontsource/atkinson-hyperlegible':
-        specifier: ^5.0.19
-        version: 5.0.19
       '@hbsnow/rehype-sectionize':
         specifier: ^1.0.7
         version: 1.0.7
@@ -57,17 +57,17 @@ importers:
         specifier: ^7.7.0
         version: 7.7.0(eslint@8.57.0)(typescript@5.4.5)
       astro:
-        specifier: ^4.6.2
-        version: 4.6.2(@types/node@20.11.30)(typescript@5.4.5)
+        specifier: ^4.6.3
+        version: 4.6.3(@types/node@20.11.30)(typescript@5.4.5)
       astro-capo:
         specifier: ^0.0.1
-        version: 0.0.1(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5))
+        version: 0.0.1(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))
       astro-critters:
         specifier: ^2.1.6
         version: 2.1.6
       astro-expressive-code:
-        specifier: ^0.35.0
-        version: 0.35.0(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5))
+        specifier: ^0.35.2
+        version: 0.35.2(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -141,8 +141,8 @@ importers:
         specifier: ^0.33.3
         version: 0.33.3
       tailwind-merge:
-        specifier: ^2.2.2
-        version: 2.2.2
+        specifier: ^2.3.0
+        version: 2.3.0
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -222,8 +222,8 @@ packages:
   '@astrojs/rss@4.0.5':
     resolution: {integrity: sha512-IyJVL6z09AQtxbgLaAwebT3T5YKe4oTHDesqydJv1KLHw+zEzzMCFuuNsEyxjiqu7df9+DDCpDXLj/WRiEUXvw==}
 
-  '@astrojs/sitemap@3.1.3':
-    resolution: {integrity: sha512-9WB5c071L+FNbs/0727lcqbHvS17TxnDRdfXXiAMustBRFlqkCrziHy+MsfeghxtyXp0pFTFO3NjGRfOppbFzQ==}
+  '@astrojs/sitemap@3.1.4':
+    resolution: {integrity: sha512-po8CqDCK14O6phU1mB5C8SyVLyQEa+7pJM8oXxs1mVh8DgvxxaA5E7lak1vzOmBcyyyHBW32jakGqNYc66sBRw==}
 
   '@astrojs/tailwind@5.1.0':
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
@@ -332,6 +332,10 @@ packages:
 
   '@babel/runtime@7.24.0':
     resolution: {integrity: sha512-Chk32uHMg6TnQdvw2e9IlqPpFX/6NLuK0Ys2PqLb7/gL5uFn9mXvK715FGLlOLQrcO4qIkNHkvPGktzzXexsFw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.24.4':
+    resolution: {integrity: sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.24.0':
@@ -518,33 +522,33 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@expressive-code/core@0.35.0':
-    resolution: {integrity: sha512-mnICXExp4+BtwqPnAZQFQKoCTd9LCWnmk2K1ltix6wH3546E82i6IhBylKjETFZhIXGlPKc1/vFw6IALCmzWHQ==}
+  '@expressive-code/core@0.35.2':
+    resolution: {integrity: sha512-lInKOxMvcvVTrRB8qjsH6PDQ5+rz9o3lyoUh+2xxvdWmnpcTE7JVWWcVfDrLfEXZb+6KQWlWqD0J50u1+xe8Rg==}
 
-  '@expressive-code/plugin-collapsible-sections@0.35.0':
-    resolution: {integrity: sha512-S7bYab04bLQPqGytt+9aCnzcOLRGjOGCjn2crwC6Sk8Yusg9jn3YTe9igYXrSMwVHBXXSzDy+F+uIR1QI6+D5g==}
+  '@expressive-code/plugin-collapsible-sections@0.35.2':
+    resolution: {integrity: sha512-OnXlTrxyj/vJCEf6Vs8gEV7+BbGHRaF6ZI9iD7VGD4ksVumZjTaEsZlmNG8ZESJ3pBSZmIUjR9ex0dR3tvLIjQ==}
 
-  '@expressive-code/plugin-frames@0.35.0':
-    resolution: {integrity: sha512-JfWGyJ32L4wBTv6i5Q1nX4mitbCORhDszMvBrD0Ox7Lbh5KiX2d5NT+xKPi+OmYp2BzURc1IQXbd87rgA17uZA==}
+  '@expressive-code/plugin-frames@0.35.2':
+    resolution: {integrity: sha512-ABj9WQinforkAvBzCTOd3puuGWaKm1mzts7yck1YNyfh4uQGLxabvjKIj69WYA75+Ccd0edy0b1QzIqwecJpzg==}
 
-  '@expressive-code/plugin-line-numbers@0.35.0':
-    resolution: {integrity: sha512-bxrVJJTV3Lo/gfA206pL09YNPE7bn5PZDK1uaTmERuVLFpS1VnXffeuLgCnRLlHeWVb8iUTSZjs+6LkmeR5CVA==}
+  '@expressive-code/plugin-line-numbers@0.35.2':
+    resolution: {integrity: sha512-VNCUAqfIzlJgkNtKjhur+DYbBEfh6C2qxNNdqvISoZxq3npmyjBxBu+ztKM4VwucTlKUcrsQhKhUspy0+350WQ==}
 
-  '@expressive-code/plugin-shiki@0.35.0':
-    resolution: {integrity: sha512-T9Fyk8A6IahTU7a2kafnNLaDfRjRyhXtIsmwq/11i2MWBQnAhPoHASo3GYJ3phqKMKMb5VgfyUHPvVg+WMbdtg==}
+  '@expressive-code/plugin-shiki@0.35.2':
+    resolution: {integrity: sha512-V+pAhT3m0xAbwHvDT9DLpZLkksYKeNNTDIEHE0VHoZfw9IibvG6QcrH8FjMQnxv1DfvWjkYV4wob7/TZKlGU6w==}
 
-  '@expressive-code/plugin-text-markers@0.35.0':
-    resolution: {integrity: sha512-qhQcRQZMkB6M/1wARFu2JnWy0b8uKXEXARjulqFmEhOuJt+iPicI/vKjOdXFohVR6AexgkHPANROk9ZBYyzJDA==}
+  '@expressive-code/plugin-text-markers@0.35.2':
+    resolution: {integrity: sha512-YD/QhTBoCGXWCE40BD3Wg1XXAR0eVVFYL0TZaD8JjdRqVDmmRtZmhiG+/luXfbe9xZy5qEw4ZFXiQrJkUH6DJQ==}
 
   '@fec/remark-a11y-emoji@4.0.2':
     resolution: {integrity: sha512-Au3jSkt66PRwTKTCYm7KzTGfMzUmn1LYPK+cyrytfzjfOPkHpohrLcGYPLsgxV8nzc4vXxt3Ay7MlBrmeIfFLg==}
     engines: {node: '>=16.0'}
 
-  '@fontsource-variable/jetbrains-mono@5.0.20':
-    resolution: {integrity: sha512-IWJnmY9vT5Olcac1vzA7FMdnojCrZWMq+g7SqC2jsFpY0LQTjIgp9gBjjw9kUOkNbLw37/evZO4w6rdPeMA68A==}
+  '@fontsource-variable/jetbrains-mono@5.0.21':
+    resolution: {integrity: sha512-LL/57KBbM3r0UMuN6tSeYExiBObt0QuGq49m1FyoDFIv1GAcuKU0EQ/GAKJ/yt3R8onOCD3f5X9Dln//G6uzRQ==}
 
-  '@fontsource/atkinson-hyperlegible@5.0.19':
-    resolution: {integrity: sha512-dnhQiFATy7n12Nq1fq8yhuzbae4WJSFKaKesJLTNKyiz6w+DI7RbcB3D1hwU+tBax4Dxlhg0tkY1LS4AzRRqxw==}
+  '@fontsource/atkinson-hyperlegible@5.0.20':
+    resolution: {integrity: sha512-YczGmDvJ23lheBaEJGNdUDTUwl1uG6xrU1rG+ftOVCdkmOaXtuZI/zq1KW+02d1eGsqKCrtaabHQMrtLjCYQbg==}
 
   '@hbsnow/rehype-sectionize@1.0.7':
     resolution: {integrity: sha512-twbVxCFf4YwgTm6FIdGtHfJ14vvIHedk2fqZTpE3X6+vszEeZlMTy7tOyI9KaP/6S2DN2Jnk7zZGtZANTD+vEg==}
@@ -1141,8 +1145,8 @@ packages:
     resolution: {integrity: sha512-yTgzioUI9MKgBF4LxP7YI+uuZLrnXgHDeW4dpa3VqCNbDmPzL7ix93tc0JJIwWGcskoSAAHZZVaBSp8bHyZZZA==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  astro-expressive-code@0.35.0:
-    resolution: {integrity: sha512-BFUfPS18PmkJYnSBPxrwWuoXE9VCRip7H5Q6kkFJJcovpgztCX7tfKXb64E5+iAbpXUtvDdN46ksl7obDJ089Q==}
+  astro-expressive-code@0.35.2:
+    resolution: {integrity: sha512-euLMzMBRyNjniHIdla2yjBEFVKbYJxo5jdzsFB/2M/nf3hgKs9o6VU41HEvKEnk5Pf2NhFtgUGGwrIrjwuHhyA==}
     peerDependencies:
       astro: ^4.0.0-beta || ^3.3.0
 
@@ -1152,8 +1156,8 @@ packages:
   astro-seo@0.8.3:
     resolution: {integrity: sha512-gQeEh0U2yyVM0iyU8DTORK6hXMy5WH2wufrkUuNOKjI3LnYLniqgDxm1LZPQDuD6b4OHabVOi/5L88A9POCcCQ==}
 
-  astro@4.6.2:
-    resolution: {integrity: sha512-Kl+Wd7MJMQFnI3+V0JxF4HPbs8M67eltqQgtztReOwDLSl0VnOd39rM61W/3LEh10FZ0F13xrDgtdgfXzuLVbg==}
+  astro@4.6.3:
+    resolution: {integrity: sha512-p2zs1Gac+ysdc/yFCoc8pOXTZE5L9foAtmqUzUVL22WX68bYTRovd03GRs7J1MDpwzsl9kJtlK20ROpjyIFpNw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1828,8 +1832,8 @@ packages:
     resolution: {integrity: sha512-XYfuKMvj4O35f/pOXLObndIRvyQ+/+6AhODh+OKWj9S9498pHHn/IMszH+gt0fBCRWMNfk1ZSp5x3AifmnI2vg==}
     engines: {node: '>=6'}
 
-  expressive-code@0.35.0:
-    resolution: {integrity: sha512-eVRhvv7pOrdhonqbsz1OPCGfH8Ugt6hKLxeHcY/ia9TIxnrVr89+ASa2ovPvF73OeXlkJdB5SqoZcvVTQN5Itg==}
+  expressive-code@0.35.2:
+    resolution: {integrity: sha512-Cc4W+DqnnULYnia42UrfRlqshCL2vci/X9EUSutiz6PK6+vNNXrG3c0BQmBJr+nRj0lde9F/O1IxZXAK9UBZ0w==}
 
   extend-shallow@2.0.1:
     resolution: {integrity: sha512-zCnTtlxNoAiDc3gqY2aYAWFx7XWWiasuF2K8Me5WbN8otHKTUKBwjPtNpRs/rbUZm7KxWAaNj7P1a/p52GbVug==}
@@ -3258,8 +3262,8 @@ packages:
   rehype-autolink-headings@7.1.0:
     resolution: {integrity: sha512-rItO/pSdvnvsP4QRB1pmPiNHUskikqtPojZKJPPPAVx9Hj8i8TwMBhofrrAYRhYOOBZH9tgmG5lPqDLuIWPWmw==}
 
-  rehype-expressive-code@0.35.0:
-    resolution: {integrity: sha512-R1bhFoepURfoQY3Xm+rWgEClPFqT+uQsRw3a1agC2P02UyPJNNtTzIYfmqGHdY2r1fBSJuwCdoDcNRYtQfw8Rw==}
+  rehype-expressive-code@0.35.2:
+    resolution: {integrity: sha512-ydaCdmRW9mPDt8TUh69HzS7E7kQZcwi0Z4nZyWTUjX3nVPx3kA8TAHe/oWjtMGSsIP+7xAybrCpNNNEMXmzWqQ==}
 
   rehype-parse@8.0.5:
     resolution: {integrity: sha512-Ds3RglaY/+clEX2U2mHflt7NlMA72KspZ0JLUJgBBLpRddBcEw3H8uYZQliQriku22NZpYMfjDdSgHcjxue24A==}
@@ -3495,6 +3499,9 @@ packages:
     resolution: {integrity: sha512-xhV7w8S+bUwlPTb4bAOUQhv8/cSS5offJuX8GQGq32ONF0ZtDWKfkdomM3HMRA+LhX6um/FZ0COqlwsjD53LeQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
+  stream-replace-string@2.0.0:
+    resolution: {integrity: sha512-TlnjJ1C0QrmxRNrON00JvaFFlNh5TTG00APw23j74ET7gkQpTASi6/L2fuiav8pzK715HXtUeClpBTw2NPSn6w==}
+
   streamx@2.16.1:
     resolution: {integrity: sha512-m9QYj6WygWyWa3H1YY69amr4nVgy61xfjys7xO7kviL5rfIEc2naf+ewFiOA+aEJD7y0JO3h2GoiUv4TDwEGzQ==}
 
@@ -3614,8 +3621,8 @@ packages:
     resolution: {integrity: sha512-7RnqIMq572L8PeEzKeBINYEJDDxpcH8JEgLwUqBd3TkofhFRbkq4QLR0u+36avGAhCRbk2nnmjcW9SE531hPDg==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  tailwind-merge@2.2.2:
-    resolution: {integrity: sha512-tWANXsnmJzgw6mQ07nE3aCDkCK4QdT3ThPMCzawoYA2Pws7vSTCvz3Vrjg61jVUGfFZPJzxEP+NimbcW+EdaDw==}
+  tailwind-merge@2.3.0:
+    resolution: {integrity: sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==}
 
   tailwindcss@3.4.3:
     resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
@@ -4243,12 +4250,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@2.3.1(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5))':
+  '@astrojs/mdx@2.3.1(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.6.2(@types/node@20.11.30)(typescript@5.4.5)
+      astro: 4.6.3(@types/node@20.11.30)(typescript@5.4.5)
       es-module-lexer: 1.4.1
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -4273,14 +4280,15 @@ snapshots:
       fast-xml-parser: 4.3.5
       kleur: 4.1.5
 
-  '@astrojs/sitemap@3.1.3':
+  '@astrojs/sitemap@3.1.4':
     dependencies:
       sitemap: 7.1.1
+      stream-replace-string: 2.0.0
       zod: 3.22.4
 
-  '@astrojs/tailwind@5.1.0(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5))(tailwindcss@3.4.3)':
+  '@astrojs/tailwind@5.1.0(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5))(tailwindcss@3.4.3)':
     dependencies:
-      astro: 4.6.2(@types/node@20.11.30)(typescript@5.4.5)
+      astro: 4.6.3(@types/node@20.11.30)(typescript@5.4.5)
       autoprefixer: 10.4.19(postcss@8.4.38)
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)
@@ -4423,6 +4431,10 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
+  '@babel/runtime@7.24.4':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@babel/template@7.24.0':
     dependencies:
       '@babel/code-frame': 7.24.2
@@ -4559,7 +4571,7 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@expressive-code/core@0.35.0':
+  '@expressive-code/core@0.35.2':
     dependencies:
       '@ctrl/tinycolor': 4.1.0
       hast-util-select: 6.0.2
@@ -4571,26 +4583,26 @@ snapshots:
       unist-util-visit: 5.0.0
       unist-util-visit-parents: 6.0.1
 
-  '@expressive-code/plugin-collapsible-sections@0.35.0':
+  '@expressive-code/plugin-collapsible-sections@0.35.2':
     dependencies:
-      '@expressive-code/core': 0.35.0
+      '@expressive-code/core': 0.35.2
 
-  '@expressive-code/plugin-frames@0.35.0':
+  '@expressive-code/plugin-frames@0.35.2':
     dependencies:
-      '@expressive-code/core': 0.35.0
+      '@expressive-code/core': 0.35.2
 
-  '@expressive-code/plugin-line-numbers@0.35.0':
+  '@expressive-code/plugin-line-numbers@0.35.2':
     dependencies:
-      '@expressive-code/core': 0.35.0
+      '@expressive-code/core': 0.35.2
 
-  '@expressive-code/plugin-shiki@0.35.0':
+  '@expressive-code/plugin-shiki@0.35.2':
     dependencies:
-      '@expressive-code/core': 0.35.0
+      '@expressive-code/core': 0.35.2
       shiki: 1.1.7
 
-  '@expressive-code/plugin-text-markers@0.35.0':
+  '@expressive-code/plugin-text-markers@0.35.2':
     dependencies:
-      '@expressive-code/core': 0.35.0
+      '@expressive-code/core': 0.35.2
 
   '@fec/remark-a11y-emoji@4.0.2':
     dependencies:
@@ -4599,9 +4611,9 @@ snapshots:
       mdast-util-find-and-replace: 1.1.1
       unist-util-visit: 2.0.3
 
-  '@fontsource-variable/jetbrains-mono@5.0.20': {}
+  '@fontsource-variable/jetbrains-mono@5.0.21': {}
 
-  '@fontsource/atkinson-hyperlegible@5.0.19': {}
+  '@fontsource/atkinson-hyperlegible@5.0.20': {}
 
   '@hbsnow/rehype-sectionize@1.0.7':
     dependencies:
@@ -5245,9 +5257,9 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-capo@0.0.1(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5)):
+  astro-capo@0.0.1(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5)):
     dependencies:
-      astro: 4.6.2(@types/node@20.11.30)(typescript@5.4.5)
+      astro: 4.6.3(@types/node@20.11.30)(typescript@5.4.5)
       ultrahtml: 1.5.3
 
   astro-critters@2.1.6:
@@ -5273,10 +5285,10 @@ snapshots:
       - supports-color
       - typescript
 
-  astro-expressive-code@0.35.0(astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5)):
+  astro-expressive-code@0.35.2(astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5)):
     dependencies:
-      astro: 4.6.2(@types/node@20.11.30)(typescript@5.4.5)
-      rehype-expressive-code: 0.35.0
+      astro: 4.6.3(@types/node@20.11.30)(typescript@5.4.5)
+      rehype-expressive-code: 0.35.2
 
   astro-robots-txt@1.0.0:
     dependencies:
@@ -5291,7 +5303,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@4.6.2(@types/node@20.11.30)(typescript@5.4.5):
+  astro@4.6.3(@types/node@20.11.30)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.7.1
       '@astrojs/internal-helpers': 0.4.0
@@ -6230,12 +6242,12 @@ snapshots:
   expand-template@2.0.3:
     optional: true
 
-  expressive-code@0.35.0:
+  expressive-code@0.35.2:
     dependencies:
-      '@expressive-code/core': 0.35.0
-      '@expressive-code/plugin-frames': 0.35.0
-      '@expressive-code/plugin-shiki': 0.35.0
-      '@expressive-code/plugin-text-markers': 0.35.0
+      '@expressive-code/core': 0.35.2
+      '@expressive-code/plugin-frames': 0.35.2
+      '@expressive-code/plugin-shiki': 0.35.2
+      '@expressive-code/plugin-text-markers': 0.35.2
 
   extend-shallow@2.0.1:
     dependencies:
@@ -8063,9 +8075,9 @@ snapshots:
       unified: 11.0.4
       unist-util-visit: 5.0.0
 
-  rehype-expressive-code@0.35.0:
+  rehype-expressive-code@0.35.2:
     dependencies:
-      expressive-code: 0.35.0
+      expressive-code: 0.35.2
 
   rehype-parse@8.0.5:
     dependencies:
@@ -8427,6 +8439,8 @@ snapshots:
     dependencies:
       bl: 5.1.0
 
+  stream-replace-string@2.0.0: {}
+
   streamx@2.16.1:
     dependencies:
       fast-fifo: 1.3.2
@@ -8561,9 +8575,9 @@ snapshots:
       '@pkgr/core': 0.1.1
       tslib: 2.6.2
 
-  tailwind-merge@2.2.2:
+  tailwind-merge@2.3.0:
     dependencies:
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.24.4
 
   tailwindcss@3.4.3:
     dependencies:
