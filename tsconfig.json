@@ -1,6 +1,19 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "es2024",
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"module": "preserve",
+		"noEmit": true,
+		"lib": ["es2024", "dom", "dom.iterable"],
 		"baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],
@@ -9,7 +22,8 @@
 			"@src/*": ["src/*"],
 			"@assets/*": ["src/assets/*"]
 		},
-		"types": ["unplugin-icons/types/astro"],
-		"verbatimModuleSyntax": true
-	}
+		"types": ["unplugin-icons/types/astro"]
+	},
+	"include": [".astro/types.d.ts", "**/*"],
+	"exclude": ["dist"]
 }
