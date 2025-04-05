@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import Icons from 'unplugin-icons/vite';
@@ -15,15 +14,12 @@ import remarkToc from 'remark-toc';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
 import expressiveCode from 'astro-expressive-code';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://emilymedhurst.gay',
 	integrations: [
-		tailwind({
-			nesting: true,
-			applyBaseStyles: false
-		}),
 		sitemap(),
 		robotsTxt({
 			sitemap: ['https://emilymedhurst.gay/sitemap-index.xml']
@@ -61,6 +57,7 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [
+			tailwindcss(),
 			Icons({
 				compiler: 'astro',
 				autoInstall: true
