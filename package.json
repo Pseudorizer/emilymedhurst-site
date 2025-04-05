@@ -4,13 +4,14 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "astro dev",
-		"build": "rimraf dist && astro check && astro build",
+		"build": "npm run rm && astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"prettier": "prettier 'src/**/*.{astro,html,js,svelte,ts}'",
 		"prettier:fix": "prettier --write 'src/**/*.{astro,html,js,svelte,ts}'",
 		"eslint": "eslint 'src/**/*.{astro,html,js,svelte,ts}'",
-		"eslint:fix": "eslint --fix 'src/**/*.{astro,html,js,svelte,ts}'"
+		"eslint:fix": "eslint --fix 'src/**/*.{astro,html,js,svelte,ts}'",
+		"rm": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\""
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -60,7 +61,6 @@
 		"eslint-plugin-prettier": "^5.2.6",
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.11",
-		"rimraf": "^6.0.1"
+		"prettier-plugin-tailwindcss": "^0.6.11"
 	}
 }
