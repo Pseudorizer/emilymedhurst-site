@@ -22,7 +22,9 @@
 			"@src/*": ["src/*"],
 			"@assets/*": ["src/assets/*"]
 		},
-		"types": ["unplugin-icons/types/astro"]
+		"types": ["unplugin-icons/types/astro"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact"
 	},
 	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["dist"]
