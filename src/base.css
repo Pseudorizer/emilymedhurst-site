@@ -4,8 +4,8 @@
 
 @theme {
 	--font-*: initial;
-	--font-sans: Atkinson Hyperlegible, Helvetica;
-	--font-mono: Jetbrains Mono Variable, Consolas;
+	--font-sans: 'Atkinson Hyperlegible', system-ui, sans-serif;
+	--font-mono: 'Atkinson Hyperlegible Mono Variable', system-ui, monospace;
 
 	--color-dark: #191716;
 	--color-light: #f5f5f5;

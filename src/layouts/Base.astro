@@ -1,11 +1,11 @@
 ---
+import '@fontsource/atkinson-hyperlegible';
+import '@fontsource-variable/atkinson-hyperlegible-mono';
 import { Head } from 'astro-capo';
 import { type Props as SeoProps } from 'astro-seo';
 import type { CollectionEntry } from 'astro:content';
 import { cn } from '@lib/cn';
 import BaseHead from '@components/BaseHead.astro';
-import '@fontsource-variable/jetbrains-mono';
-import '@fontsource/atkinson-hyperlegible';
 import Navbar from '@components/Navbar/Navbar.astro';
 import '@src/base.css';
 
@@ -22,7 +22,7 @@ const { title, description, seo, article } = Astro.props;
 	<Head>
 		<BaseHead {title} {description} {seo} {article} />
 	</Head>
-	<body class={cn('mx-auto h-full max-w-4xl p-6 text-dark dark:text-light dark')}>
+	<body class={cn('dark mx-auto h-full max-w-4xl p-6 text-dark dark:text-light')}>
 		<script is:inline>
 			const getTheme = () => {
 				if (window.localStorage.getItem('theme')) {

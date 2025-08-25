@@ -3,7 +3,6 @@ import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import Icons from 'unplugin-icons/vite';
 import mdx from '@astrojs/mdx';
-import critters from '@playform/inline';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeWidont from 'rehype-widont';
@@ -26,12 +25,15 @@ export default defineConfig({
 		}),
 		expressiveCode({
 			plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
-			themes: ['catppuccin-mocha', 'catppuccin-latte']
+			themes: ['catppuccin-mocha', 'catppuccin-latte'],
+			styleOverrides: {
+				uiFontFamily: 'Atkinson Hyperlegible, system-ui, sans-serif',
+				codeFontFamily: '"Atkinson Hyperlegible Mono Variable", Consolas'
+			}
 		}),
 		mdx({
 			optimize: true
 		}),
-		critters()
 	],
 	server: {
 		headers: {
@@ -54,6 +56,9 @@ export default defineConfig({
 			rehypeWidont,
 			rehypeSectionize
 		]
+	},
+	build: {
+		inlineStylesheets: 'always',
 	},
 	vite: {
 		plugins: [

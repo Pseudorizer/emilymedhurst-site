@@ -22,7 +22,7 @@
     "@expressive-code/plugin-collapsible-sections": "^0.40.2",
     "@expressive-code/plugin-line-numbers": "^0.40.2",
     "@fec/remark-a11y-emoji": "^4.0.2",
-    "@fontsource-variable/jetbrains-mono": "^5.2.6",
+    "@fontsource-variable/atkinson-hyperlegible-mono": "^5.2.4",
     "@fontsource/atkinson-hyperlegible": "^5.2.6",
     "@hbsnow/rehype-sectionize": "^1.0.7",
     "@iconify-json/tabler": "^1.2.22",
