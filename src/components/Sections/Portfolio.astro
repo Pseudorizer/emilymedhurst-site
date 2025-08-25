@@ -69,18 +69,14 @@ const blocks = [
 		tags: [astroCrumb, typescriptCrumb, svelteCrumb, githubPagesCrumb]
 	}
 ];
-
-const shouldModifyLastBlock = (index: number) => {
-	return blocks.length % 2 === 1 && index === blocks.length - 1;
-};
 ---
 
 <Section title="Portfolio">
-	<div class={cn('grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2')}>
-		{
-			blocks.map((block, i) => (
-				<Block {...block} class:list={[shouldModifyLastBlock(i) && 'md:col-span-2']} />
-			))
-		}
+	<div
+		class={cn(
+			'grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2 md:[&>section]:last:odd:col-span-2'
+		)}
+	>
+		{blocks.map((block) => <Block {...block} />)}
 	</div>
 </Section>
