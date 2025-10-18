@@ -5,6 +5,8 @@ import TablerBrandPhp from '~icons/tabler/brand-php';
 import TablerBrandReact from '~icons/tabler/brand-react';
 import TablerBrandRedux from '~icons/tabler/brand-redux';
 import TablerBrandTypescript from '~icons/tabler/brand-typescript';
+import TablerBrandTailwind from '~icons/tabler/brand-tailwind';
+import TablerBrandNextjs from '~icons/tabler/brand-nextjs';
 
 import { createCrumb } from '@lib/utils';
 import Section from '@components/Section.astro';
@@ -17,14 +19,23 @@ const laravelCrumb = createCrumb(TablerBrandLaravel, 'laravel');
 const mysqlCrumb = createCrumb(TablerBrandMysql, 'mysql');
 const reduxCrumb = createCrumb(TablerBrandRedux, 'redux');
 const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
+const tailwindCrumb = createCrumb(TablerBrandTailwind, 'tailwind');
+const nextjsCrumb = createCrumb(TablerBrandNextjs, 'nextjs');
 ---
 
 <Section title="Experience">
-	<div class={cn('grid grid-cols-1')}>
+	<div class={cn('grid grid-cols-1 gap-2')}>
+		<Block
+			title="Track24"
+			description="Currently working as a fullstack developer at Track24, primarily on their flagship product AtlasNXT."
+			subheading="October 2025-Present"
+			tags={[reactCrumb, typescriptCrumb, tailwindCrumb, nextjsCrumb, 'elixir']}
+			link="https://www.track24.com/"
+		/>
 		<Block
 			title="Radweb"
 			description="This was my first hire! I'm currently working as a fullstack developer on InventoryBase."
-			subheading="2022-2023 (placement), 2024-present"
+			subheading="June 2022-August 2023 (placement), July 2024-October 2025"
 			tags={[
 				reactCrumb,
 				phpCrumb,
