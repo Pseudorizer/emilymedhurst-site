@@ -13,9 +13,9 @@ import devtools from './devtools.webm';
 import notWorking from './not-working.webm';
 import oneko from './oneko.png';
 
-import Video from "../../../components/Content/Video.astro";
-import Image from "../../../components/Content/Image.astro";
-import Link from "../../../components/BodyLink.astro";
+import Video from '../../../components/Content/Video.astro';
+import Image from '../../../components/Content/Image.astro';
+import Link from '../../../components/BodyLink.astro';
 
 ### Contents
 
@@ -83,7 +83,7 @@ To debug this, I had to delve into Slack's minified source code :D
 Inside that mess I searched for all `process.exit(0)` as the exit code was 0, until I found the culprit!
 
 ```js
-b.app.requestSingleInstanceLock() || oe.app.exit(0), process.exit(0);
+(b.app.requestSingleInstanceLock() || oe.app.exit(0), process.exit(0));
 ```
 
 Inside of `main.bundle.js` `requestSingleInstanceLock` appears to fail, I suppose this is because technically I am running two instances? My script and then Slack's actual code? So, let's replace this part with sed.

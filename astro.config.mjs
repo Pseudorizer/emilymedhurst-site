@@ -33,7 +33,7 @@ export default defineConfig({
 		}),
 		mdx({
 			optimize: true
-		}),
+		})
 	],
 	server: {
 		headers: {
@@ -58,7 +58,7 @@ export default defineConfig({
 		]
 	},
 	build: {
-		inlineStylesheets: 'always',
+		inlineStylesheets: 'always'
 	},
 	vite: {
 		plugins: [

@@ -1,0 +1,11 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"singleQuote": true,
+	"useTabs": true,
+	"trailingComma": "none",
+	"experimentalTailwindcss": {
+		"config": "./src/base.css",
+		"functions": ["cn"]
+	},
+	"ignorePatterns": []
+}

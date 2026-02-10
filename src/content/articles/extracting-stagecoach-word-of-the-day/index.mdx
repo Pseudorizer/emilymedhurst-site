@@ -8,18 +8,19 @@ tags:
   - decompiling
 ---
 
-import jadxInitial from "./jadx-initial.png";
-import libFolder from "./lib-folder.png";
-import success from "./success.png";
-import app from "./app.webp";
+import jadxInitial from './jadx-initial.png';
+import libFolder from './lib-folder.png';
+import success from './success.png';
+import app from './app.webp';
 
-import Video from "../../../components/Content/Video.astro";
-import Image from "../../../components/Content/Image.astro";
-import Link from "../../../components/BodyLink.astro";
+import Video from '../../../components/Content/Video.astro';
+import Image from '../../../components/Content/Image.astro';
+import Link from '../../../components/BodyLink.astro';
 
 ### Contents
 
 ### Where This Started
+
 I rely on my cities bus services to get me around, one of which is Stagecoach. But I noticed something interesting with their ticketing system.
 When I bought a ticket via their app, it had a QR code on it, makes sense - scan that on the bus.
 
@@ -37,7 +38,12 @@ This part is pretty easy, plenty of tools exist to do this for you. I chose to u
 
 I grabbed the apk off of an apk mirroring site and loaded it into jadx.
 
-<Image src={jadxInitial} alt="jadx successfully loading the Stagecoach apk" description="Success!" height={800} />
+<Image
+	src={jadxInitial}
+	alt="jadx successfully loading the Stagecoach apk"
+	description="Success!"
+	height={800}
+/>
 
 But what am I even looking for? I tried searching the word for today which is `prize` but that yielded nothing. I then remembered that the ticket screen has some
 paragraph about reporting missing people, so I search for some text from that and found a resource defining strings.
@@ -150,7 +156,7 @@ We can find the location of this native library in the `resources/lib` folder, l
 
 ### Decompiling `ticket-ref-code.so`
 
-I'm not a C++ developer. I'm also not terribly experienced with reverse engineering decompiled C++ code. 
+I'm not a C++ developer. I'm also not terribly experienced with reverse engineering decompiled C++ code.
 So that's why I called upon my partner <Link href="https://github.com/NoSharp">Emma</Link> who is more familiar to help me with this part.
 This wouldn't of been possible without them.
 
@@ -170,7 +176,7 @@ void Java_com_lagoru_jnirealm_HidingUtils_unhide(long *param_1,undefined8 param_
   byte local_138;
   byte abStack_137 [263];
   long local_30;
-  
+
   pbVar3 = local_358;
   local_30 = *(long *)(in_FS_OFFSET + 0x28);
   uVar1 = (**(code **)(*param_1 + 0x548))(param_1,param_3,0);
@@ -200,7 +206,11 @@ This isn't actually as bad as it looks, at least that's what I realised after No
 
 First off, this wizard knew what a `.gdt` archive was, or a `Ghidra Data Type`. What these archives do is help Ghidra figure out the structure of datatypes. For example, if you provided a GDT archive
 that told Ghidra `string` types had a function called `slice` at offset `0x458`, it would replace a call such as `(*p + 0x458)` with `(*p->slice())`, making the code more readable. Thankfully,
-<Link href="https://github.com/Ayrx/JNIAnalyzer/blob/7170ce6bd138caa6be702e357b3aeb74231ae12f/JNIAnalyzer/data/jni_all.gdt">someone</Link> had already created a GDT archive for us to use with JNI code.
+
+<Link href="https://github.com/Ayrx/JNIAnalyzer/blob/7170ce6bd138caa6be702e357b3aeb74231ae12f/JNIAnalyzer/data/jni_all.gdt">
+	someone
+</Link>
+had already created a GDT archive for us to use with JNI code.
 
 With that archive imported, we did some googling to find out how JNI functions are written in C++ and quickly found that the first argument of most functions is `JNIEnv *param_1`, effectively a pointer to a function table.
 With the GDT archive, updating the first parameters signature to `JNIEnv *` should reveal some function calls...
@@ -218,10 +228,10 @@ void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,undefined8 para
   byte local_138;
   byte abStack_137 [263];
   long local_30;
-  
+
   pbVar2 = local_358;
   local_30 = *(long *)(in_FS_OFFSET + 0x28);
-  
+
   uVar1 = (**(code **)(*param_1 + 0x548))(param_1,param_3,0);
 
   chars = (*(*param_1)->GetStringUTFChars)(param_1,param_3,(jboolean *)0x0);
@@ -244,7 +254,7 @@ void Java_com_lagoru_jnirealm_HidingUtils_unhide(JNIEnv *param_1,jobject param_2
   byte input_decoded;
   byte abStack_137 [263];
   long local_30;
-  
+
   pbVar1 = final_string;
   local_30 = *(long *)(in_FS_OFFSET + 0x28);
   chars = (*(*param_1)->GetStringUTFChars)(param_1,input,(jboolean *)0x0);
