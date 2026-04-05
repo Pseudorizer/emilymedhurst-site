@@ -45,7 +45,7 @@
 		"sharp": "^0.34.5",
 		"tailwind-merge": "^3.5.0",
 		"tailwindcss": "^4.2.2",
-		"typescript": "^6.0.2",
+		"typescript": "^5.9.3",
 		"unplugin-icons": "^23.0.1"
 	},
 	"devDependencies": {
