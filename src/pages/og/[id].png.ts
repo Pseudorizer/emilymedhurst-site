@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import type { APIRoute, GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 import satori from 'satori';
@@ -5,10 +6,12 @@ import sharp from 'sharp';
 import OG from './_OG';
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-const font = await fetch(
-	'https://cdn.jsdelivr.net/fontsource/fonts/atkinson-hyperlegible@latest/latin-700-normal.woff'
+const fontBuffer = await readFile(
+	new URL(
+		'../../../node_modules/@fontsource/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-700-normal.woff',
+		import.meta.url
+	)
 );
-const fontBuffer = await font.arrayBuffer();
 
 export const GET: APIRoute<Props> = async ({ props }) => {
 	const svg = await satori(OG({ title: props.article.data.title }) as any, {
@@ -40,7 +43,7 @@ export const getStaticPaths = (async () => {
 	const articles = await getCollection('articles');
 
 	return articles.map((article) => ({
-		params: { id: article.slug },
+		params: { id: article.id },
 		props: { article }
 	}));
 }) satisfies GetStaticPaths;

@@ -15,7 +15,7 @@ const { title, description, seo, article } = Astro.props;
 
 const getCoverImage = async () => {
 	if (article) {
-		return `og/${article.slug}.png`;
+		return `og/${article.id}.png`;
 	} else {
 		const coverImageRendered = await getImage({
 			src: coverImage,

@@ -16,7 +16,7 @@ const articles = await getCollection('articles');
 				<Block
 					title={article.data.title}
 					description={article.data.description}
-					link={`/blog/${article.slug}`}
+					link={`/blog/${article.id}`}
 					tags={article.data.tags}
 				/>
 			))

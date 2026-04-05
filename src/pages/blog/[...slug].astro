@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import dayjs from 'dayjs';
 import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
@@ -15,7 +15,7 @@ export const getStaticPaths = (async () => {
 	return articles
 		.filter((article) => !isHidden(article))
 		.map((article) => ({
-			params: { slug: article.slug },
+			params: { slug: article.id },
 			props: article
 		}));
 }) satisfies GetStaticPaths;
@@ -23,7 +23,7 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const article = Astro.props;
-const { Content } = await article.render();
+const { Content } = await render(article);
 ---
 
 <Base title={article.data.title} description={article.data.description} {article}>

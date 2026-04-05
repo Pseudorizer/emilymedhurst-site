@@ -19,7 +19,6 @@ const articles = await getCollection('articles');
 			<BodyLink href="https://www.track24.com/">Track24,</BodyLink> primarily working on their SaaS product
 			<BodyLink href="https://www.atlasnxt.com/">AtlasNXT.</BodyLink>
 		</p>
-		<Portfolio />
 		<Experience />
 		{
 			articles.length > 0 && (
@@ -32,5 +31,6 @@ const articles = await getCollection('articles');
 				</Posts>
 			)
 		}
+		<Portfolio />
 	</div>
 </Base>
