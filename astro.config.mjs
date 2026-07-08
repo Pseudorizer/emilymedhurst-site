@@ -1,4 +1,4 @@
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
@@ -10,7 +10,6 @@ import expressiveCode from 'astro-expressive-code';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeWidont from 'rehype-widont';
 import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 import remarkToc from 'remark-toc';
 import Icons from 'unplugin-icons/vite';
@@ -44,18 +43,19 @@ export default defineConfig({
 	},
 	prefetch: true,
 	markdown: {
-		remarkPlugins: [remarkCapitalizeHeadings, a11yEmoji, remarkToc],
-		rehypePlugins: [
-			rehypeHeadingIds,
-			[
-				rehypeAutolinkHeadings,
-				{
-					behavior: 'wrap'
-				}
-			],
-			rehypeWidont,
-			rehypeSectionize
-		]
+		processor: unified({
+			remarkPlugins: [remarkCapitalizeHeadings, a11yEmoji, remarkToc],
+			rehypePlugins: [
+				rehypeHeadingIds,
+				[
+					rehypeAutolinkHeadings,
+					{
+						behavior: 'wrap'
+					}
+				],
+				rehypeSectionize
+			]
+		})
 	},
 	build: {
 		inlineStylesheets: 'always'

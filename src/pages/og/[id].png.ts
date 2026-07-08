@@ -32,7 +32,6 @@ export const GET: APIRoute<Props> = async ({ props }) => {
 	const png = sharp(Buffer.from(svg)).png();
 	const response = await png.toBuffer();
 
-	// @ts-expect-error - I don't know why this fails in astro check
 	return new Response(response, {
 		status: 200,
 		headers: {
