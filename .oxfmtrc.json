@@ -3,8 +3,10 @@
 	"singleQuote": true,
 	"useTabs": true,
 	"trailingComma": "none",
-	"experimentalTailwindcss": {
-		"config": "./src/base.css",
+	"sortImports": true,
+	"sortPackageJson": true,
+	"sortTailwindcss": {
+		"stylesheet": "./src/base.css",
 		"functions": ["cn"]
 	},
 	"ignorePatterns": []

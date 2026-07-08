@@ -1,19 +1,19 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import robotsTxt from 'astro-robots-txt';
-import Icons from 'unplugin-icons/vite';
-import mdx from '@astrojs/mdx';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
-import rehypeWidont from 'rehype-widont';
-import rehypeSectionize from '@hbsnow/rehype-sectionize';
-import remarkCapitalizeHeadings from 'remark-capitalize-headings';
-import a11yEmoji from '@fec/remark-a11y-emoji';
-import remarkToc from 'remark-toc';
-import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections';
-import expressiveCode from 'astro-expressive-code';
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+import a11yEmoji from '@fec/remark-a11y-emoji';
+import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import tailwindcss from '@tailwindcss/vite';
+import expressiveCode from 'astro-expressive-code';
+import robotsTxt from 'astro-robots-txt';
+import { defineConfig } from 'astro/config';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeWidont from 'rehype-widont';
+import remarkCapitalizeHeadings from 'remark-capitalize-headings';
+import remarkToc from 'remark-toc';
+import Icons from 'unplugin-icons/vite';
 
 // https://astro.build/config
 export default defineConfig({

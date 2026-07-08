@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
+import { isHidden } from '@lib/utils';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { isHidden } from '@lib/utils';
 
 export const GET: APIRoute = async (context) => {
 	const articles = await getCollection('articles');

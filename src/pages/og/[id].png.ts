@@ -1,8 +1,10 @@
 import { readFile } from 'node:fs/promises';
+
 import type { APIRoute, GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { getCollection } from 'astro:content';
 import satori from 'satori';
 import sharp from 'sharp';
+
 import OG from './_OG';
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
