@@ -11,12 +11,17 @@ import TablerBrandInstagram from '~icons/tabler/brand-instagram';
 import TablerBrandLetterbox from '~icons/tabler/brand-letterboxd';
 import IconLink from '@components/Icon/IconLink.astro';
 import { cn } from '@lib/cn';
+
+const SiteName = Astro.url.pathname === '/' ? 'h1' : 'span';
 ---
 
 <nav class={cn('flex flex-col gap-2')}>
 	<div class={cn('mt-1 flex flex-col md:mt-0 md:flex-row')}>
 		<div class={cn('flex items-center justify-start gap-2')}>
-			<a href="/"><h1>Emily Medhurst</h1></a>
+			<a href="/">
+				{/* Only the homepage uses the site name as its h1; other pages have their own. */}
+				<SiteName class="text-4xl font-semibold">Emily Medhurst</SiteName>
+			</a>
 			<ThemeToggle />
 		</div>
 		<div class={cn('flex gap-2 overflow-x-auto md:ml-auto md:gap-3')}>

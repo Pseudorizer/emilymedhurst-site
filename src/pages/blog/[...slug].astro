@@ -1,23 +1,18 @@
 ---
-import { getCollection, render } from 'astro:content';
-import dayjs from 'dayjs';
-import AdvancedFormat from 'dayjs/plugin/advancedFormat';
+import { render } from 'astro:content';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '@layouts/Base.astro';
 import { cn } from '@lib/cn';
 import Block from '@components/Block.astro';
 import BodyLink from '@components/BodyLink.astro';
-import { isHidden } from '@lib/utils';
-dayjs.extend(AdvancedFormat);
+import { getVisibleArticles } from '@lib/utils';
 
 export const getStaticPaths = (async () => {
-	const articles = await getCollection('articles');
-	return articles
-		.filter((article) => !isHidden(article))
-		.map((article) => ({
-			params: { slug: article.id },
-			props: article
-		}));
+	const articles = await getVisibleArticles();
+	return articles.map((article) => ({
+		params: { slug: article.id },
+		props: article
+	}));
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
@@ -33,15 +28,15 @@ const { Content } = await render(article);
 				<BodyLink href="/blog" class="text-lg">My Other Posts</BodyLink>
 			</Block>
 		</nav>
-		<hgroup class={cn('contents')}>
+		<header class={cn('contents')}>
 			<Block
 				title={article.data.title}
 				description={article.data.description}
-				subheading={`Posted on ${dayjs(article.data.created).format('Do MMMM YYYY [at] HH:mm')}`}
+				published={article.data.created}
 				largeHeadings
 			/>
-		</hgroup>
-		<main
+		</header>
+		<div
 			class={cn([
 				'contents',
 				'[&_p]:py-1',
@@ -69,6 +64,6 @@ const { Content } = await render(article);
 			<Block tags={article.data.tags} id="article">
 				<Content />
 			</Block>
-		</main>
+		</div>
 	</article>
 </Base>

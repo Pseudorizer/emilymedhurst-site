@@ -1,5 +1,6 @@
 ---
-import '@fontsource/atkinson-hyperlegible/index.css';
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource-variable/atkinson-hyperlegible-mono/index.css';
 import { Head } from 'astro-capo';
 import { type Props as SeoProps } from 'astro-seo';
@@ -24,26 +25,16 @@ const { title, description, seo, article } = Astro.props;
 	</Head>
 	<body class={cn('dark mx-auto h-full max-w-4xl p-6 text-dark dark:text-light')}>
 		<script is:inline>
-			const getTheme = () => {
-				if (window.localStorage.getItem('theme')) {
-					return window.localStorage.getItem('theme');
-				}
-				if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-					return 'light';
-				}
-				return 'dark';
-			};
-
-			const theme = getTheme();
+			// Only an explicit choice from the theme toggle is saved; otherwise the
+			// OS preference is followed on every visit.
+			const theme =
+				window.localStorage.getItem('theme') ??
+				(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 
 			if (theme === 'light') {
 				document.documentElement.classList.remove('dark');
 				document.documentElement.dataset.theme = 'catppuccin-latte';
 				document.body.classList.remove('dark');
-			}
-
-			if (theme) {
-				window.localStorage.setItem('theme', theme);
 			}
 		</script>
 		<Navbar />

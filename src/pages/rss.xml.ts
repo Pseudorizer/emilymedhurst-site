@@ -1,10 +1,9 @@
 import rss from '@astrojs/rss';
-import { isHidden } from '@lib/utils';
+import { getVisibleArticles } from '@lib/utils';
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async (context) => {
-	const articles = await getCollection('articles');
+	const articles = await getVisibleArticles();
 	return rss({
 		// `<title>` field in output xml
 		title: 'Emily Medhurst',
@@ -15,13 +14,11 @@ export const GET: APIRoute = async (context) => {
 		site: context.site as URL,
 		// Array of `<item>`s in output xml
 		// See "Generating items" section for examples using content collections and glob imports
-		items: articles
-			.filter((article) => !isHidden(article))
-			.map((article) => ({
-				title: article.data.title,
-				pubDate: article.data.created,
-				description: article.data.description,
-				link: `/blog/${article.id}`
-			}))
+		items: articles.map((article) => ({
+			title: article.data.title,
+			pubDate: article.data.created,
+			description: article.data.description,
+			link: `/blog/${article.id}`
+		}))
 	});
 };

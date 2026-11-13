@@ -3,6 +3,7 @@ import { cn } from '@lib/cn';
 
 interface Props {
 	src: string;
+	/** Caption shown under the video. */
 	alt: string;
 	muted?: boolean;
 }
@@ -10,9 +11,15 @@ interface Props {
 const { src, alt, muted = true } = Astro.props;
 ---
 
-<div class={cn('flex justify-center py-2')}>
-	<div class={cn('rounded-lg border-2 border-dark dark:border-light')}>
-		<video class="rounded-md" {src} controls {muted}></video>
-		<p class={cn('p-2 text-center')}>{alt}</p>
+<figure class={cn('flex justify-center py-2')}>
+	<div class={cn('max-w-full rounded-lg border-2 border-dark dark:border-light')}>
+		<video
+			class={cn('h-auto max-w-full rounded-md')}
+			{src}
+			controls
+			playsinline
+			preload="metadata"
+			{muted}></video>
+		<figcaption class={cn('p-2 text-center')}>{alt}</figcaption>
 	</div>
-</div>
+</figure>

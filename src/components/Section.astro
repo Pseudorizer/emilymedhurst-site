@@ -14,7 +14,7 @@ const slug = slugify(title);
 
 <section class={cn('flex flex-col gap-2')}>
 	<h2 id={slug}><BodyLink href={`#${slug}`} class="no-underline">{title}</BodyLink></h2>
-	<main class={cn('contents')}>
+	<div class={cn('contents')}>
 		<slot />
-	</main>
+	</div>
 </section>

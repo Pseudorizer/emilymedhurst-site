@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 
+import { getVisibleArticles } from '@lib/utils';
 import type { APIRoute, GetStaticPaths, InferGetStaticPropsType } from 'astro';
-import { getCollection } from 'astro:content';
 import satori from 'satori';
 import sharp from 'sharp';
 
@@ -41,7 +41,7 @@ export const GET: APIRoute<Props> = async ({ props }) => {
 };
 
 export const getStaticPaths = (async () => {
-	const articles = await getCollection('articles');
+	const articles = await getVisibleArticles();
 
 	return articles.map((article) => ({
 		params: { id: article.id },

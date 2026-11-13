@@ -13,24 +13,26 @@ interface Props {
 
 const { title, description, seo, article } = Astro.props;
 
+// Article cards are generated at 1200x630 by /og/[id].png. The homepage uses the
+// photo as-is: it is smaller than 1200px wide and Astro won't upscale it.
 const getCoverImage = async () => {
 	if (article) {
-		return `og/${article.id}.png`;
-	} else {
-		const coverImageRendered = await getImage({
-			src: coverImage,
-			format: 'jpg',
-			height: 630,
-			width: 1200
-		});
-
-		return coverImageRendered.src.slice(1);
+		return { path: `og/${article.id}.png`, type: 'image/png', width: 1200, height: 630 };
 	}
+
+	const rendered = await getImage({ src: coverImage, format: 'jpg' });
+
+	return {
+		path: rendered.src.slice(1),
+		type: 'image/jpeg',
+		width: coverImage.width,
+		height: coverImage.height
+	};
 };
 
-const coverImageUrl = await getCoverImage();
+const cover = await getCoverImage();
 
-const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${coverImageUrl}`;
+const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${cover.path}`;
 ---
 
 <meta charset="UTF-8" />
@@ -52,7 +54,7 @@ const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${c
 	openGraph={{
 		basic: { title, type: article ? 'article' : 'website', image },
 		optional: { description, siteName: 'emilymedhurst' },
-		image: { type: 'image/png', height: 630, width: 1200, alt: title },
+		image: { type: cover.type, height: cover.height, width: cover.width, alt: title },
 		article: {
 			publishedTime: article?.data.created.toISOString(),
 			tags: article?.data.tags
