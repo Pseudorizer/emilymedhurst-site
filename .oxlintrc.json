@@ -1,11 +1,5 @@
 {
 	"$schema": "./node_modules/oxlint/configuration_schema.json",
-	"jsPlugins": [
-		{
-			"name": "astro",
-			"specifier": "eslint-plugin-astro"
-		}
-	],
 	"plugins": ["oxc", "typescript", "unicorn", "import"],
 	"env": {
 		"browser": true,
@@ -14,7 +8,6 @@
 	},
 	"ignorePatterns": ["node_modules", "dist"],
 	"rules": {
-		"astro/no-unused-css-selector": "warn",
 		"no-unused-vars": [
 			"error",
 			{
