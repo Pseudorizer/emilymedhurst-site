@@ -1,8 +1,9 @@
 ---
-import BodyLink from './BodyLink.astro';
 import { cn } from '@lib/cn';
 import type { Tag } from '@lib/types';
 import { formatPostedDate } from '@lib/utils';
+
+import BodyLink from './BodyLink.astro';
 
 interface Props {
 	title?: string;
@@ -35,64 +36,48 @@ const Wrapper = title ? 'section' : 'div';
 const Heading = `h${headingLevel}` as const;
 ---
 
-<Wrapper
-	class={cn('flex flex-col rounded-xl bg-surface p-2', className)}
-	{id}
->
+<Wrapper class={cn('flex flex-col rounded-xl bg-surface p-2', className)} {id}>
 	<slot />
-	{
-		title && (
-			<Heading class={largeHeadings ? 'text-4xl font-semibold' : 'text-2xl font-normal'}>
-				{link ? <BodyLink href={link}>{title}</BodyLink> : title}
-			</Heading>
-		)
-	}
-	{
-		(subheading || published) && (
-			<p class={largeHeadings ? 'mb-1 text-sm font-medium' : 'mb-1 text-xs'}>
-				{subheading}
-				{published && (
-					<>
-						Posted on{' '}
-						<time datetime={published.toISOString()}>
-							{formatPostedDate(published)}
-						</time>
-					</>
-				)}
-			</p>
-		)
-	}
+	{title && (
+		<Heading class={largeHeadings ? 'text-4xl font-semibold' : 'text-2xl font-normal'}>
+			{link ? <BodyLink href={link}>{title}</BodyLink> : title}
+		</Heading>
+	)}
+	{(subheading || published) && (
+		<p class={largeHeadings ? 'mb-1 text-sm font-medium' : 'mb-1 text-xs'}>
+			{subheading}
+			{published && (
+				<>
+					Posted on <time datetime={published.toISOString()}>{formatPostedDate(published)}</time>
+				</>
+			)}
+		</p>
+	)}
 	{description && <p>{description}</p>}
-	{
-		tags.length > 0 && (
-			<footer class="mt-2.5 flex flex-wrap gap-x-1 gap-y-2">
-				{tags.map((tag) => {
-					let Icon;
+	{tags.length > 0 && (
+		<footer class="mt-2.5 flex flex-wrap gap-x-1 gap-y-2">
+			{tags.map((tag) => {
+				let Icon;
 
-					if (typeof tag !== 'string') {
-						Icon = tag.icon;
-					}
+				if (typeof tag !== 'string') {
+					Icon = tag.icon;
+				}
 
-					return typeof tag === 'string' ? (
-						<>
-							<div
-								class="flex items-center rounded-2xl border-2 border-outline p-1 px-2"
-							>
-								<p class="text-sm">{tag}</p>
-							</div>
-						</>
-					) : (
-						<>
-							<div
-								class="flex items-center gap-1 rounded-2xl border-2 border-outline p-1 px-2"
-							>
-								<Icon style="font-size: 1.25rem" />
-								<p class="text-sm">{tag.text}</p>
-							</div>
-						</>
-					);
-				})}
-			</footer>
-		)
-	}
+				return typeof tag === 'string' ? (
+					<>
+						<div class="flex items-center rounded-2xl border-2 border-outline p-1 px-2">
+							<p class="text-sm">{tag}</p>
+						</div>
+					</>
+				) : (
+					<>
+						<div class="flex items-center gap-1 rounded-2xl border-2 border-outline p-1 px-2">
+							<Icon style="font-size: 1.25rem" />
+							<p class="text-sm">{tag.text}</p>
+						</div>
+					</>
+				);
+			})}
+		</footer>
+	)}
 </Wrapper>

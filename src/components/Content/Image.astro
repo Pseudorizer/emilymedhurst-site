@@ -15,9 +15,7 @@ const { src, alt, description, eager, width, height } = Astro.props;
 const caption = description ?? alt;
 ---
 
-<figure
-	class="flex flex-col justify-center rounded-lg border-2 border-ink bg-page"
->
+<figure class="flex flex-col justify-center rounded-lg border-2 border-ink bg-page">
 	<Picture
 		{src}
 		{alt}
@@ -30,7 +28,7 @@ const caption = description ?? alt;
 	/>
 	{/* Hide a caption that just repeats the alt text, so screen readers don't read it twice. */}
 	<figcaption
-		class="p-2 text-center bg-surface rounded-b-lg"
+		class="rounded-b-lg bg-surface p-2 text-center"
 		aria-hidden={caption === alt ? 'true' : undefined}
 	>
 		{caption}

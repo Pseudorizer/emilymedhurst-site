@@ -1,6 +1,6 @@
 ---
-import slugify from '@sindresorhus/slugify';
 import BodyLink from '@components/BodyLink.astro';
+import slugify from '@sindresorhus/slugify';
 
 interface Props {
 	title?: string;
@@ -12,7 +12,11 @@ const slug = slugify(title);
 ---
 
 <section class="flex flex-col gap-2">
-	<h2 id={slug}><BodyLink href={`#${slug}`} class="no-underline">{title}</BodyLink></h2>
+	<h2 id={slug}>
+		<BodyLink href={`#${slug}`} class="no-underline">
+			{title}
+		</BodyLink>
+	</h2>
 	<div class="contents">
 		<slot />
 	</div>

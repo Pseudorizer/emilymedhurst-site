@@ -1,5 +1,4 @@
 ---
-
 interface Props {
 	src: string;
 	/** Caption shown under the video. */
@@ -18,7 +17,8 @@ const { src, alt, muted = true } = Astro.props;
 			controls
 			playsinline
 			preload="metadata"
-			{muted}></video>
+			{muted}
+		></video>
 		<figcaption class="p-2 text-center">{alt}</figcaption>
 	</div>
 </figure>

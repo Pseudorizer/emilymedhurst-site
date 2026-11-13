@@ -21,8 +21,7 @@ if (sameSite === undefined) {
 	target={sameSite ? '' : '_blank'}
 	rel={sameSite ? '' : 'noreferrer noopener'}
 	data-astro-prefetch={sameSite}
-	class={cn(
-		'text-accent underline decoration-accent',
-		className
-	)}><slot /></a
+	class={cn('text-accent underline decoration-accent', className)}
 >
+	<slot />
+</a>

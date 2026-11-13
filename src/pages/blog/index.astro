@@ -1,6 +1,6 @@
 ---
-import Base from '@layouts/Base.astro';
 import Block from '@components/Block.astro';
+import Base from '@layouts/Base.astro';
 import { getVisibleArticles } from '@lib/utils';
 
 const articles = await getVisibleArticles();
@@ -9,19 +9,17 @@ const articles = await getVisibleArticles();
 <Base title="Posts" description="All my little notes">
 	<h1 class="sr-only">Posts</h1>
 	<ul class="flex flex-col gap-2">
-		{
-			articles.map((article) => (
-				<li>
-					<Block
-						title={article.data.title}
-						description={article.data.description}
-						link={`/blog/${article.id}`}
-						tags={article.data.tags ?? []}
-						published={article.data.created}
-						headingLevel={2}
-					/>
-				</li>
-			))
-		}
+		{articles.map((article) => (
+			<li>
+				<Block
+					title={article.data.title}
+					description={article.data.description}
+					link={`/blog/${article.id}`}
+					tags={article.data.tags ?? []}
+					published={article.data.created}
+					headingLevel={2}
+				/>
+			</li>
+		))}
 	</ul>
 </Base>

@@ -14,22 +14,20 @@ const articles = await getVisibleArticles();
 	<div class="flex flex-col gap-4 text-xl">
 		<p>
 			Ello, I'm a 🏳️‍⚧️ trans software developer who's just graduated from the University of Portsmouth
-			with a 1st, now working at{" "}
-			<BodyLink href="https://www.track24.com/">Track24,</BodyLink> primarily working on their SaaS product{" "}
+			with a 1st, now working at <BodyLink href="https://www.track24.com/">Track24,</BodyLink>{' '}
+			primarily working on their SaaS product{' '}
 			<BodyLink href="https://www.atlasnxt.com/">AtlasNXT.</BodyLink>
 		</p>
 		<Experience />
-		{
-			articles.length > 0 && (
-				<Posts>
-					<Block>
-						<div class="flex justify-center">
-							<BodyLink href="/blog">See More Posts</BodyLink>
-						</div>
-					</Block>
-				</Posts>
-			)
-		}
+		{articles.length > 0 && (
+			<Posts>
+				<Block>
+					<div class="flex justify-center">
+						<BodyLink href="/blog">See More Posts</BodyLink>
+					</div>
+				</Block>
+			</Posts>
+		)}
 		<Portfolio />
 	</div>
 </Base>

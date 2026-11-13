@@ -1,16 +1,15 @@
 ---
+import Block from '@components/Block.astro';
+import Section from '@components/Section.astro';
+import { createCrumb } from '@lib/utils';
 import TablerBrandLaravel from '~icons/tabler/brand-laravel';
 import TablerBrandMysql from '~icons/tabler/brand-mysql';
+import TablerBrandNextjs from '~icons/tabler/brand-nextjs';
 import TablerBrandPhp from '~icons/tabler/brand-php';
 import TablerBrandReact from '~icons/tabler/brand-react';
 import TablerBrandRedux from '~icons/tabler/brand-redux';
-import TablerBrandTypescript from '~icons/tabler/brand-typescript';
 import TablerBrandTailwind from '~icons/tabler/brand-tailwind';
-import TablerBrandNextjs from '~icons/tabler/brand-nextjs';
-
-import { createCrumb } from '@lib/utils';
-import Section from '@components/Section.astro';
-import Block from '@components/Block.astro';
+import TablerBrandTypescript from '~icons/tabler/brand-typescript';
 
 const reactCrumb = createCrumb(TablerBrandReact, 'react');
 const phpCrumb = createCrumb(TablerBrandPhp, 'php');

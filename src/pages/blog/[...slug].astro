@@ -1,10 +1,10 @@
 ---
-import { render } from 'astro:content';
-import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
-import Base from '@layouts/Base.astro';
 import Block from '@components/Block.astro';
 import BodyLink from '@components/BodyLink.astro';
+import Base from '@layouts/Base.astro';
 import { getVisibleArticles } from '@lib/utils';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { render } from 'astro:content';
 
 export const getStaticPaths = (async () => {
 	const articles = await getVisibleArticles();
@@ -24,7 +24,9 @@ const { Content } = await render(article);
 	<article title={article.data.title} class="flex flex-col gap-2">
 		<nav class="contents">
 			<Block>
-				<BodyLink href="/blog" class="text-lg">My Other Posts</BodyLink>
+				<BodyLink href="/blog" class="text-lg">
+					My Other Posts
+				</BodyLink>
 			</Block>
 		</nav>
 		<header class="contents">

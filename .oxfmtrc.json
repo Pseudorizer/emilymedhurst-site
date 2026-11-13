@@ -5,6 +5,7 @@
 	"trailingComma": "none",
 	"sortImports": true,
 	"sortPackageJson": true,
+	"astro": true,
 	"sortTailwindcss": {
 		"stylesheet": "./src/base.css",
 		"functions": ["cn"]
