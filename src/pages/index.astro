@@ -5,12 +5,10 @@ import Experience from '@components/Sections/Experience.astro';
 import Portfolio from '@components/Sections/Portfolio.astro';
 import Posts from '@components/Sections/Posts.astro';
 import Base from '@layouts/Base.astro';
-import { getVisibleArticles } from '@lib/utils';
-
-const articles = await getVisibleArticles();
+import { SITE_DESCRIPTION, SITE_TITLE } from '@lib/site';
 ---
 
-<Base title="Emily Medhurst" description="A trans software developer doing things">
+<Base title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<div class="flex flex-col gap-4 text-xl">
 		<p>
 			Ello, I'm a 🏳️‍⚧️ trans software developer who's just graduated from the University of Portsmouth
@@ -19,15 +17,13 @@ const articles = await getVisibleArticles();
 			<BodyLink href="https://www.atlasnxt.com/">AtlasNXT.</BodyLink>
 		</p>
 		<Experience />
-		{articles.length > 0 && (
-			<Posts>
-				<Block>
-					<div class="flex justify-center">
-						<BodyLink href="/blog">See More Posts</BodyLink>
-					</div>
-				</Block>
-			</Posts>
-		)}
+		<Posts>
+			<Block>
+				<div class="flex justify-center">
+					<BodyLink href="/blog">See More Posts</BodyLink>
+				</div>
+			</Block>
+		</Posts>
 		<Portfolio />
 	</div>
 </Base>

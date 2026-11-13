@@ -3,10 +3,10 @@ import BodyLink from '@components/BodyLink.astro';
 import slugify from '@sindresorhus/slugify';
 
 interface Props {
-	title?: string;
+	title: string;
 }
 
-const { title = '' } = Astro.props;
+const { title } = Astro.props;
 
 const slug = slugify(title);
 ---

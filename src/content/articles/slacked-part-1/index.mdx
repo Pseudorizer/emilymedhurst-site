@@ -74,7 +74,7 @@ require(require.main!.filename);
 
 Interesting! So all it's doing is replacing `require.main!.filename` with the path to Discord's actual `package.json` and loading that at the end! But, does this work for Slack?
 
-<Video src={notWorking} alt="Uhhh kinda?" />
+<Video src={notWorking} caption="Uhhh kinda?" />
 
 It started! Which is a good sign, the code runs but it seems to exit for some reason.
 
@@ -92,7 +92,7 @@ Inside of `main.bundle.js` `requestSingleInstanceLock` appears to fail, I suppos
 sed 's/||oe.app.exit(0),process.exit(0)//g' -i main.bundle.js
 ```
 
-<Video src={working} alt="It's alive!" />
+<Video src={working} caption="It's alive!" />
 
 This skeleton code now boots into slack via our script! This is where the fun starts.
 
@@ -166,7 +166,7 @@ const initIpc = (window: electron.BrowserWindow) => {
 
 Annnnnnnnd...
 
-<Video src={devtools} alt="There he is! Mr. Devtools" />
+<Video src={devtools} caption="There he is! Mr. Devtools" />
 
 Wowie, we did it! We can now execute custom code automatically within a Slack desktop client :D
 

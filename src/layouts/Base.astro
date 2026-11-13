@@ -1,6 +1,7 @@
 ---
 import BaseHead from '@components/BaseHead.astro';
 import Navbar from '@components/Navbar/Navbar.astro';
+import { CODE_THEMES } from '@lib/site';
 import { Head } from 'astro-capo';
 import { type Props as SeoProps } from 'astro-seo';
 import type { CollectionEntry } from 'astro:content';
@@ -16,12 +17,12 @@ interface Props {
 const { title, description, seo, article } = Astro.props;
 ---
 
-<html class="dark" data-theme="catppuccin-mocha" lang="en">
+<html class="dark" data-theme={CODE_THEMES.dark} lang="en">
 	<Head>
 		<BaseHead {title} {description} {seo} {article} />
 	</Head>
 	<body class="mx-auto h-full max-w-4xl p-6 text-ink">
-		<script is:inline>
+		<script is:inline define:vars={{ CODE_THEMES }}>
 			// Only an explicit choice from the theme toggle is saved; otherwise the
 			// OS preference is followed on every visit.
 			const theme =
@@ -30,7 +31,7 @@ const { title, description, seo, article } = Astro.props;
 
 			if (theme === 'light') {
 				document.documentElement.classList.remove('dark');
-				document.documentElement.dataset.theme = 'catppuccin-latte';
+				document.documentElement.dataset.theme = CODE_THEMES.light;
 			}
 		</script>
 		<Navbar />

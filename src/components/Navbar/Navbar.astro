@@ -1,5 +1,6 @@
 ---
 import IconLink from '@components/Icon/IconLink.astro';
+import { MASTODON_URL } from '@lib/site';
 import TablerBrandBluesky from '~icons/tabler/brand-bluesky';
 import TablerBrandDiscord from '~icons/tabler/brand-discord';
 import TablerBrandGithub from '~icons/tabler/brand-github';
@@ -37,12 +38,7 @@ const SiteName = Astro.url.pathname === '/' ? 'h1' : 'span';
 				ariaLabel="linkedin"
 				rel="me"
 			/>
-			<IconLink
-				icon={TablerBrandMastodon}
-				href="https://tech.lgbt/@pseudorizer"
-				ariaLabel="mastodon"
-				rel="me"
-			/>
+			<IconLink icon={TablerBrandMastodon} href={MASTODON_URL} ariaLabel="mastodon" rel="me" />
 			<IconLink
 				icon={TablerBrandDiscord}
 				href="https://discord.com/users/398887208947286017"

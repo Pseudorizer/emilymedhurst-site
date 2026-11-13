@@ -1,12 +1,11 @@
 ---
 interface Props {
 	src: string;
-	/** Caption shown under the video. */
-	alt: string;
+	caption: string;
 	muted?: boolean;
 }
 
-const { src, alt, muted = true } = Astro.props;
+const { src, caption, muted = true } = Astro.props;
 ---
 
 <figure class="flex justify-center py-2">
@@ -19,6 +18,6 @@ const { src, alt, muted = true } = Astro.props;
 			preload="metadata"
 			{muted}
 		></video>
-		<figcaption class="p-2 text-center">{alt}</figcaption>
+		<figcaption class="p-2 text-center">{caption}</figcaption>
 	</div>
 </figure>

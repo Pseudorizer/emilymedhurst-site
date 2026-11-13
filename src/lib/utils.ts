@@ -1,15 +1,20 @@
-import type { JSX } from 'astro/jsx-runtime';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-import type { Tag } from './types';
+export const isExternalLink = (href: string) => href.startsWith('http');
 
-export const isSameSite = (href: string) => !href.startsWith('http');
+/**
+ * `target` and `rel` for an `<a>`: external links open in a new tab without
+ * leaking the referrer. Internal links get neither attribute.
+ */
+export const linkAttributes = (href: string, rel?: string) => {
+	const external = isExternalLink(href);
+	const relValue = [external && 'noreferrer noopener', rel].filter(Boolean).join(' ');
 
-export const createCrumb = (icon: JSX.Element, text: string) =>
-	({
-		text,
-		icon
-	}) satisfies Tag;
+	return {
+		target: external ? '_blank' : undefined,
+		rel: relValue || undefined
+	};
+};
 
 export const isHidden = (article: CollectionEntry<'articles'>) =>
 	article.data.hidden && !import.meta.env.DEV;

@@ -15,7 +15,7 @@ const articles = await getVisibleArticles();
 					title={article.data.title}
 					description={article.data.description}
 					link={`/blog/${article.id}`}
-					tags={article.data.tags ?? []}
+					tags={article.data.tags}
 					published={article.data.created}
 					headingLevel={2}
 				/>

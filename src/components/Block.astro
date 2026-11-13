@@ -55,29 +55,17 @@ const Heading = `h${headingLevel}` as const;
 	)}
 	{description && <p>{description}</p>}
 	{tags.length > 0 && (
-		<footer class="mt-2.5 flex flex-wrap gap-x-1 gap-y-2">
+		<ul class="mt-2.5 flex flex-wrap gap-x-1 gap-y-2">
 			{tags.map((tag) => {
-				let Icon;
+				const { icon: Icon, text } = typeof tag === 'string' ? { text: tag } : tag;
 
-				if (typeof tag !== 'string') {
-					Icon = tag.icon;
-				}
-
-				return typeof tag === 'string' ? (
-					<>
-						<div class="flex items-center rounded-2xl border-2 border-outline p-1 px-2">
-							<p class="text-sm">{tag}</p>
-						</div>
-					</>
-				) : (
-					<>
-						<div class="flex items-center gap-1 rounded-2xl border-2 border-outline p-1 px-2">
-							<Icon style="font-size: 1.25rem" />
-							<p class="text-sm">{tag.text}</p>
-						</div>
-					</>
+				return (
+					<li class="flex items-center gap-1 rounded-2xl border-2 border-outline p-1 px-2">
+						{Icon && <Icon class="text-xl" />}
+						<span class="text-sm">{text}</span>
+					</li>
 				);
 			})}
-		</footer>
+		</ul>
 	)}
 </Wrapper>

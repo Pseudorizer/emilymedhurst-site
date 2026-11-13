@@ -1,4 +1,5 @@
 ---
+import { CODE_THEMES } from '@lib/site';
 import TablerMoon from '~icons/tabler/moon';
 import TablerSun from '~icons/tabler/sun';
 ---
@@ -19,7 +20,7 @@ import TablerSun from '~icons/tabler/sun';
 	}
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{ CODE_THEMES }}>
 	const root = document.documentElement;
 	const sunIcon = document.querySelector('#sun-icon');
 	const moonIcon = document.querySelector('#moon-icon');
@@ -39,7 +40,7 @@ import TablerSun from '~icons/tabler/sun';
 
 		themeToggle.addEventListener('click', () => {
 			const isDarkMode = root.classList.toggle('dark');
-			root.dataset.theme = isDarkMode ? 'catppuccin-mocha' : 'catppuccin-latte';
+			root.dataset.theme = isDarkMode ? CODE_THEMES.dark : CODE_THEMES.light;
 			window.localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 			syncToggle(isDarkMode);
 		});

@@ -1,24 +1,7 @@
 ---
 import Block from '@components/Block.astro';
 import Section from '@components/Section.astro';
-import { createCrumb } from '@lib/utils';
-import TablerBrandLaravel from '~icons/tabler/brand-laravel';
-import TablerBrandMysql from '~icons/tabler/brand-mysql';
-import TablerBrandNextjs from '~icons/tabler/brand-nextjs';
-import TablerBrandPhp from '~icons/tabler/brand-php';
-import TablerBrandReact from '~icons/tabler/brand-react';
-import TablerBrandRedux from '~icons/tabler/brand-redux';
-import TablerBrandTailwind from '~icons/tabler/brand-tailwind';
-import TablerBrandTypescript from '~icons/tabler/brand-typescript';
-
-const reactCrumb = createCrumb(TablerBrandReact, 'react');
-const phpCrumb = createCrumb(TablerBrandPhp, 'php');
-const laravelCrumb = createCrumb(TablerBrandLaravel, 'laravel');
-const mysqlCrumb = createCrumb(TablerBrandMysql, 'mysql');
-const reduxCrumb = createCrumb(TablerBrandRedux, 'redux');
-const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
-const tailwindCrumb = createCrumb(TablerBrandTailwind, 'tailwind');
-const nextjsCrumb = createCrumb(TablerBrandNextjs, 'nextjs');
+import { tags } from '@lib/tags';
 ---
 
 <Section title="Experience">
@@ -27,7 +10,7 @@ const nextjsCrumb = createCrumb(TablerBrandNextjs, 'nextjs');
 			title="Track24"
 			description="Currently working as a product engineer at Track24, primarily on their flagship product AtlasNXT."
 			subheading="October 2025-Present"
-			tags={[reactCrumb, typescriptCrumb, tailwindCrumb, nextjsCrumb, 'elixir', 'phoenix']}
+			tags={[tags.react, tags.typescript, tags.tailwind, tags.nextjs, 'elixir', 'phoenix']}
 			link="https://www.track24.com/"
 		/>
 		<Block
@@ -35,12 +18,12 @@ const nextjsCrumb = createCrumb(TablerBrandNextjs, 'nextjs');
 			description="This was my first hire! I worked as a fullstack developer on InventoryBase."
 			subheading="June 2022-August 2023 (placement), July 2024-October 2025"
 			tags={[
-				reactCrumb,
-				phpCrumb,
-				laravelCrumb,
-				mysqlCrumb,
-				reduxCrumb,
-				typescriptCrumb,
+				tags.react,
+				tags.php,
+				tags.laravel,
+				tags.mysql,
+				tags.redux,
+				tags.typescript,
 				'real customers'
 			]}
 			link="https://radweb.com/"

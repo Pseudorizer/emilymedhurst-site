@@ -16,6 +16,8 @@ import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 import remarkToc from 'remark-toc';
 import Icons from 'unplugin-icons/vite';
 
+import { CODE_THEMES } from './src/lib/site.ts';
+
 /**
  * Production headers live in public/_headers (served by Cloudflare). Parse the
  * `/*` block so the dev server uses the same values instead of a second copy.
@@ -50,7 +52,7 @@ export default defineConfig({
 		}),
 		expressiveCode({
 			plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
-			themes: ['catppuccin-mocha', 'catppuccin-latte'],
+			themes: [CODE_THEMES.dark, CODE_THEMES.light],
 			styleOverrides: {
 				uiFontFamily: 'var(--font-atkinson)',
 				codeFontFamily: 'var(--font-atkinson-mono)'

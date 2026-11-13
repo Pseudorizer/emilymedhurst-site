@@ -1,26 +1,19 @@
 ---
 import { cn } from '@lib/cn';
-import { isSameSite } from '@lib/utils';
+import { isExternalLink, linkAttributes } from '@lib/utils';
 
 interface Props {
 	href: string;
-	sameSite?: boolean;
 	class?: string;
 }
 
-let { sameSite = undefined } = Astro.props;
 const { href, class: className } = Astro.props;
-
-if (sameSite === undefined) {
-	sameSite = isSameSite(href);
-}
 ---
 
 <a
 	{href}
-	target={sameSite ? '' : '_blank'}
-	rel={sameSite ? '' : 'noreferrer noopener'}
-	data-astro-prefetch={sameSite}
+	{...linkAttributes(href)}
+	data-astro-prefetch={isExternalLink(href) ? undefined : true}
 	class={cn('text-accent underline decoration-accent', className)}
 >
 	<slot />

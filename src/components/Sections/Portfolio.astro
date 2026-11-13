@@ -1,24 +1,7 @@
 ---
 import Block from '@components/Block.astro';
 import Section from '@components/Section.astro';
-import { createCrumb } from '@lib/utils';
-import TablerBrandAstro from '~icons/tabler/brand-astro';
-import TablerBrandCloudflare from '~icons/tabler/brand-cloudflare';
-import TablerBrandGithub from '~icons/tabler/brand-github';
-import TablerBrandReact from '~icons/tabler/brand-react';
-import TablerBrandSvelte from '~icons/tabler/brand-svelte';
-import TablerBrandTailwind from '~icons/tabler/brand-tailwind';
-import TablerBrandTypescript from '~icons/tabler/brand-typescript';
-import TablerBrandVite from '~icons/tabler/brand-vite';
-
-const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
-const reactCrumb = createCrumb(TablerBrandReact, 'react');
-const svelteCrumb = createCrumb(TablerBrandSvelte, 'svelte');
-const tailwindCrumb = createCrumb(TablerBrandTailwind, 'tailwind');
-const cloudflareCrumb = createCrumb(TablerBrandCloudflare, 'cloudflare');
-const viteCrumb = createCrumb(TablerBrandVite, 'vite');
-const astroCrumb = createCrumb(TablerBrandAstro, 'astro');
-const githubPagesCrumb = createCrumb(TablerBrandGithub, 'github pages');
+import { tags } from '@lib/tags';
 
 const blocks = [
 	{
@@ -26,20 +9,20 @@ const blocks = [
 		description:
 			'First year university coursework where I designed and created an online browser-based Scrabble game.',
 		link: 'https://github.com/Pseudorizer/scrabble-coursework',
-		tags: [reactCrumb, typescriptCrumb, 'express', 'websockets']
+		tags: [tags.react, tags.typescript, 'express', 'websockets']
 	},
 	{
 		title: 'Brick Store Coursework',
 		description:
 			'Second year university coursework where I designed and created an online storefront for a Lego brick store',
 		link: 'https://github.com/Pseudorizer/brick-store-coursework',
-		tags: [typescriptCrumb, 'fastify', 'auth0', 'postgresql']
+		tags: [tags.typescript, 'fastify', 'auth0', 'postgresql']
 	},
 	{
 		title: 'Company Address Tracker',
 		description: 'A prototype desktop tool I made for a local company to manage company addresses.',
 		link: 'https://github.com/Pseudorizer/company-address-tracker',
-		tags: [reactCrumb, typescriptCrumb, 'electron']
+		tags: [tags.react, tags.typescript, 'electron']
 	},
 	{
 		title: 'Basic Matrix.org Bot Library',
@@ -51,21 +34,21 @@ const blocks = [
 		title: 'This site',
 		description: 'This site is simple, accessible and comfy, I like it :)',
 		link: 'https://github.com/Pseudorizer/emilymedhurst-site',
-		tags: [astroCrumb, typescriptCrumb, tailwindCrumb, cloudflareCrumb]
+		tags: [tags.astro, tags.typescript, tags.tailwind, tags.cloudflare]
 	},
 	{
 		title: 'vite-plugin-svelte-entries-generator',
 		description:
 			"A vite plugin to generate SvelteKit prerender entries for paths that can't be scraped automatically",
 		link: 'https://github.com/Pseudorizer/vite-plugin-svelte-entries-generator',
-		tags: [viteCrumb, svelteCrumb, typescriptCrumb]
+		tags: [tags.vite, tags.svelte, tags.typescript]
 	},
 	{
 		title: 'Undergraduate Dissertation (WIP)',
 		description:
 			'A cheap, fast and client-agnostic blogging platform initially designed and built for the Portsmouth Cycle Forum',
 		link: 'https://github.com/pompeybug/website/',
-		tags: [astroCrumb, typescriptCrumb, svelteCrumb, githubPagesCrumb]
+		tags: [tags.astro, tags.typescript, tags.svelte, tags.githubPages]
 	}
 ];
 ---
