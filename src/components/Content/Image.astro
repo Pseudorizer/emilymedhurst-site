@@ -1,7 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Picture } from 'astro:assets';
-import { cn } from '@lib/cn';
 
 interface Props {
 	src: ImageMetadata;
@@ -17,9 +16,7 @@ const caption = description ?? alt;
 ---
 
 <figure
-	class={cn(
-		'flex flex-col justify-center rounded-lg border-2 border-dark dark:border-light bg-light dark:bg-dark'
-	)}
+	class="flex flex-col justify-center rounded-lg border-2 border-ink bg-page"
 >
 	<Picture
 		{src}
@@ -28,12 +25,12 @@ const caption = description ?? alt;
 		{height}
 		loading={eager ? 'eager' : 'lazy'}
 		formats={['avif', 'webp', 'jpg']}
-		pictureAttributes={{ class: cn('flex justify-center') }}
-		class={cn('rounded-t-md')}
+		pictureAttributes={{ class: 'flex justify-center' }}
+		class="rounded-t-md"
 	/>
 	{/* Hide a caption that just repeats the alt text, so screen readers don't read it twice. */}
 	<figcaption
-		class={cn('p-2 text-center bg-lightHighlight dark:bg-darkHighlight rounded-b-lg')}
+		class="p-2 text-center bg-surface rounded-b-lg"
 		aria-hidden={caption === alt ? 'true' : undefined}
 	>
 		{caption}

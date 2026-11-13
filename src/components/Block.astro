@@ -1,10 +1,8 @@
 ---
-import dayjs from 'dayjs';
-import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 import BodyLink from './BodyLink.astro';
 import { cn } from '@lib/cn';
 import type { Tag } from '@lib/types';
-dayjs.extend(AdvancedFormat);
+import { formatPostedDate } from '@lib/utils';
 
 interface Props {
 	title?: string;
@@ -38,7 +36,7 @@ const Heading = `h${headingLevel}` as const;
 ---
 
 <Wrapper
-	class={cn('flex flex-col rounded-xl bg-lightHighlight p-2 dark:bg-darkHighlight', className)}
+	class={cn('flex flex-col rounded-xl bg-surface p-2', className)}
 	{id}
 >
 	<slot />
@@ -57,7 +55,7 @@ const Heading = `h${headingLevel}` as const;
 					<>
 						Posted on{' '}
 						<time datetime={published.toISOString()}>
-							{dayjs(published).format('Do MMMM YYYY [at] HH:mm')}
+							{formatPostedDate(published)}
 						</time>
 					</>
 				)}
@@ -67,7 +65,7 @@ const Heading = `h${headingLevel}` as const;
 	{description && <p>{description}</p>}
 	{
 		tags.length > 0 && (
-			<footer class={cn('mt-2.5 flex flex-wrap gap-x-1 gap-y-2')}>
+			<footer class="mt-2.5 flex flex-wrap gap-x-1 gap-y-2">
 				{tags.map((tag) => {
 					let Icon;
 
@@ -78,22 +76,18 @@ const Heading = `h${headingLevel}` as const;
 					return typeof tag === 'string' ? (
 						<>
 							<div
-								class={cn(
-									'flex items-center rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500 '
-								)}
+								class="flex items-center rounded-2xl border-2 border-outline p-1 px-2"
 							>
-								<p class={cn('text-sm')}>{tag}</p>
+								<p class="text-sm">{tag}</p>
 							</div>
 						</>
 					) : (
 						<>
 							<div
-								class={cn(
-									'flex items-center gap-1 rounded-2xl border-2 border-gray-600 p-1 px-2 dark:border-gray-500'
-								)}
+								class="flex items-center gap-1 rounded-2xl border-2 border-outline p-1 px-2"
 							>
 								<Icon style="font-size: 1.25rem" />
-								<p class={cn('text-sm')}>{tag.text}</p>
+								<p class="text-sm">{tag.text}</p>
 							</div>
 						</>
 					);

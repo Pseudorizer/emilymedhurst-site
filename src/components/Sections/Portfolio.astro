@@ -10,7 +10,6 @@ import TablerBrandGithub from '~icons/tabler/brand-github';
 import Section from '@components/Section.astro';
 import Block from '@components/Block.astro';
 import { createCrumb } from '@lib/utils';
-import { cn } from '@lib/cn';
 
 const typescriptCrumb = createCrumb(TablerBrandTypescript, 'typescript');
 const reactCrumb = createCrumb(TablerBrandReact, 'react');
@@ -73,9 +72,7 @@ const blocks = [
 
 <Section title="Portfolio">
 	<div
-		class={cn(
-			'grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2 md:[&>section]:last:odd:col-span-2'
-		)}
+		class="grid grid-cols-1 gap-x-4 gap-y-4 md:grid-cols-2 md:gap-y-2 md:[&>section]:last:odd:col-span-2"
 	>
 		{blocks.map((block) => <Block {...block} />)}
 	</div>

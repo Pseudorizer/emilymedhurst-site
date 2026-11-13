@@ -1,7 +1,6 @@
 ---
 import slugify from '@sindresorhus/slugify';
 import BodyLink from '@components/BodyLink.astro';
-import { cn } from '@lib/cn';
 
 interface Props {
 	title?: string;
@@ -12,9 +11,9 @@ const { title = '' } = Astro.props;
 const slug = slugify(title);
 ---
 
-<section class={cn('flex flex-col gap-2')}>
+<section class="flex flex-col gap-2">
 	<h2 id={slug}><BodyLink href={`#${slug}`} class="no-underline">{title}</BodyLink></h2>
-	<div class={cn('contents')}>
+	<div class="contents">
 		<slot />
 	</div>
 </section>

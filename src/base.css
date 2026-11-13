@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* `dark:` follows the theme toggle's `.dark` class on <html>, not the OS setting. */
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -7,35 +8,31 @@
 	--font-sans: 'Atkinson Hyperlegible', system-ui, sans-serif;
 	--font-mono: 'Atkinson Hyperlegible Mono Variable', system-ui, monospace;
 
-	--color-dark: #191716;
-	--color-light: #f5f5f5;
-	--color-darkHighlight: #2b2826;
-	--color-lightHighlight: #e3e3e3;
-	--color-darkStandout: #eeb5c1;
-	--color-lightStandout: #70192c;
+	/*
+	 * Theme colours. These are the light values; `.dark` below swaps them, so
+	 * components use one class (e.g. `bg-surface`) for both themes.
+	 */
+	--color-page: #f5f5f5;
+	--color-ink: #191716;
+	--color-surface: #e3e3e3;
+	--color-accent: #70192c;
+	--color-outline: var(--color-gray-600);
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentcolor);
+	/* Base layer comes after the theme layer, so these win over the light values. */
+	:root.dark {
+		--color-page: #191716;
+		--color-ink: #f5f5f5;
+		--color-surface: #2b2826;
+		--color-accent: #eeb5c1;
+		--color-outline: var(--color-gray-500);
 	}
 }
 
 @layer components {
 	body {
-		@apply overflow-auto bg-light subpixel-antialiased dark:bg-dark;
+		@apply overflow-auto bg-page subpixel-antialiased;
 	}
 
 	h1 {

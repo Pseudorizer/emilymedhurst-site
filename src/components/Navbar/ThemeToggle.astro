@@ -1,15 +1,12 @@
 ---
 import TablerMoon from '~icons/tabler/moon';
 import TablerSun from '~icons/tabler/sun';
-import { cn } from '@lib/cn';
 ---
 
 <button
 	id="theme-toggle"
 	type="button"
-	class={cn(
-		'rounded-xl p-1 hover:cursor-pointer hover:bg-lightHighlight focus-visible:bg-lightHighlight dark:hover:bg-darkHighlight dark:focus-visible:bg-darkHighlight'
-	)}
+	class="rounded-xl p-1 hover:cursor-pointer hover:bg-surface focus-visible:bg-surface"
 	aria-label="Toggle theme"
 >
 	<TablerMoon id="moon-icon" class="text-[2.25rem] md:text-[2rem]" data-hide="true" />
@@ -24,7 +21,6 @@ import { cn } from '@lib/cn';
 
 <script is:inline>
 	const root = document.documentElement;
-	const body = document.body;
 	const sunIcon = document.querySelector('#sun-icon');
 	const moonIcon = document.querySelector('#moon-icon');
 	const themeToggle = document.querySelector('#theme-toggle');
@@ -43,7 +39,6 @@ import { cn } from '@lib/cn';
 
 		themeToggle.addEventListener('click', () => {
 			const isDarkMode = root.classList.toggle('dark');
-			body.classList.toggle('dark', isDarkMode);
 			root.dataset.theme = isDarkMode ? 'catppuccin-mocha' : 'catppuccin-latte';
 			window.localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 			syncToggle(isDarkMode);

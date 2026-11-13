@@ -2,7 +2,6 @@
 import { render } from 'astro:content';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '@layouts/Base.astro';
-import { cn } from '@lib/cn';
 import Block from '@components/Block.astro';
 import BodyLink from '@components/BodyLink.astro';
 import { getVisibleArticles } from '@lib/utils';
@@ -22,13 +21,13 @@ const { Content } = await render(article);
 ---
 
 <Base title={article.data.title} description={article.data.description} {article}>
-	<article title={article.data.title} class={cn('flex flex-col gap-2')}>
-		<nav class={cn('contents')}>
+	<article title={article.data.title} class="flex flex-col gap-2">
+		<nav class="contents">
 			<Block>
 				<BodyLink href="/blog" class="text-lg">My Other Posts</BodyLink>
 			</Block>
 		</nav>
-		<header class={cn('contents')}>
+		<header class="contents">
 			<Block
 				title={article.data.title}
 				description={article.data.description}
@@ -37,7 +36,7 @@ const { Content } = await render(article);
 			/>
 		</header>
 		<div
-			class={cn([
+			class:list={[
 				'contents',
 				'[&_p]:py-1',
 				'[&_h1]:py-4',
@@ -49,17 +48,16 @@ const { Content } = await render(article);
 				'[&_h3]:font-semibold',
 				'[&_figure]:my-2',
 				'[&_.expressive-code]:my-2',
-				'[&_:not(pre)>code]:bg-light',
+				'[&_:not(pre)>code]:bg-page',
 				'[&_:not(pre)>code]:px-1',
 				'[&_:not(pre)>code]:text-sm',
-				'[&_:not(pre)>code]:dark:bg-dark',
 				'[&_h1_code]:text-3xl',
 				'[&_h2_code]:text-2xl',
 				'[&_h3_code]:text-2xl',
 				'[&_ul]:list-inside',
 				'[&_ul]:list-disc',
 				'[&_li]:py-1'
-			])}
+			]}
 		>
 			<Block tags={article.data.tags} id="article">
 				<Content />

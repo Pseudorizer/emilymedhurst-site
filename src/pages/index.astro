@@ -5,14 +5,13 @@ import Experience from '@components/Sections/Experience.astro';
 import Portfolio from '@components/Sections/Portfolio.astro';
 import Posts from '@components/Sections/Posts.astro';
 import Base from '@layouts/Base.astro';
-import { cn } from '@lib/cn';
 import { getVisibleArticles } from '@lib/utils';
 
 const articles = await getVisibleArticles();
 ---
 
 <Base title="Emily Medhurst" description="A trans software developer doing things">
-	<div class={cn('flex flex-col gap-4 text-xl')}>
+	<div class="flex flex-col gap-4 text-xl">
 		<p>
 			Ello, I'm a 🏳️‍⚧️ trans software developer who's just graduated from the University of Portsmouth
 			with a 1st, now working at{" "}
@@ -24,7 +23,7 @@ const articles = await getVisibleArticles();
 			articles.length > 0 && (
 				<Posts>
 					<Block>
-						<div class={cn('flex justify-center')}>
+						<div class="flex justify-center">
 							<BodyLink href="/blog">See More Posts</BodyLink>
 						</div>
 					</Block>

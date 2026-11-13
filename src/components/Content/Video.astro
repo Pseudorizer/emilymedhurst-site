@@ -1,5 +1,4 @@
 ---
-import { cn } from '@lib/cn';
 
 interface Props {
 	src: string;
@@ -11,15 +10,15 @@ interface Props {
 const { src, alt, muted = true } = Astro.props;
 ---
 
-<figure class={cn('flex justify-center py-2')}>
-	<div class={cn('max-w-full rounded-lg border-2 border-dark dark:border-light')}>
+<figure class="flex justify-center py-2">
+	<div class="max-w-full rounded-lg border-2 border-ink">
 		<video
-			class={cn('h-auto max-w-full rounded-md')}
+			class="h-auto max-w-full rounded-md"
 			{src}
 			controls
 			playsinline
 			preload="metadata"
 			{muted}></video>
-		<figcaption class={cn('p-2 text-center')}>{alt}</figcaption>
+		<figcaption class="p-2 text-center">{alt}</figcaption>
 	</div>
 </figure>
