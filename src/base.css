@@ -50,4 +50,44 @@
 	h3 {
 		@apply text-2xl;
 	}
+
+	/* Rendered Markdown/MDX in blog posts. */
+	.article-content {
+		& p,
+		& li {
+			@apply py-1;
+		}
+
+		& h1 {
+			@apply py-4;
+		}
+
+		& h2,
+		& h3 {
+			@apply py-3 text-3xl font-semibold;
+		}
+
+		& figure,
+		& .expressive-code {
+			@apply my-2;
+		}
+
+		& ul {
+			@apply list-inside list-disc;
+		}
+
+		& :not(pre) > code {
+			@apply bg-page px-1 text-sm;
+		}
+
+		/* After the rule above so code in headings stays heading-sized. */
+		& h1 code {
+			@apply text-3xl;
+		}
+
+		& h2 code,
+		& h3 code {
+			@apply text-2xl;
+		}
+	}
 }

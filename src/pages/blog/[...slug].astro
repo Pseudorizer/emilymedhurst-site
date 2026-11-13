@@ -21,7 +21,7 @@ const { Content } = await render(article);
 ---
 
 <Base title={article.data.title} description={article.data.description} {article}>
-	<article title={article.data.title} class="flex flex-col gap-2">
+	<article class="flex flex-col gap-2">
 		<nav class="contents">
 			<Block>
 				<BodyLink href="/blog" class="text-lg">
@@ -37,33 +37,10 @@ const { Content } = await render(article);
 				largeHeadings
 			/>
 		</header>
-		<div
-			class:list={[
-				'contents',
-				'[&_p]:py-1',
-				'[&_h1]:py-4',
-				'[&_h2]:py-3',
-				'[&_h2]:text-3xl',
-				'[&_h2]:font-semibold',
-				'[&_h3]:py-3',
-				'[&_h3]:text-3xl',
-				'[&_h3]:font-semibold',
-				'[&_figure]:my-2',
-				'[&_.expressive-code]:my-2',
-				'[&_:not(pre)>code]:bg-page',
-				'[&_:not(pre)>code]:px-1',
-				'[&_:not(pre)>code]:text-sm',
-				'[&_h1_code]:text-3xl',
-				'[&_h2_code]:text-2xl',
-				'[&_h3_code]:text-2xl',
-				'[&_ul]:list-inside',
-				'[&_ul]:list-disc',
-				'[&_li]:py-1'
-			]}
-		>
-			<Block tags={article.data.tags} id="article">
+		<Block tags={article.data.tags} id="article">
+			<div class="article-content contents">
 				<Content />
-			</Block>
-		</div>
+			</div>
+		</Block>
 	</article>
 </Base>
