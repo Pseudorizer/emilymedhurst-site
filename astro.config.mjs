@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -13,6 +15,30 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 import remarkToc from 'remark-toc';
 import Icons from 'unplugin-icons/vite';
+
+/**
+ * Production headers live in public/_headers (served by Cloudflare). Parse the
+ * `/*` block so the dev server uses the same values instead of a second copy.
+ */
+const readProductionHeaders = () => {
+	const lines = readFileSync(new URL('./public/_headers', import.meta.url), 'utf8').split('\n');
+	const headers = {};
+	let inAllPaths = false;
+
+	for (const line of lines) {
+		if (!line.trim()) continue;
+		if (!/^\s/.test(line)) {
+			inAllPaths = line.trim() === '/*';
+			continue;
+		}
+		if (!inAllPaths) continue;
+
+		const separator = line.indexOf(':');
+		headers[line.slice(0, separator).trim().toLowerCase()] = line.slice(separator + 1).trim();
+	}
+
+	return headers;
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,11 +61,8 @@ export default defineConfig({
 		})
 	],
 	server: {
-		headers: {
-			'x-frame-options': 'SAMEORIGIN',
-			'content-security-policy':
-				"frame-src 'self' https://restreamer.pseudorizer.com/; object-src 'none'; base-uri 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com/; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; default-src 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
-		}
+		// Mirror the production headers in dev so CSP problems show up locally.
+		headers: readProductionHeaders()
 	},
 	prefetch: true,
 	markdown: {
