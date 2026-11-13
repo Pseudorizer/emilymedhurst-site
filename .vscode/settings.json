@@ -1,5 +1,4 @@
 {
-	"prettier.documentSelectors": ["**/*.astro"],
 	"[astro]": {
 		"editor.defaultFormatter": "oxc.oxc-vscode"
 	},
@@ -10,13 +9,6 @@
 	"[mdx]": {
 		"editor.formatOnSave": false
 	},
-	"eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		"astro", // Enable .astro
-		"typescript", // Enable .ts
-		"typescriptreact" // Enable .tsx
-	],
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"cSpell.words": ["emilymedhurst"]
 }
