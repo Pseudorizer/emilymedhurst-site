@@ -10,7 +10,7 @@ import rehypeSectionize from '@hbsnow/rehype-sectionize';
 import tailwindcss from '@tailwindcss/vite';
 import expressiveCode from 'astro-expressive-code';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 import remarkToc from 'remark-toc';
@@ -52,13 +52,33 @@ export default defineConfig({
 			plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
 			themes: ['catppuccin-mocha', 'catppuccin-latte'],
 			styleOverrides: {
-				uiFontFamily: 'Atkinson Hyperlegible, system-ui, sans-serif',
-				codeFontFamily: '"Atkinson Hyperlegible Mono Variable", Consolas'
+				uiFontFamily: 'var(--font-atkinson)',
+				codeFontFamily: 'var(--font-atkinson-mono)'
 			}
 		}),
 		mdx({
 			optimize: true
 		})
+	],
+	fonts: [
+		{
+			provider: fontProviders.fontsource(),
+			name: 'Atkinson Hyperlegible',
+			cssVariable: '--font-atkinson',
+			weights: [400, 700],
+			styles: ['normal'],
+			fallbacks: ['sans-serif'],
+			// woff is for the OG image route: satori can't read woff2.
+			formats: ['woff2', 'woff']
+		},
+		{
+			provider: fontProviders.fontsource(),
+			name: 'Atkinson Hyperlegible Mono',
+			cssVariable: '--font-atkinson-mono',
+			weights: ['200 800'],
+			styles: ['normal'],
+			fallbacks: ['monospace']
+		}
 	],
 	server: {
 		// Mirror the production headers in dev so CSP problems show up locally.

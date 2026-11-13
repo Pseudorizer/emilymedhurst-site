@@ -1,7 +1,7 @@
 ---
 import coverImage from '@assets/me.webp';
 import { SEO, type Props as SeoProps } from 'astro-seo';
-import { getImage } from 'astro:assets';
+import { Font, getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -37,6 +37,8 @@ const image = `${import.meta.env.DEV ? 'http://localhost:4321/' : Astro.site}${c
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<Font cssVariable="--font-atkinson" preload />
+<Font cssVariable="--font-atkinson-mono" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link href="https://tech.lgbt/@pseudorizer" rel="me" />
 <meta name="generator" content={Astro.generator} />

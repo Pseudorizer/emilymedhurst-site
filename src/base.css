@@ -5,8 +5,6 @@
 
 @theme {
 	--font-*: initial;
-	--font-sans: 'Atkinson Hyperlegible', system-ui, sans-serif;
-	--font-mono: 'Atkinson Hyperlegible Mono Variable', system-ui, monospace;
 
 	/*
 	 * Theme colours. These are the light values; `.dark` below swaps them, so
@@ -17,6 +15,12 @@
 	--color-surface: #e3e3e3;
 	--color-accent: #70192c;
 	--color-outline: var(--color-gray-600);
+}
+
+/* Font families come from the Fonts API in astro.config.mjs (see <Font> in BaseHead). */
+@theme inline {
+	--font-sans: var(--font-atkinson);
+	--font-mono: var(--font-atkinson-mono);
 }
 
 @layer base {
